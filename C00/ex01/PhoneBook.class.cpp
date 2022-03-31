@@ -10,35 +10,38 @@ PhoneBook::PhoneBook(void)
 }
 void PhoneBook::addContact(void)
 {
-	Contact  contact;
 	
-	contact.Contact_firstname();
-	contact.Contact_lastname();
-	contact.Contact_nickname();
-	contact.Contact_phone_number();
-	contact.Contact_darkest_secret();
-	this->_contacts[this->_nbr_of_contact % this->_max_contact] = contact;
+	if (this->_nbr_of_contact < 8)
+	this->_nbr_of_contact++;
+	else
+		_nbr_of_contact = 1;
+	this->_contacts[_nbr_of_contact].Contact_darkest_secret();
+	this->_contacts[_nbr_of_contact].Contact_firstname();
+	this->_contacts[_nbr_of_contact].Contact_lastname();
+	this->_contacts[_nbr_of_contact].Contact_nickname();
+	this->_contacts[_nbr_of_contact].Contact_phone_number();
 }
 
 PhoneBook::~PhoneBook( void )
 {
 
 
-
-
-
 }
 int PhoneBook::searchContact(int contact_number)
 {
+	Contact temp;
 	if(contact_number <= this->_nbr_of_contact)
 	{
-
+		temp = this->_contacts[contact_number];
+		 std::cout << temp.get_phone_number();
 	}
-	else if(contact_number >  this->_max_contact)
-		std::cout << "bro there only 8 contact\n";
+	else if (contact_number >  this->_max_contact && contact_number > 0)
+		std::cout << "bro there onl contact form  1-8\n";
 	else 
-		std::cout << "bro nothing found \n";
-	return(0);
+		std::cout << "bro nothing found at this 'page' " 
+				  << " \n try something else bro" 
+				  << std::endl;
+	return (0);
 }
 
 /*

@@ -1,12 +1,12 @@
 NAME = PhoneBook
 
-FLAGS = -Wall -Wextra -Werror -g --std=c++98
+FLAGS = -Wall -Wextra -Werror --std=c++98 -g
 SRCS = PhoneBook.class.cpp Contact.class.cpp main.cpp
 RM =  rm -rf 
-.c.o:
-	@g++ ${FLAGS}  -c $< -o ${<:.c=.o}
+.cpp.o:
+	@g++ ${FLAGS}  -c $< -o ${<:.cpp=.o}
 
-OBJS = ${SRCS:.c=.o}
+OBJS = ${SRCS:.cpp=.o}
 CC = g++
 
 all: ${NAME}
@@ -27,4 +27,4 @@ fclean: clean
 	@${RM} ${NAME}
 re: fclean all
 	
-.PHONY: clean fclean re all
+.PHONY: clean fclean re all run git

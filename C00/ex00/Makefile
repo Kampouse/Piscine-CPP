@@ -4,9 +4,9 @@ FLAGS = -Wall -Wextra -Werror -g --std=c++98
 SRCS = megaphone.cpp 
 RM =  rm -rf 
 .c.o:
-	@g++ ${FLAGS}  -c $< -o ${<:.c=.o}
+	@g++ ${FLAGS}  -c $< -o ${<:.cpp=.o}
 
-OBJS = ${SRCS:.c=.o}
+OBJS = ${SRCS:.cpp=.o}
 CC = g++
 
 all: ${NAME}
