@@ -13,12 +13,14 @@ public:
 	 PhoneBook(void);
 	~PhoneBook( void );
 	 void	addContact( void );
+	 void	addContactDebug(void);
 	 int searchContact(int contact_number);
 private:
 
 	 int		_max_contact;
 	 int		_nbr_of_contact;
-	 Contact	_contacts[8];
+	 int		_iterator;
+	 Contact	_contacts[9];
 	static void	_displayTimestamp( void );
 };
 

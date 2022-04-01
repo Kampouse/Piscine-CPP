@@ -5,6 +5,7 @@
 
 class Contact {       
 
+
 	private:
 		 
 	std::string _darkest_secret ;
@@ -15,7 +16,11 @@ class Contact {
 
   public:             
 	 Contact(void);
-
+	 Contact(std::string _darkest_secret ,
+			std::string _firstname ,
+			std::string _lastname ,
+			std::string _nickname ,
+			std::string _phone_number);
 	void Contact_firstname(void);
 	void Contact_lastname(void);
 	void Contact_nickname(void);
@@ -26,6 +31,13 @@ class Contact {
 	 std::string get_nickname(void);
 	 std::string get_phone_number(void);
 	 std::string get_darkest_secret(void);
+	 std::string get_firstname(bool state);
+	 std::string get_lastname(bool state);
+	 std::string get_nickname(bool state);
+	 std::string get_phone_number(bool state);
+	 std::string get_darkest_secret(bool state);
+	 void display_internal(void);
+
 
 ;
 };
