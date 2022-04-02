@@ -6,56 +6,80 @@
 /*   By: jemartel <jemartel@student.42quebec>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/01 19:13:50 by jemartel          #+#    #+#             */
-/*   Updated: 2022/04/01 19:46:11 by jemartel         ###   ########.fr       */
+/*   Updated: 2022/04/02 18:36:26 by jemartel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "Accont.hpp"
+#include "iostream"
 
-	void	makeDeposit( int deposit )
+
+Account::Account( int initial_deposit )
 {
+	this->makeDeposit(initial_deposit);
+
+
+
+}
+
+Account::~Account( void )
+{
+
+
+
+
+}
+	void	Account::makeDeposit( int deposit )
+{
+	this->_amount+=deposit;
+	this->_nbDeposits++;
 	return;
 }
-	bool	makeWithdrawal( int withdrawal )
+	bool	Account::makeWithdrawal( int withdrawal )
+{
+	if(this->_amount > withdrawal)
+	{
+		this->_amount-= withdrawal;
+		this->_nbWithdrawals++;
+	}
+			return(false);
+
+	return(0);
+
+}
+	int		Account::checkAmount( void ) const
 {
 	return(0);
 
 }
-	int		checkAmount( void )
+void	Account::displayStatus( void )const
 {
-	return(0);
 
-}
-	void	displayStatus( void )
-{
 
 }
 
 
-	static int	getNbAccounts( void )
+ int	Account::getNbAccounts( void )
 {
-			_nbrAcconts;
-
-			_nbAccounts;
-		displayStatus();
-		
-	return(0);
+		return(_nbAccounts);
+}
+int	Account::getTotalAmount( void )
+{
+	return( _totalAmount);
 
 }
-	static int	getTotalAmount( void )
+int	Account::getNbDeposits( void )
 {
+
 return(0);
 }
-	static int	getNbDeposits( void )
+	 int	Account::getNbWithdrawals( void )
 {
-return(0);
+			
+return(_totalNbWithdrawals);
 }
-	static int	getNbWithdrawals( void )
+ void	Account::displayAccountsInfos( void )
 {
-return(0);
+	std::cout << getNbAccounts() << std::endl
+	<<			getNbWithdrawals() << std::endl
+	<<			getTotalAmount() << std::endl;
 }
-	static void	displayAccountsInfos( void )
-{
-	
-}
-
-
-
