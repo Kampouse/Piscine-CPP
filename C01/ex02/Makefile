@@ -1,8 +1,8 @@
-NAME = ZombieHorde
+NAME = brainology
 
 FLAGS = -Wall -Wextra -Werror --std=c++98 -g
 
-SRCS = main.cpp Zombie.cpp  ZombieHorde.cpp
+SRCS = main.cpp 
 RM =  rm -rf 
 .cpp.o:
 	@g++ ${FLAGS}  -c $< -o ${<:.cpp=.o}
@@ -15,9 +15,9 @@ ${NAME}:${OBJS}
 		@${CC} ${OBJS} ${FLAGS}   -o ${NAME}
 	
 run: all
-	./ZombieHorde
+	./brainology
 val: all
-	valgrind   --track-origins=yes -s --trace-children=yes  ./ZombieHorde
+	valgrind   --track-origins=yes -s --trace-children=yes  ./brainology
 
 clean:
 	    ${RM} ${OBJS}	

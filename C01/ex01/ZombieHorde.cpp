@@ -3,6 +3,8 @@
 
 Zombie *zombieHorde(int Number,std::string name)
 {
+	if(Number < 0)
+		Number = 0;
 	Zombie *zombie = new Zombie[Number]; 
 
 	for(int i = 0; i < Number ; i++)
