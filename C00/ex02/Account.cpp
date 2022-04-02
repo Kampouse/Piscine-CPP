@@ -6,18 +6,24 @@
 /*   By: jemartel <jemartel@student.42quebec>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/01 19:13:50 by jemartel          #+#    #+#             */
-/*   Updated: 2022/04/02 18:36:26 by jemartel         ###   ########.fr       */
+/*   Updated: 2022/04/02 13:56:58 by jemartel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "Accont.hpp"
 #include "iostream"
 
 
+
+
+int Account::_nbAccounts = 0;
+int Account::_totalAmount = 0;
+int Account::_totalNbDeposits = 0;
+int Account::_totalNbWithdrawals = 0;
+
+
 Account::Account( int initial_deposit )
 {
 	this->makeDeposit(initial_deposit);
-
-
 
 }
 
@@ -58,6 +64,7 @@ void	Account::displayStatus( void )const
 }
 
 
+
  int	Account::getNbAccounts( void )
 {
 		return(_nbAccounts);
@@ -77,6 +84,7 @@ return(0);
 			
 return(_totalNbWithdrawals);
 }
+
  void	Account::displayAccountsInfos( void )
 {
 	std::cout << getNbAccounts() << std::endl
