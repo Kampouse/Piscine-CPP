@@ -1,8 +1,8 @@
-NAME = sed_is_for_loser
+NAME = Karen
 
 FLAGS = -Wall -Wextra -Werror --std=c++98 -g
 
-SRCS = main.cpp 
+SRCS = main.cpp  Karen.cpp 
 RM =  rm -rf 
 .cpp.o:
 	@g++ ${FLAGS}  -c $< -o ${<:.cpp=.o}
@@ -15,9 +15,9 @@ ${NAME}:${OBJS}
 		@${CC} ${OBJS} ${FLAGS}   -o ${NAME}
 	
 run: all
-	./sed_is_for_loser test int crypto
+	./Karen
 val: all
-	valgrind   --track-origins=yes -s --trace-children=yes  ./sed_is_for_loser
+	valgrind   --track-origins=yes -s --trace-children=yes  ./Karen
 
 clean:
 	    ${RM} ${OBJS}	
