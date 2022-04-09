@@ -4,9 +4,8 @@
 #include "ScavTrap.hpp"
 
 
-void fight(ClapTrap &atker, ClapTrap &victim,unsigned int  damage)
+void fight(ScavTrap &atker, ScavTrap &victim)
 {
-	atker.setAtackDmg(damage);	
 	atker.attack(victim.getName());
 	victim.takeDamage(atker.getAtackDmg());
 }
@@ -14,6 +13,13 @@ void fight(ClapTrap &atker, ClapTrap &victim,unsigned int  damage)
 
 int main(void)
 {
-	ScavTrap ScavTrap("Krampe");
+	ScavTrap kio =  ScavTrap("kio");
+	ScavTrap krampe =  ScavTrap("tata");
 	
+	while(krampe.getHp() > 0)
+	{
+		fight(kio,krampe);
+	}
+
+	kio.guardGate();
 }

@@ -15,8 +15,8 @@ int main(void)
 {
 	
 	int random;
-	ClapTrap red = ClapTrap("Red");
-	ClapTrap Krampe = ClapTrap("Krampe");
+	ClapTrap red = ClapTrap("tata");
+	ClapTrap Krampe = ClapTrap("kio");
 
 	srand(time(NULL));
 	while(1)

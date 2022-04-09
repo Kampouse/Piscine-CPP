@@ -1,6 +1,6 @@
-NAME = ClapTrap
+NAME = FragTrap
 FLAGS = -Wall -Wextra -Werror --std=c++98   -Wshadow  -Wno-shadow
-SRCS = ClapTrap.cpp ScavTrap.cpp main.cpp 
+SRCS = ClapTrap.cpp ScavTrap.cpp main.cpp FragTrap.cpp 
 RM =  rm -rf 
 .cpp.o:
 	@c++ ${FLAGS}  -c $< -o ${<:.cpp=.o}
