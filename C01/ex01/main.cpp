@@ -6,7 +6,7 @@
 /*   By: jemartel <jemartel@student.42quebec>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/02 16:05:56 by jemartel          #+#    #+#             */
-/*   Updated: 2022/04/02 18:22:08 by jemartel         ###   ########.fr       */
+/*   Updated: 2022/04/10 14:32:22 by jemartel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,6 @@
 int main(void)
 {
 		Zombie *zombie;
-		zombie = zombieHorde(3,"redboard");
+		zombie = zombieHorde(10,"redboard");
 		delete [] zombie;
 }

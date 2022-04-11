@@ -1,8 +1,19 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Karen.hpp                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jemartel <jemartel@student.42quebec>       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/04/10 15:42:32 by jemartel          #+#    #+#             */
+/*   Updated: 2022/04/10 15:57:03 by jemartel         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef KAREN_HPP
 # define KAREN_HPP
 
 # include <iostream>
-#include <unordered_map>
 class Karen
 {
 	private:
@@ -20,5 +31,3 @@ class Karen
 };
 
 typedef void (Karen::*ptr_funct_karen)(void);
-
-#endif

@@ -1,32 +1,27 @@
 NAME = megaphone
-
-FLAGS = -Wall -Wextra -Werror -g --std=c++98
-SRCS = megaphone.cpp 
+FLAGS = -Wall -Wextra -Werror --std=c++98 
+SRCS = megaphone.cpp
 RM =  rm -rf 
-.c.o:
-	@g++ ${FLAGS}  -c $< -o ${<:.cpp=.o}
+.cpp.o:
+	@c++ ${FLAGS}  -c $< -o ${<:.cpp=.o}
 
 OBJS = ${SRCS:.cpp=.o}
-CC = g++
+CC = c++
 
 all: ${NAME}
 ${NAME}:${OBJS} 
-		@${CC} ${OBJS} ${FLAGS}   -o ${NAME}
-	
-
+		${CC} ${OBJS} ${FLAGS}   -o ${NAME}
 run: all
-	./megaphone 
-
+	./${NAME} hello world
 val: all
-	valgrind   --track-origins=yes -s --trace-children=yes  ${NAME}
-
+	valgrind   --track-origins=yes -s --trace-children=yes ./FixedPoint 
 clean:
 	    ${RM} ${OBJS}	
 git:
 		@git add ${SRCS} Makefile
-
 fclean: clean
 	@${RM} ${NAME}
 re: fclean all
 	
-.PHONY: clean fclean re all
+.PHONY: clean fclean re all run git
+

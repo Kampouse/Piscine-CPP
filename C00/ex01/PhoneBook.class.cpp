@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   PhoneBook.class.cpp                                :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jemartel <jemartel@student.42quebec>       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/04/06 15:16:51 by jemartel          #+#    #+#             */
+/*   Updated: 2022/04/07 15:15:17 by jemartel         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <iostream>
 #include <string>
 #include <iomanip>
@@ -78,13 +90,12 @@ int PhoneBook::searchContact(int contact_number)
 		 std::cout << std::right <<   '|' << std::setw(10)  << temp.get_nickname(true)  << '|' << std::endl;
 		 count++;
 	}
-	
 		std::cout << "enter a number ->> ";
 		std::cin >> line;
 		 if (line.find_first_not_of("12345678") == std::string::npos)
 		{
 					contact_number = std::stoi(line);	
-				if(contact_number > 8)
+				if(contact_number > 8 || contact_number > _nbr_of_contact)
 					std::cout << "cant do that" << std::endl;
 				else	
 			{
@@ -94,7 +105,6 @@ int PhoneBook::searchContact(int contact_number)
 		}
 		else
 			std::cout << "sorry  you cant read that page";	
-
 	std::cin.get();
 	return (0);
 }

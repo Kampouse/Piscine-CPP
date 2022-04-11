@@ -1,13 +1,10 @@
 #include <iostream>
-
 #include "./Contact.class.hpp"
 #include "./PhoneBook.class.hpp"
-
 
 int main(void)
 {
 	std::string line;
-	// get  user input;
 	PhoneBook phonebook ;
 		std::cout << "\033[2J\033[1;1H";
 		std::cout << "select an option: add, search, exit\n";
@@ -32,7 +29,11 @@ int main(void)
 				phonebook.searchContact(0);
 	}
 	else if (line  == "exit")
+	{
+			
+			std::cout << "sorry i could not hold your precious data ;( \n";
 			return(0);
+	}
 	else
 				std::cout << "\033[2J\033[1;1H"  
 						  << "select an option: add, search, exit \n" 

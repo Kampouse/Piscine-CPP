@@ -6,7 +6,7 @@
 /*   By: jemartel <jemartel@student.42quebec>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/04 19:29:33 by jemartel          #+#    #+#             */
-/*   Updated: 2022/04/04 19:29:41 by jemartel         ###   ########.fr       */
+/*   Updated: 2022/04/10 15:40:06 by jemartel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,27 +18,22 @@ Karen::Karen(void)
 }
 void Karen::debug(void)
 {
-	std::cout << "(def karen/debug \"big bop am a bot i say  let over lambda\")\n";
-	
-
+	std::cout << "(def karen_debug \"big bop am a bot i say  let over lambda\")\n";
 }
 void Karen::error(void)
 {
-	std::cout << "(def karen/error \"monad are only monoid  in the familiy of endofunctor\")\n"; 
+	std::cout << "(def karen_error \"monad are only monoid  in the familiy of endofunctor\")\n"; 
 }
 
 void Karen::warning(void)
 {
-	std::cout << "(defn  karen/warning [warning] (quote (warning  warning))\n";
+	std::cout << "(defn  karen_warning [you]  (println \"you pricks \" karen_info ))\n (karen_warning \"redboard\") ";
 }
 
 void Karen::info(void)
 {
-	std::cout << "(def karen/info   \"survery from the minisitery of   defense require  your attention immediatly for a inspection of your  user inteface\")\n"; 
+	std::cout << "(def karen_info   \"survery from the minisitery of   defense require  your attention immediatly for a inspection of your  user inteface\")\n"; 
 }
-
-
-
 
 Karen::~Karen(void)
 {

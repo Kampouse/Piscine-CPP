@@ -8,14 +8,14 @@ RM =  rm -rf
 	@g++ ${FLAGS}  -c $< -o ${<:.cpp=.o}
 
 OBJS = ${SRCS:.cpp=.o}
-CC = g++
+CC = c++
 
 all: ${NAME}
 ${NAME}:${OBJS} 
 		@${CC} ${OBJS} ${FLAGS}   -o ${NAME}
 	
 run: all
-	./brainology
+	./${NAME}
 val: all
 	valgrind   --track-origins=yes -s --trace-children=yes  ./brainology
 

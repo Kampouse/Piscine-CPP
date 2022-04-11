@@ -15,7 +15,7 @@ ${NAME}:${OBJS}
 		@${CC} ${OBJS} ${FLAGS}   -o ${NAME}
 	
 run: all
-	./sed_is_for_loser test int crypto
+	./${NAME} test int std::string
 val: all
 	valgrind   --track-origins=yes -s --trace-children=yes  ./sed_is_for_loser
 

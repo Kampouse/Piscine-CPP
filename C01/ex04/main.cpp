@@ -6,7 +6,7 @@
 /*   By: jemartel <jemartel@student.42quebec>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/04 19:02:29 by jemartel          #+#    #+#             */
-/*   Updated: 2022/04/04 19:04:19 by jemartel         ###   ########.fr       */
+/*   Updated: 2022/04/10 15:01:58 by jemartel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ std::string line_replaced(std::string &line,char **argv)
 		}
 		return(line);
 }
-
 
 int main(int argc,char *argv[])
 {
@@ -67,5 +66,5 @@ if (argc == 4)
 		}
 		output.close();
 		file.close();
-}
+	}
 }
