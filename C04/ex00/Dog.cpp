@@ -7,6 +7,7 @@ Dog::Dog(std::string)
 }
 Dog::Dog(void)
 {
+	std::cout << "Dog constructor called" << std::endl;
 	Animal::type = "dog";
 }
 Dog::~Dog(void)
@@ -22,7 +23,6 @@ Dog::Dog(const Dog &copy) : Animal()
 Dog	&Dog::operator = (const Dog &copy)
 {
 	std::cout << "Assignation operator called" << std::endl;
-	*this = copy;
+	type = copy.type;
 		return (*this);
 }
-

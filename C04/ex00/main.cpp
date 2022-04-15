@@ -6,7 +6,7 @@
 /*   By: jemartel <jemartel@student.42quebec>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/15 06:50:45 by jemartel          #+#    #+#             */
-/*   Updated: 2022/04/15 08:31:06 by jemartel         ###   ########.fr       */
+/*   Updated: 2022/04/15 16:59:52 by jemartel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,16 @@ int main(void)
 	const WrongAnimal *sheesh =  new WrongCat();
 	const Animal *dog =  new Dog();
 	const Animal *cat =  new Cat();
+	 Animal *catty =  new Dog();
+	 Animal *doggy =  new Dog();
 	sheesh->MakeSound();
 	cat->MakeSound();
 	dog->MakeSound();
 	delete sheesh;
 	delete dog;
 	delete cat;
+	*catty = *doggy;
+	 delete doggy;
+	 delete catty;
+
 }
