@@ -6,7 +6,7 @@
 /*   By: jemartel <jemartel@student.42quebec>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/15 06:35:31 by jemartel          #+#    #+#             */
-/*   Updated: 2022/04/15 17:05:55 by jemartel         ###   ########.fr       */
+/*   Updated: 2022/04/15 23:46:41 by jemartel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "./Cat.hpp"
@@ -37,3 +37,8 @@ Cat	&Cat::operator = (const Cat &copy)
 	type = copy.type;
 		return (*this);
 }
+void Cat::MakeSound(void)const
+{ 
+			std::cout << "where did   this ... \"MEOW\" NORMINETTE GO! COME BACK!\n";
+}
+

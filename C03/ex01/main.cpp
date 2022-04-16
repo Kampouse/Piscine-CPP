@@ -13,13 +13,19 @@ void fight(ScavTrap &atker, ScavTrap &victim)
 
 int main(void)
 {
-	ScavTrap kio =  ScavTrap("kio");
-	ScavTrap krampe =  ScavTrap("tata");
+	ScavTrap *kio =  new ScavTrap("kio");
+	ScavTrap *krampe =   new ScavTrap("tata");
 	
-	while(krampe.getHp() > 0)
+	while(krampe->getHp() > 0)
 	{
-		fight(kio,krampe);
+		fight(*kio,*krampe);
 	}
+	kio->guardGate();
 
-	kio.guardGate();
+
+	std::cout << "before" << kio->getName() << std::endl;
+	*kio = *krampe;
+	std::cout << "after" <<	kio->getName() << std::endl;
+	delete kio;
+	delete krampe;
 }

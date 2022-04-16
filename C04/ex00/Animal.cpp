@@ -29,9 +29,6 @@ Animal	&Animal::operator = (const Animal &copy)
 }
 		void Animal::MakeSound(void)const
 {
-		if(type ==  "dog")
-			std::cout << "THIS OBJECT MUST BE AA \"WOOF \",ah! dog!\n";
-		else if (type ==  "cat")
-			std::cout << "where did   this ... \"MEOW\" NORMINETTE GO! COME BACK!\n";
+			std::cout << "sound of a ANIMAL\n";
 	return;
 }

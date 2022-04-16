@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ScavTrap.cpp                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jemartel <jemartel@student.42quebec>       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/04/15 14:26:15 by jemartel          #+#    #+#             */
+/*   Updated: 2022/04/15 14:26:17 by jemartel         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ScavTrap.hpp"
 
 ScavTrap::ScavTrap(void)
@@ -34,14 +46,46 @@ ScavTrap::~ScavTrap(void)
 ScavTrap	&ScavTrap::operator = (const ScavTrap &copy)
 {
 	std::cout << " Assignation operator called " << std::endl;
-	this->setAtackDmg(   copy.getAtackDmg());
+	this->setAtackDmg(copy.getAtackDmg());
 	this->setEnergy(   copy.getEnergy());
 	this->setHp(   copy.getHp());
 	return (*this);
+}
+void ScavTrap:: takeDamage(unsigned int dmg)
+{
+		std::cout << "ScavTrap "  << getName()<< " was hit "<<  " causing  of " << dmg << " lost healt with energy left -> " << getEnergy() <<  "\n";
+		if(getHp() == 0)		
+			return;
+		else if (getHp() < dmg )		
+			setHp(0);
+		else		
+			setHp(getHp() - dmg);
+}
+
+		void ScavTrap:: beRepaired(unsigned int amount)
+{
+		if(getEnergy() >  0 && getHp() > 0)
+	{
+			if(getHp() == getMaxHealt())	
+				return;
+			else if(getHp() + amount  > getMaxHealt())	
+			{
+				std::cout << "ScavTrap "  
+				<< getName() << "has heal of "  << getMaxHealt() - amount <<  "\n";
+				setHp(getMaxHealt());
+				setEnergy(getEnergy() - 1);
+				return ;
+			}
+			else
+		{
+			std::cout << "ScavTrap "  << getName()<< "has heal of "  <<  amount <<  "\n";
+			setHp(getHp() +  amount);
+			setEnergy(getEnergy() - 1);
+		}
+	}
 }
 
 	void ScavTrap::guardGate()
 {
 	std::cout << " ScavTrap now in --> gate keeper mode \n";
-
 }

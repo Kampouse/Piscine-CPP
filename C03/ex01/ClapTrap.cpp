@@ -48,6 +48,7 @@ ClapTrap	&ClapTrap::operator = (const ClapTrap &copy)
 {
 	std::cout << "Assignation operator called" << std::endl;
 	_Attack_dmg =  copy.getAtackDmg();
+	_name =  copy.getName();
 	_Energy =  copy.getEnergy();
 	_Hp =  copy.getHp();
 	return (*this);
@@ -132,5 +133,9 @@ unsigned int ClapTrap::getAtackDmg(void)const
 	std::string ClapTrap::getName(void)const
 {
 		return _name;
+}
+ unsigned int ClapTrap::getMaxHealt(void)const
+{
+		return ClapTrap::_max_healt;
 }
 

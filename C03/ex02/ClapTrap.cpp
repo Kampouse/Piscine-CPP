@@ -6,7 +6,7 @@
 /*   By: jemartel <jemartel@student.42quebec>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/08 21:01:06 by jemartel          #+#    #+#             */
-/*   Updated: 2022/04/09 15:35:28 by jemartel         ###   ########.fr       */
+/*   Updated: 2022/04/14 15:03:14 by jemartel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ ClapTrap	&ClapTrap::operator = (const ClapTrap &copy)
 {
 	std::cout << "Assignation operator called" << std::endl;
 	_Attack_dmg =  copy.getAtackDmg();
+	_name = copy.getName();
 	_Energy =  copy.getEnergy();
 	_Hp =  copy.getHp();
 	return (*this);
@@ -131,6 +132,9 @@ unsigned int ClapTrap::getAtackDmg(void)const
 
 	std::string ClapTrap::getName(void)const
 {
-		return _name;
+		return (_name);
 }
-
+ unsigned int ClapTrap::getMaxHealt(void)const
+{
+	return (ClapTrap::_max_healt);
+}

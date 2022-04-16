@@ -3,7 +3,7 @@
 # include <iostream>
 #include "ClapTrap.hpp"
 
-class ScavTrap : public  ClapTrap
+class ScavTrap : public virtual   ClapTrap
 {
 	public:
 		ScavTrap(void);
@@ -13,6 +13,8 @@ class ScavTrap : public  ClapTrap
 		void attack(const std::string& target);
 		ScavTrap	&operator = (const ScavTrap &copy);
 		void guardGate();
+		void takeDamage(unsigned int dmg);
+		void beRepaired(unsigned int amount);
 };
 
 #endif

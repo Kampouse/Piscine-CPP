@@ -17,12 +17,17 @@ Dog::~Dog(void)
 Dog::Dog(const Dog &copy) : Animal()
 {
 	std::cout << "Copy constructor called" << std::endl;
-	*this = copy;
+	this->type = copy.type;
 }
 
 Dog	&Dog::operator = (const Dog &copy)
 {
-	std::cout << "Assignation operator called" << std::endl;
+	std::cout << "  Dog Assignation operator called" << std::endl;
 	type = copy.type;
 		return (*this);
+}
+
+void Dog::MakeSound(void)const
+{
+			std::cout << "THIS OBJECT MUST BE AA \"WOOF \",ah! dog!\n";
 }

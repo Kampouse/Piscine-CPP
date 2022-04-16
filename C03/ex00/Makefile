@@ -14,7 +14,7 @@ ${NAME}:${OBJS}
 run: all
 	./${NAME}
 val: all
-	valgrind   --track-origins=yes -s --trace-children=yes ./FixedPoint 
+	valgrind   --track-origins=yes -s --trace-children=yes ./${NAME}
 clean:
 	    ${RM} ${OBJS}	
 git:

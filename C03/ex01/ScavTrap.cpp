@@ -31,17 +31,60 @@ ScavTrap::~ScavTrap(void)
 		std::cout << " ScavTrap " << this->getName()  << " is too weak to attack ;( " << target  << std::endl;
 }
 
+ScavTrap::ScavTrap(const ScavTrap &copy)
+{
+
+	std::cout << "clap trap copy" << std::endl;
+	_Attack_dmg =  copy.getAtackDmg();
+	_name = copy.getName();
+	_Energy =  copy.getEnergy();
+	_Hp =  copy.getHp();
+}
+
 ScavTrap	&ScavTrap::operator = (const ScavTrap &copy)
 {
 	std::cout << " Assignation operator called " << std::endl;
-	this->setAtackDmg(   copy.getAtackDmg());
+	this->setName(copy.getName());
+	this->setAtackDmg(copy.getAtackDmg());
 	this->setEnergy(   copy.getEnergy());
 	this->setHp(   copy.getHp());
 	return (*this);
+}
+void ScavTrap:: takeDamage(unsigned int dmg)
+{
+		std::cout << "ScavTrap "  << getName()<< " was hit "<<  " causing  of " << dmg << " lost healt with energy left -> " << getEnergy() <<  "\n";
+		if(getHp() == 0)		
+			return;
+		else if (getHp() < dmg )		
+			setHp(0);
+		else		
+			setHp(getHp() - dmg);
+}
+
+		void ScavTrap:: beRepaired(unsigned int amount)
+{
+		if(getEnergy() >  0 && getHp() > 0)
+	{
+			if(getHp() == getMaxHealt())	
+				return;
+			else if(getHp() + amount  > getMaxHealt())	
+			{
+				std::cout << "ScavTrap "  
+				<< getName() << "has heal of "  << getMaxHealt() - amount <<  "\n";
+				setHp(getMaxHealt());
+				setEnergy(getEnergy() - 1);
+				return ;
+			}
+			else
+		{
+			std::cout << "ScavTrap "  << getName()<< "has heal of "  <<  amount <<  "\n";
+			setHp(getHp() +  amount);
+			setEnergy(getEnergy() - 1);
+		}
+	}
 }
 
 	void ScavTrap::guardGate()
 {
 	std::cout << " ScavTrap now in --> gate keeper mode \n";
-
 }

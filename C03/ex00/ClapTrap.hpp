@@ -20,7 +20,6 @@ class ClapTrap
 		void attack(const std::string& target);
 		void takeDamage(unsigned int dmg);
 		void beRepaired(unsigned int amoun);
-
 		unsigned int getHp(void)const;
 		std::string getName(void)const;
 		unsigned int getEnergy(void)const;
@@ -28,15 +27,6 @@ class ClapTrap
 		void setHp(int numb);
 		void setEnergy(int numb);
 		void setAtackDmg(int numb);
-
-
-
-
-
-
-
-
-
 		ClapTrap	&operator = (const ClapTrap &copy);
 
 };

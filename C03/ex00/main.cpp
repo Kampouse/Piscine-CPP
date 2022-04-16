@@ -16,6 +16,7 @@ int main(void)
 	
 	int random;
 	ClapTrap red = ClapTrap("tata");
+	ClapTrap john;
 	ClapTrap Krampe = ClapTrap("kio");
 
 	srand(time(NULL));
@@ -50,4 +51,8 @@ int main(void)
 			std::cout <<"had  HP :" << Krampe.getHp() << "\n";
 			std::cout <<"had  Energy :" << Krampe.getEnergy() << "\n";
 		}
+	std::cout  << "other test -------\n";
+	std::cout  << "variable |red|" << red.getAtackDmg() << " | " << red.getEnergy()<< " | " << red.getName() << "\n";
+	red = Krampe;
+	std::cout  << "variable |red|" << red.getAtackDmg() << " | " << red.getEnergy()<< " | " << red.getName() << "\n";
 }

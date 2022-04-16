@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ClapTrap.hpp                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jemartel <jemartel@student.42quebec>       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/04/15 14:26:51 by jemartel          #+#    #+#             */
+/*   Updated: 2022/04/15 14:26:51 by jemartel         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef CLAPTRAP_HPP
 # define CLAPTRAP_HPP
 
@@ -5,7 +17,7 @@
 
 class ClapTrap
 {
-	private:
+	protected:
 		unsigned int _Hp;
 		std::string _name;
 		unsigned int _Energy;
@@ -29,7 +41,7 @@ class ClapTrap
 		void setEnergy(int numb);
 		void setAtackDmg(int numb);
 		void setName(std::string name);
-
+		unsigned int getMaxHealt(void)const;
 
 
 

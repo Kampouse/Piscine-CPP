@@ -1,9 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jemartel <jemartel@student.42quebec>       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/04/11 20:20:13 by jemartel          #+#    #+#             */
+/*   Updated: 2022/04/14 15:31:05 by jemartel         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <iostream>
 #include <time.h>
 #include "ClapTrap.hpp"
 #include "ScavTrap.hpp"
 #include "FragTrap.hpp"
-
+#include "DiamondTrap.hpp"
 
 void fight(FragTrap &atker, FragTrap &victim)
 {
@@ -11,15 +23,8 @@ void fight(FragTrap &atker, FragTrap &victim)
 	victim.takeDamage(atker.getAtackDmg());
 }
 
-
 int main(void)
 {
-	FragTrap krampef =  FragTrap("tata");
-						krampef.hightFivesGuys();
-						krampef.attack("toto");
-	ScavTrap krampea =  ScavTrap("tata");
-						krampea.guardGate();
-						krampea.attack("toto");
-	ClapTrap krampei =  ClapTrap("tata");
-						krampei.attack("italia");
+		DiamondTrap kramped =  DiamondTrap("red");
+		std::cout << "energy:" << kramped.getEnergy() << std::endl;
 }

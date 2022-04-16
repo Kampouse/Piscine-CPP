@@ -29,7 +29,7 @@ class ClapTrap
 		void setEnergy(int numb);
 		void setAtackDmg(int numb);
 		void setName(std::string name);
-
+		unsigned int getMaxHealt(void)const;
 
 
 

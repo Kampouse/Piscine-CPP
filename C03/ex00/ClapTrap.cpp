@@ -6,7 +6,7 @@
 /*   By: jemartel <jemartel@student.42quebec>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/08 21:01:06 by jemartel          #+#    #+#             */
-/*   Updated: 2022/04/08 21:12:26 by jemartel         ###   ########.fr       */
+/*   Updated: 2022/04/15 13:44:22 by jemartel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ ClapTrap::ClapTrap(void)
 }
 ClapTrap::ClapTrap(std::string name)
 {
-	
 	std::cout << "ClapTrap constructor called" << std::endl;
 	this->_name =  name;
 	this->_Hp = 10;
@@ -40,16 +39,22 @@ ClapTrap::~ClapTrap(void)
 
 ClapTrap::ClapTrap(const ClapTrap &copy)
 {
-	std::cout << "Copy constructor called" << std::endl;
-	*this = copy;
+
+	std::cout << "clap trap copy" << std::endl;
+	_Attack_dmg =  copy.getAtackDmg();
+	_name = copy.getName();
+	_Energy =  copy.getEnergy();
+	_Hp =  copy.getHp();
 }
 
 ClapTrap	&ClapTrap::operator = (const ClapTrap &copy)
 {
-	std::cout << "Assignation operator called" << std::endl;
+	std::cout << "------->>>>Assignation operator called" << std::endl;
 	_Attack_dmg =  copy.getAtackDmg();
+	_name = copy.getName();
 	_Energy =  copy.getEnergy();
 	_Hp =  copy.getHp();
+
 	return (*this);
 }
 unsigned int ClapTrap::getHp(void)const
@@ -127,4 +132,3 @@ unsigned int ClapTrap::getAtackDmg(void)const
 {
 		return _name;
 }
-
