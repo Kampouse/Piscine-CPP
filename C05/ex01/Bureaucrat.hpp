@@ -2,6 +2,7 @@
 # define BUREAUCRAT_HPP
 
 # include <iostream>
+# include "Form.hpp"
 
 class Bureaucrat
 {
@@ -19,8 +20,10 @@ class Bureaucrat
 		int GetGrade(void)const;
 		void IncrementGrade(void);
 		void DecrimentGrade(void);
+		void SignForm(Form  &exam);
 	const std::string GetName(void)const;
 		Bureaucrat	&operator = (const Bureaucrat &copy);
+
 };
 
 std::ostream &operator<<(std::ostream &output, Bureaucrat const &Bureaucrat);

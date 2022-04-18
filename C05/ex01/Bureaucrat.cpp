@@ -6,7 +6,7 @@
 /*   By: jemartel <jemartel@student.42quebec>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/17 15:58:41 by jemartel          #+#    #+#             */
-/*   Updated: 2022/04/17 16:56:37 by jemartel         ###   ########.fr       */
+/*   Updated: 2022/04/17 21:53:11 by jemartel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,17 @@ void Bureaucrat::DecrimentGrade(void)
 		_grade++;
 		std::cout << GetName() <<  ": grade Decriment  grade is now at:" << _grade << "\n";
 }
+void Bureaucrat::SignForm(Form  &exam)
+{
+	if(this->GetGrade() < exam.GetGrade())				
+	{
+		std::cout << "form was signed";
+		exam.BeSigned();
+	}
+	else
+		std::cout << "could not write form";
 
+}
 std::ostream &operator<<(std::ostream &output, Bureaucrat const &user)
 {
 		output  << user.GetName() << " : " << user.GetGrade() << std::endl;

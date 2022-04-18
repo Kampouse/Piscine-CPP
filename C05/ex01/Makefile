@@ -1,6 +1,6 @@
 NAME = Bureaucrat
-FLAGS = -Wall -Wextra -Werror --std=c++98  -g
-SRCS =  Bureaucrat.cpp main.cpp 
+FLAGS = -Wall -Wextra -Werror --std=c++98  -g  
+SRCS =  Bureaucrat.cpp main.cpp  Form.cpp
 
 RM =  rm -rf 
 .cpp.o:
@@ -22,9 +22,7 @@ run: all
 clean:
 
 	    ${RM} ${OBJS}	
-test:
-	valgrind   --track-origins=yes -s --trace-children=yes ./$(NAME) 1
-	 ./$(NAME) 2
+val:
 	valgrind   --track-origins=yes -s --trace-children=yes ./$(NAME) 2
 git:
 		@git add ${SRCS} Makefile
