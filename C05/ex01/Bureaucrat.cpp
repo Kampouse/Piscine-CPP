@@ -6,7 +6,7 @@
 /*   By: jemartel <jemartel@student.42quebec>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/17 15:58:41 by jemartel          #+#    #+#             */
-/*   Updated: 2022/04/17 21:53:11 by jemartel         ###   ########.fr       */
+/*   Updated: 2022/04/18 15:53:12 by jemartel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,9 +85,9 @@ void Bureaucrat::DecrimentGrade(void)
 }
 void Bureaucrat::SignForm(Form  &exam)
 {
-	if(this->GetGrade() < exam.GetGrade())				
+	if(this->GetGrade() <= exam.GetGrade())
 	{
-		std::cout << "form was signed";
+		std::cout << " form was signed ";
 		exam.BeSigned();
 	}
 	else

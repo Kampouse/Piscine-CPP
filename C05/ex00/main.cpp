@@ -6,11 +6,12 @@
 /*   By: jemartel <jemartel@student.42quebec>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/16 17:25:16 by jemartel          #+#    #+#             */
-/*   Updated: 2022/04/17 21:11:26 by jemartel         ###   ########.fr       */
+/*   Updated: 2022/04/18 15:55:32 by jemartel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+#include <cstring>
 
 void  grading(Bureaucrat *user,std::string str)
 {
@@ -29,8 +30,8 @@ void  grading(Bureaucrat *user,std::string str)
 
 int main(int argc,char *argv[])
 {
-Bureaucrat *john = nullptr;
-Bureaucrat *steph = nullptr;
+Bureaucrat *john = NULL;
+Bureaucrat *steph = NULL;
 (void)argc;
 	if(argc != 2)
 		return 0;

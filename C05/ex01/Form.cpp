@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Form.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jemartel <jemartel@student.42quebec>       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/04/18 07:12:28 by jemartel          #+#    #+#             */
+/*   Updated: 2022/04/18 07:12:35 by jemartel         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Form.hpp"
 #include "Bureaucrat.hpp"
 
@@ -18,6 +30,11 @@ Form::~Form(void)
 	std::cout << "Destructor called" << std::endl;
 }
 
+
+Form::Form(const Form &copy):_name(copy.GetName()),_grade_sign(copy.GetGrade()),_grade_execute(copy.GetGrade())
+{
+	std::cout << "copy called" << std::endl;
+}
 
 void Form::GradeTooHighException(int grade)
 {
@@ -45,3 +62,21 @@ int Form::GetGrade(void)const
 {
 	return _grade_sign;
 }
+
+std::string Form::GetName(void)const
+{
+	return _name;
+}
+Form	&Form::operator = (const Form &copy)
+{
+	std::cout << " Cat Assignation operator called" << std::endl;
+	this->_signed =  copy._signed;
+		return (*this);
+}
+
+std::ostream &operator<<(std::ostream &output, Form const &user)
+{
+		output  << user.GetName() << " : " << user.GetGrade() << std::endl;
+		return (output);
+}
+

@@ -6,12 +6,13 @@
 /*   By: jemartel <jemartel@student.42quebec>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/16 17:25:16 by jemartel          #+#    #+#             */
-/*   Updated: 2022/04/17 22:54:22 by jemartel         ###   ########.fr       */
+/*   Updated: 2022/04/18 15:51:19 by jemartel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 #include "Form.hpp"
+#include "cstring"
 
 void  grading(Bureaucrat *user,std::string str)
 {
@@ -29,15 +30,14 @@ if(str == "dec")
 
 int main(int argc,char *argv[])
 {
-	Bureaucrat *john = nullptr;
-	Form *formed = nullptr;
+	Bureaucrat *john = NULL;
+	Form *formed = NULL;
 	(void)argc;
 		
 	if(argc != 2)	
 		return (0);
-	if (strcmp(argv[1],"1"))
+	if (strcmp(argv[1],"1") == 0)
 	{
-
 		try
 		{
 			john = new Bureaucrat("john",100);			
@@ -59,9 +59,8 @@ int main(int argc,char *argv[])
 			return 0;
 		}
 		john->SignForm(*formed);
+		std::cout << *formed << std::endl;
 		delete john;
 		delete formed;
 	}
-
-
 }

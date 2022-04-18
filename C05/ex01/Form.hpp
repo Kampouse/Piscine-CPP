@@ -17,10 +17,14 @@ class Form
 		Form(const Form &copy);
 		Form	&operator = (const Form &copy);
 		int GetGrade(void)const;
+		std::string GetName(void)const;
 		bool IsSigned(void);
 		void BeSigned(void);
 		void GradeTooHighException(int grade);
 		void GradeTooLowException(int grade);
 };
+
+std::ostream &operator<<(std::ostream &output, Form const &Form);
+
 
 #endif
