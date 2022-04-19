@@ -2,9 +2,28 @@
 # define BUREAUCRAT_HPP
 
 # include <iostream>
+#include <type_traits>
 
 class Bureaucrat
 {
+	class GradeTooHightException : public std::exception 
+	{
+				public :
+					virtual const char* what() const throw();
+
+	};
+
+	class GradeTooLowException: public std::exception 
+	{
+				public :
+					virtual const char* what() const throw();
+				
+
+	};
+
+
+
+
 	private:
 		const std::string _name;
 		int _grade;

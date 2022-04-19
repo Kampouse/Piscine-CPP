@@ -6,7 +6,7 @@
 /*   By: jemartel <jemartel@student.42quebec>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/18 07:12:28 by jemartel          #+#    #+#             */
-/*   Updated: 2022/04/18 07:12:35 by jemartel         ###   ########.fr       */
+/*   Updated: 2022/04/18 13:01:41 by jemartel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,19 +39,18 @@ Form::Form(const Form &copy):_name(copy.GetName()),_grade_sign(copy.GetGrade()),
 void Form::GradeTooHighException(int grade)
 {
 		if( grade < 0)
-		 throw std::runtime_error("Grade is too Hight");
+		 throw std::runtime_error("Grade is too hight\n");
 
 }
 
 void Form::GradeTooLowException(int grade)
 {
 		if(grade > 150)
-			 throw std::runtime_error("Grade tooo low");
+			 throw std::runtime_error("Grade tooo low\n");
 }
 
 void Form::BeSigned(void)
 {
-
 	_signed = true;
 }
 bool Form::IsSigned(void)

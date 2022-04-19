@@ -62,6 +62,7 @@ void RobotomyRequestForm ::execute(Bureaucrat const &student)const
 {
 	this->Check_status(student);
 	std::cout << student << " executed "<< GetName() << std::endl;
+	std::cout << "hello";
 	//busyness logic to  do the thing asked???
 }
 

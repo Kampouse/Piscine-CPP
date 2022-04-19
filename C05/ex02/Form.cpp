@@ -6,7 +6,7 @@
 /*   By: jemartel <jemartel@student.42quebec>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/18 07:12:28 by jemartel          #+#    #+#             */
-/*   Updated: 2022/04/19 00:38:33 by jemartel         ###   ########.fr       */
+/*   Updated: 2022/04/19 13:28:48 by jemartel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ Form::~Form(void)
 {
 	std::cout << "Destructor called" << std::endl;
 }
-
 
 Form::Form(const Form &copy):_name(copy.GetName()),_grade_sign(copy.GetGrade()),_grade_execute(copy.GetGrade())
 {
@@ -90,14 +89,13 @@ void Form::Check_status( Bureaucrat const &student)const
 	if( this->getGradeExecute() >= student.GetGrade() && this->getGradeSign() >= student.GetGrade())
 
 	{
-
 			if(this->IsSigned() == true)
 				return;
 			else
-				throw std::runtime_error ("not even signed");
+				throw std::runtime_error ("not even signed\n");
 	}
 	else 
-		throw std::runtime_error("your grade are too low  to be sign or executed \n");
+		throw std::runtime_error("the Bureaucrat either does not have the credantial or the form is not signed\n");
 }
 
 std::ostream &operator<<(std::ostream &output, Form const &user)

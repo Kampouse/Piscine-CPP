@@ -6,7 +6,7 @@
 /*   By: jemartel <jemartel@student.42quebec>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/17 15:58:41 by jemartel          #+#    #+#             */
-/*   Updated: 2022/04/18 15:53:12 by jemartel         ###   ########.fr       */
+/*   Updated: 2022/04/18 12:59:21 by jemartel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void Bureaucrat::GradeTooHight(int grade)
 	
 		if( grade < 1)
 	{
-        throw std::runtime_error("grade too high");
+        throw std::runtime_error("grade too high\n");
 	}
 }
 
@@ -33,7 +33,7 @@ void Bureaucrat::GradeTooLow(int grade)
 {
 		if( grade > 150)
 	{
-        throw std::runtime_error("grade too low");
+        throw std::runtime_error("grade too low\n");
 	}
 }
 
@@ -76,7 +76,7 @@ void Bureaucrat::IncrementGrade(void)
 		_grade--;
 		std::cout<< GetName() << ": grade Incremented  grade is now at:" << _grade << "\n";
 }
-
+ 
 void Bureaucrat::DecrimentGrade(void)
 {
 		GradeTooLow(_grade + 1);
@@ -91,7 +91,7 @@ void Bureaucrat::SignForm(Form  &exam)
 		exam.BeSigned();
 	}
 	else
-		std::cout << "could not write form";
+		std::cout << "could not write form \n";
 
 }
 std::ostream &operator<<(std::ostream &output, Bureaucrat const &user)

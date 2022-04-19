@@ -6,12 +6,13 @@
 /*   By: jemartel <jemartel@student.42quebec>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/16 17:25:16 by jemartel          #+#    #+#             */
-/*   Updated: 2022/04/18 15:55:32 by jemartel         ###   ########.fr       */
+/*   Updated: 2022/04/19 17:25:24 by jemartel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 #include <cstring>
+#include <exception>
 
 void  grading(Bureaucrat *user,std::string str)
 {
@@ -43,7 +44,7 @@ Bureaucrat *steph = NULL;
 			 john =  new Bureaucrat("john", 100);
 			 steph = new Bureaucrat("georgia", 100);
 		}
-		catch(std::runtime_error& e)
+		catch(std::exception & e)
 		{
 			delete john;
 			delete steph;
@@ -55,7 +56,7 @@ Bureaucrat *steph = NULL;
 			john->IncrementGrade();
 			steph->DecrimentGrade();
 		}
-		catch(std::runtime_error& e)
+		catch(std::exception & e)
 		{
 			delete john;
 			delete steph;
@@ -66,7 +67,7 @@ Bureaucrat *steph = NULL;
 		{
 			grading(john,"inc");
 		}
-		catch(std::runtime_error& e)
+		catch(std::exception & e)
 		{
 			delete john;
 			delete steph;
@@ -87,7 +88,7 @@ Bureaucrat *steph = NULL;
 			 john =  new Bureaucrat("john", -10);
 			 steph = new Bureaucrat("georgia", 2589);
 		}
-		catch(std::runtime_error& e)
+		catch(std::exception & e)
 		{
 			delete john;
 			delete steph;
@@ -106,7 +107,7 @@ Bureaucrat *steph = NULL;
 			 steph = new Bureaucrat("georgia", 100);
 			 grading(john,"dec");
 		}
-		catch(std::runtime_error& e)
+		catch(std::exception & e)
 		{
 			delete john;
 			delete steph;

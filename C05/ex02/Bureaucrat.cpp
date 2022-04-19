@@ -6,7 +6,7 @@
 /*   By: jemartel <jemartel@student.42quebec>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/17 15:58:41 by jemartel          #+#    #+#             */
-/*   Updated: 2022/04/19 00:41:17 by jemartel         ###   ########.fr       */
+/*   Updated: 2022/04/19 17:21:13 by jemartel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void Bureaucrat::GradeTooHight(int grade)
 	
 		if( grade < 1)
 	{
-        throw std::runtime_error("grade too high\n");
+		Bureaucrat::GradeTooHightException::exception();
 	}
 }
 
@@ -87,7 +87,7 @@ void Bureaucrat::SignForm(Form  &exam)
 {
 	if(this->GetGrade() <= exam.GetGrade())
 	{
-		std::cout << " form was signed ";
+		std::cout << " form was signed\n";
 		exam.BeSigned();
 	}
 	else
@@ -96,7 +96,16 @@ void Bureaucrat::SignForm(Form  &exam)
 }
 void Bureaucrat::executeForm(Form const & exam)
 {
-	exam.execute(*this);
+	try 
+	{
+		exam.Check_status(*this);
+	}
+	catch(std::runtime_error & e)
+	{
+		std::cerr << e.what();
+		return;
+	}
+		exam.execute(*this);
 
 }
 

@@ -6,7 +6,7 @@
 /*   By: jemartel <jemartel@student.42quebec>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/17 15:58:41 by jemartel          #+#    #+#             */
-/*   Updated: 2022/04/18 15:56:34 by jemartel         ###   ########.fr       */
+/*   Updated: 2022/04/19 17:23:01 by jemartel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,20 +20,11 @@ Bureaucrat::Bureaucrat(std::string name,int grade):_name(name)
 	std::cout << "Bureaucrat is now born\n";
 }
 
-void Bureaucrat::GradeTooHight(int grade)
-{
-	
-		if( grade < 1)
-	{
-        throw std::runtime_error("grade too high");
-	}
-}
-
 void Bureaucrat::GradeTooLow(int grade)
 {
 		if( grade > 150)
 	{
-        throw std::runtime_error("grade too low");
+        throw std::runtime_error("grade too low\n");
 	}
 }
 
@@ -84,9 +75,30 @@ void Bureaucrat::DecrimentGrade(void)
 		std::cout << GetName() <<  ": grade Decriment  grade is now at:" << _grade << "\n";
 }
 
+const char *Bureaucrat::GradeTooHightException::what() const throw()
+{
+	return ("Grade too high");
+}
+
+const char *Bureaucrat::GradeTooLowException::what() const throw()
+{
+	return ("Grade too low");
+}
+
+
 std::ostream &operator<<(std::ostream &output, Bureaucrat const &user)
 {
 		output  << user.GetName() << " : " << user.GetGrade() << std::endl;
 		return(output);
 }
+void Bureaucrat::GradeTooHight(int grade)
+{
+	
+		if( grade < 1)
+	{
+		throw 	Bureaucrat::GradeTooLowException::exception();
+
+	}
+}
+
 
