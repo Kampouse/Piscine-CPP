@@ -1,11 +1,14 @@
 #include "Form.hpp"
+
 #include "Bureaucrat.hpp"
 #include "RobotomyRequestForm.hpp"
 
-RobotomyRequestForm::RobotomyRequestForm():_grade_sign(72),_grade_execute(45),_name("NO-name-Form")
+RobotomyRequestForm::RobotomyRequestForm():Form("Uknown form",72,45)
 {
+
+	std::cout << "default constructor called" << std::endl;
 }
-RobotomyRequestForm::RobotomyRequestForm(std::string name):_grade_sign(72),_grade_execute(45),_name(name),_signed(false)
+RobotomyRequestForm::RobotomyRequestForm(std::string name):Form(name,72,45)
 {
 	std::cout << "RobotomyRequestForm  created" << std::endl;
 }
@@ -15,49 +18,22 @@ RobotomyRequestForm::~RobotomyRequestForm(void)
 	std::cout << "Destructor called" << std::endl;
 }
 
-RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &copy):Form(),_grade_sign(72),_grade_execute(45)
+void RobotomyRequestForm::action()
+{
+	std::cout << "Destructor called" << std::endl;
+}
+RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &copy):Form(copy)
 {
 	std::cout << "Copy constructor called" << std::endl;
-	this->_signed = copy._signed;
 	*this = copy;
 }
 
 RobotomyRequestForm	&RobotomyRequestForm::operator = (const RobotomyRequestForm &copy)
 {
 	std::cout << "Assignation operator called" << std::endl;
-		this->_signed = copy._signed ;
+		Form::operator=(copy);
 	return (*this);
 }
-bool RobotomyRequestForm :: IsSigned ()const
-{
-	return _signed;
-
-}
-void RobotomyRequestForm :: BeSigned() 
-{
-	_signed = true;
-}
-
-int RobotomyRequestForm ::GetGrade() const
-{
-	return _grade_sign ;
-}
-
-int RobotomyRequestForm ::  getGradeExecute()const
-{
-	return _grade_execute ;
-}
-
-int RobotomyRequestForm ::  getGradeSign()const
-{
-	return _grade_execute ;
-}
-
-	std::string RobotomyRequestForm::GetName(void)const
-{
-	return _name;
-}
-
 void RobotomyRequestForm ::execute(const Bureaucrat  &student)const
 {
 	this->Check_status(student);
@@ -66,4 +42,14 @@ void RobotomyRequestForm ::execute(const Bureaucrat  &student)const
 	//busyness logic to  do the thing asked???
 }
 
+std::string RobotomyRequestForm ::GetName (void)const
+{
+	return  Form::GetName();
+	//busyness logic to  do the thing asked???
+}
 
+std::ostream &operator<<(std::ostream &output, RobotomyRequestForm  const &user)
+{
+		output  << user.GetName() << user.GetGrade();
+		return (output);
+}

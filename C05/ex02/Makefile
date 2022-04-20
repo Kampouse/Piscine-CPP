@@ -1,6 +1,6 @@
 NAME = Bureaucrat
 FLAGS = -Wall -Wextra -Werror --std=c++98  -g  
-SRCS =  Bureaucrat.cpp main.cpp  Form.cpp RobotomyRequestForm.cpp
+SRCS =  Bureaucrat.cpp main.cpp  Form.cpp RobotomyRequestForm.cpp  ShrubberryCreation.cpp 
 
 RM =  rm -rf 
 .cpp.o:
@@ -20,6 +20,21 @@ run: all
 	 ./$(NAME) 3
 	@echo "--------------------------------------------------------"
 	 ./$(NAME) 4
+	@echo "--------------------------------------------------------"
+	 ./$(NAME) 5
+	@echo "--------------------------------------------------------"
+	 ./$(NAME) 7
+	@echo "--------------------------------------------------------"
+	 ./$(NAME) 8
+	@echo "--------------------------------------------------------"
+	@echo "assert that it does not work when not signed"
+	 ./$(NAME) 9
+
+
+
+
+
+
 
 
 clean:

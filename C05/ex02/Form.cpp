@@ -6,7 +6,7 @@
 /*   By: jemartel <jemartel@student.42quebec>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/18 07:12:28 by jemartel          #+#    #+#             */
-/*   Updated: 2022/04/20 06:31:31 by jemartel         ###   ########.fr       */
+/*   Updated: 2022/04/20 18:28:30 by jemartel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,12 @@ Form::Form(void):_grade_sign(1),_grade_execute(1)
 {
 	std::cout << "Constructor called" << std::endl;
 }
-Form::Form(std::string name,int grade):_name(name),_grade_sign(grade),_grade_execute(grade)
+Form::Form(std::string name,int grade_sign, int grade_excec):_name(name),_grade_sign(grade_sign),_grade_execute(grade_excec)
 {
-	GradeTooHigh(grade);
-	GradeTooLow(grade);
+	GradeTooHigh(grade_excec);
+	GradeTooLow(grade_excec);
+	GradeTooHigh(grade_sign );
+	GradeTooLow(grade_sign);
 	_signed = false;
 	std::cout << "Form was init" << std::endl;
 }
@@ -37,20 +39,20 @@ Form::Form(const Form &copy):_name(copy.GetName()),_grade_sign(copy.GetGrade()),
 
  const char *Form::GradeTooHightException::what() const throw()
 {
-	return ("Grade too  high in the form");
+	return ("Grade too  high in the form\n");
 }
 
 const char *Form::GradeTooLowException::what() const throw()
 {
-	return ("Grade too low in the  form");
+	return ("Grade too low in the form\n");
 }
 const char *Form::IsNotSigned::what() const throw()
 {
-	return ("not signed");
+	return ("not signed\n");
 }
 const char *Form::BadCredential::what() const throw()
 {
-	return ("wrong credential");
+	return ("wrong credential\n");
 }
 void  Form::GradeTooHigh(int grade)
 {

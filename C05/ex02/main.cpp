@@ -6,7 +6,7 @@
 /*   By: jemartel <jemartel@student.42quebec>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/16 17:25:16 by jemartel          #+#    #+#             */
-/*   Updated: 2022/04/20 06:33:20 by jemartel         ###   ########.fr       */
+/*   Updated: 2022/04/20 18:37:15 by jemartel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include "Bureaucrat.hpp"
 #include "Form.hpp"
 #include "cstring"
+#include <ostream>
 
 void grading(Bureaucrat *user, std::string str) {
   if (str == "inc")
@@ -30,7 +31,7 @@ int main(int argc, char *argv[]) {
   (void)argc;
   (void)argv;
 
-
+		
 		if (strcmp(argv[1],"1") == 0)
 		{
 			  Bureaucrat john("john", 150);
@@ -66,17 +67,119 @@ int main(int argc, char *argv[]) {
 		if (strcmp(argv[1],"5") == 0)
 		{
 			Bureaucrat *hello;
+			hello = NULL;
 			try
 			{
 				 hello  = new Bureaucrat("john", -100);
 			}	
 			catch(std::exception & e )
 			{
-
+				std::cerr  << e.what() << std::endl;
 			}
-			
-			
 			delete hello;
+
+		}
+		if (strcmp(argv[1],"6") == 0)
+		{
+			Bureaucrat *hello;
+			RobotomyRequestForm  *formed;
+
+				hello = NULL;
+				formed = NULL;
+			try
+			{
+				 formed = new RobotomyRequestForm("the only  bullshit");
+				 hello  = new Bureaucrat("john", -50);
+				hello->executeForm(*formed);
+				hello->SignForm(*formed);
+			}	
+			catch(std::exception & e )
+			{
+			std::cerr << e.what()  << std::endl;
+			}
+			std::cout << *formed  << std::endl;
+			delete hello;
+			delete formed;
+
+		}
+		/* correct shape */
+		if (strcmp(argv[1],"7") == 0)
+		{
+			Bureaucrat *hello;
+			RobotomyRequestForm  *formed;
+
+				hello = NULL;
+				formed = NULL;
+			try
+			{
+				hello  = new Bureaucrat("john", 1);
+				formed = new RobotomyRequestForm("the only  bullshit ");
+				hello->SignForm(*formed);
+				hello->executeForm(*formed);
+			}	
+			catch(std::exception & e )
+			{
+			std::cerr << e.what()  << std::endl;
+			}
+			delete hello;
+			delete formed;
+		}
+		if (strcmp(argv[1],"8") == 0)
+		{
+			Bureaucrat *hello;
+			RobotomyRequestForm  *formed;
+
+				hello = NULL;
+				formed = NULL;
+			try
+			{
+				hello  = new Bureaucrat("john", -100);
+				formed = new RobotomyRequestForm("the only  bullshit ");
+				hello->SignForm(*formed);
+				hello->executeForm(*formed);
+			}	
+			catch(std::exception & e )
+			{
+				delete hello;
+				delete formed;
+				std::cerr << e.what()  << std::endl;
+			}
+			delete hello;
+			delete formed;
+			return(0);
+		}
+		if (strcmp(argv[1],"9") == 0)
+		{
+			Bureaucrat *hello;
+			RobotomyRequestForm  *formed;
+
+				hello = NULL;
+				formed = NULL;
+			try
+			{
+				hello  = new Bureaucrat("john", 10);
+				formed = new RobotomyRequestForm("the only  bullshit ");
+			//	hello->SignForm(*formed);
+				hello->executeForm(*formed);
+			}	
+			catch(std::exception & e )
+			{
+			std::cerr << e.what()  << std::endl;
+				delete hello;
+				delete formed;
+				return(0);
+			}
+			delete hello;
+			delete formed;
+		}
+		if (strcmp(argv[1],"10") == 0)
+		{
+		// if you were too remove this  comment it will show that "formed" is abstract
+			//Form   formed;
+		}
+		if (strcmp(argv[1],"11") == 0)
+		{
+
 
 		}
 }

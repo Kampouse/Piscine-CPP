@@ -6,7 +6,7 @@
 /*   By: jemartel <jemartel@student.42quebec>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/17 15:58:41 by jemartel          #+#    #+#             */
-/*   Updated: 2022/04/20 06:42:16 by jemartel         ###   ########.fr       */
+/*   Updated: 2022/04/20 18:31:20 by jemartel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,15 +34,14 @@ Bureaucrat::~Bureaucrat(void)
 	std::cout << "Destructor called" << std::endl;
 }
 
-Bureaucrat::Bureaucrat(const Bureaucrat &copy)
+Bureaucrat::Bureaucrat(const Bureaucrat &copy):_name(copy._name),_grade(copy._grade)
 {
 	std::cout << "Copy constructor called" << std::endl;
-	this->_grade  = copy._grade;
-	
 }
 
-Bureaucrat::Bureaucrat(void):_name("default")
+Bureaucrat::Bureaucrat(void):_name("default"),_grade(1)
 {
+	std::cout << "default constructor called" << std::endl;
 }
 
 Bureaucrat	&Bureaucrat::operator = (const Bureaucrat &copy)
@@ -94,9 +93,10 @@ void Bureaucrat::GradeTooLow(int grade)
 
 void Bureaucrat::SignForm(Form  &exam)
 {
+
 	if (this->GetGrade() <= exam.GetGrade())
 	{
-		std::cout << "this form is being signed -> ";
+		std::cout << "this form is being signed ->" << exam << std::endl;
 		exam.BeSigned();
 	}
 	else
