@@ -6,7 +6,7 @@
 /*   By: jemartel <jemartel@student.42quebec>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/16 17:25:16 by jemartel          #+#    #+#             */
-/*   Updated: 2022/04/18 14:33:46 by jemartel         ###   ########.fr       */
+/*   Updated: 2022/04/20 05:15:45 by jemartel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ int main(int argc,char *argv[])
 		{
 			john = new Bureaucrat("john",100);			
 		}
-		catch(std::runtime_error &e )
+		catch(std::exception &e )
 		{
 			std::cerr << e.what();
 			delete john;
@@ -51,7 +51,7 @@ int main(int argc,char *argv[])
 		{
 			formed = new Form("the first day at school teste", 100);
 		}
-		catch(std::runtime_error &e )
+		catch(std::exception &e )
 		{
 			std::cerr << e.what();
 			delete formed;
@@ -69,7 +69,7 @@ int main(int argc,char *argv[])
 		{
 			john = new Bureaucrat("john",100);			
 		}
-		catch(std::runtime_error &e )
+		catch(std::exception &e )
 		{
 			std::cerr << e.what();
 			delete john;
@@ -78,7 +78,7 @@ int main(int argc,char *argv[])
 		{
 			formed = new Form("the last day at school ", 99);
 		}
-		catch(std::runtime_error &e )
+		catch(std::exception &e )
 		{
 			std::cerr << e.what();
 			delete formed;
@@ -96,9 +96,9 @@ int main(int argc,char *argv[])
 		{
 			john = new Bureaucrat("john",174);			
 		}
-		catch(std::runtime_error &e )
+		catch(std::exception &e )
 		{
-			std::cerr << e.what();
+			std::cerr << e.what()  << std::endl;
 			delete john;
 			return 0;
 		}
@@ -106,9 +106,9 @@ int main(int argc,char *argv[])
 		{
 			formed = new Form("the last day at school ", 99);
 		}
-		catch(std::runtime_error &e )
+		catch(std::exception &e )
 		{
-			std::cerr << e.what();
+			std::cerr << e.what() << std::endl;
 			delete formed;
 			delete john;
 			return 0;
@@ -124,9 +124,9 @@ int main(int argc,char *argv[])
 		{
 			john = new Bureaucrat("john",100);			
 		}
-		catch(std::runtime_error &e )
+		catch(std::exception &e )
 		{
-			std::cerr << e.what();
+			std::cerr << e.what() << std::endl;
 			delete john;
 			return 0;
 		}
@@ -134,9 +134,37 @@ int main(int argc,char *argv[])
 		{
 			formed = new Form("the last day at school ", -100);
 		}
-		catch(std::runtime_error &e )
+		catch(std::exception &e )
 		{
-			std::cerr << e.what();
+			std::cerr << e.what() << std::endl ;
+			delete formed;
+			delete john;
+			return 0;
+		}
+		john->SignForm(*formed);
+		std::cout << *formed << std::endl;
+		delete john;
+		delete formed;
+	}
+	if (strcmp(argv[1],"5") == 0)
+	{
+		try
+		{
+			john = new Bureaucrat("john",20);
+		}
+		catch(std::exception &e )
+		{
+			std::cerr << e.what() << std::endl;
+			delete john;
+			return 0;
+		}
+		try
+		{
+			formed = new Form("the last day at school ", 30);
+		}
+		catch(std::exception &e )
+		{
+			std::cerr << e.what() << std::endl ;
 			delete formed;
 			delete john;
 			return 0;

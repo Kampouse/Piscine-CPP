@@ -26,7 +26,10 @@ clean:
 
 	    ${RM} ${OBJS}	
 val:
+	valgrind   --track-origins=yes -s --trace-children=yes ./$(NAME) 1
 	valgrind   --track-origins=yes -s --trace-children=yes ./$(NAME) 2
+	valgrind   --track-origins=yes -s --trace-children=yes ./$(NAME) 3
+	valgrind   --track-origins=yes -s --trace-children=yes ./$(NAME) 4
 git:
 		@git add ${SRCS} Makefile
 fclean: clean

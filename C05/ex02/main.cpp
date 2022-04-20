@@ -6,7 +6,7 @@
 /*   By: jemartel <jemartel@student.42quebec>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/16 17:25:16 by jemartel          #+#    #+#             */
-/*   Updated: 2022/04/19 17:19:44 by jemartel         ###   ########.fr       */
+/*   Updated: 2022/04/20 06:33:20 by jemartel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 #include "Bureaucrat.hpp"
 #include "Form.hpp"
 #include "cstring"
-#include <stdexcept>
 
 void grading(Bureaucrat *user, std::string str) {
   if (str == "inc")
@@ -69,13 +68,12 @@ int main(int argc, char *argv[]) {
 			Bureaucrat *hello;
 			try
 			{
-				 *hello  = new Bureaucrat("john", -100);
+				 hello  = new Bureaucrat("john", -100);
 			}	
-			catch(std::runtime_error e &)
+			catch(std::exception & e )
 			{
 
 			}
-			
 			
 			
 			delete hello;

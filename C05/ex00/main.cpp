@@ -6,7 +6,7 @@
 /*   By: jemartel <jemartel@student.42quebec>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/16 17:25:16 by jemartel          #+#    #+#             */
-/*   Updated: 2022/04/19 17:25:24 by jemartel         ###   ########.fr       */
+/*   Updated: 2022/04/20 05:12:44 by jemartel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,12 +31,11 @@ void  grading(Bureaucrat *user,std::string str)
 
 int main(int argc,char *argv[])
 {
-Bureaucrat *john = NULL;
-Bureaucrat *steph = NULL;
-(void)argc;
-	if(argc != 2)
+	Bureaucrat *john = NULL;
+	Bureaucrat *steph = NULL;
+	(void)argc;
+	if (argc != 2)
 		return 0;
-
 	if (strcmp(argv[1],"1") == 0)
 	{
 		try
@@ -46,9 +45,9 @@ Bureaucrat *steph = NULL;
 		}
 		catch(std::exception & e)
 		{
+			std::cerr << e.what() << std::endl;
 			delete john;
 			delete steph;
-				std::cerr << e.what() << std::endl;
 				return (1);
 		}
 		try
@@ -111,7 +110,6 @@ Bureaucrat *steph = NULL;
 		{
 			delete john;
 			delete steph;
-
 				std::cerr << e.what() << std::endl;
 				return 0;
 		}

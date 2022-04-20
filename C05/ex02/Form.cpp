@@ -6,7 +6,7 @@
 /*   By: jemartel <jemartel@student.42quebec>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/18 07:12:28 by jemartel          #+#    #+#             */
-/*   Updated: 2022/04/19 13:28:48 by jemartel         ###   ########.fr       */
+/*   Updated: 2022/04/20 06:31:31 by jemartel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ Form::Form(void):_grade_sign(1),_grade_execute(1)
 }
 Form::Form(std::string name,int grade):_name(name),_grade_sign(grade),_grade_execute(grade)
 {
-	GradeTooHighException(grade);
-	GradeTooLowException(grade);
+	GradeTooHigh(grade);
+	GradeTooLow(grade);
 	_signed = false;
 	std::cout << "Form was init" << std::endl;
 }
@@ -35,17 +35,32 @@ Form::Form(const Form &copy):_name(copy.GetName()),_grade_sign(copy.GetGrade()),
 	std::cout << "copy called" << std::endl;
 }
 
-void Form::GradeTooHighException(int grade)
+ const char *Form::GradeTooHightException::what() const throw()
 {
-		if( grade < 0)
-		 throw std::runtime_error("Grade is too hight\n");
-
+	return ("Grade too  high in the form");
 }
 
-void Form::GradeTooLowException(int grade)
+const char *Form::GradeTooLowException::what() const throw()
 {
-		if(grade > 150)
-			 throw std::runtime_error("Grade tooo low\n");
+	return ("Grade too low in the  form");
+}
+const char *Form::IsNotSigned::what() const throw()
+{
+	return ("not signed");
+}
+const char *Form::BadCredential::what() const throw()
+{
+	return ("wrong credential");
+}
+void  Form::GradeTooHigh(int grade)
+{
+		if (grade < 1)
+			throw GradeTooHightException();
+}
+void  Form::GradeTooLow(int grade)
+{
+		if (grade > 150)
+			throw GradeTooHightException();
 }
 
 void Form::BeSigned(void)
@@ -86,16 +101,15 @@ Form	&Form::operator = (const Form &copy)
 
 void Form::Check_status( Bureaucrat const &student)const
 {
-	if( this->getGradeExecute() >= student.GetGrade() && this->getGradeSign() >= student.GetGrade())
-
+	if ( this->getGradeExecute() >= student.GetGrade() && this->getGradeSign() >= student.GetGrade())
 	{
 			if(this->IsSigned() == true)
 				return;
 			else
-				throw std::runtime_error ("not even signed\n");
+				throw IsNotSigned();
 	}
 	else 
-		throw std::runtime_error("the Bureaucrat either does not have the credantial or the form is not signed\n");
+		throw BadCredential();
 }
 
 std::ostream &operator<<(std::ostream &output, Form const &user)

@@ -4,8 +4,22 @@
 # include <iostream>
 # include "Form.hpp"
 
+
+
 class Bureaucrat
 {
+	class GradeTooHightException : public std::exception 
+	{
+				public :
+					virtual const char* what() const throw();
+	};
+
+	class GradeTooLowException: public std::exception 
+	{
+				public :
+					virtual const char* what() const throw();
+	};
+
 	private:
 		const std::string _name;
 		int _grade;
@@ -21,10 +35,12 @@ class Bureaucrat
 		void IncrementGrade(void);
 		void DecrimentGrade(void);
 		void SignForm(Form  &exam);
-	const std::string GetName(void)const;
+		const std::string GetName(void)const;
 		Bureaucrat	&operator = (const Bureaucrat &copy);
-
 };
+
+
+
 
 std::ostream &operator<<(std::ostream &output, Bureaucrat const &Bureaucrat);
 #endif

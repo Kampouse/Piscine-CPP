@@ -4,6 +4,18 @@
 
 class Form
 {
+	class GradeTooHightException : public std::exception 
+	{
+				public :
+					virtual const char* what() const throw();
+	};
+
+	class GradeTooLowException: public std::exception 
+	{
+				public :
+					virtual const char* what() const throw();
+	};
+
 	private:
 	const std::string _name;
 	bool _signed;
@@ -20,11 +32,11 @@ class Form
 		std::string GetName(void)const;
 		bool IsSigned(void);
 		void BeSigned(void);
-		void GradeTooHighException(int grade);
-		void GradeTooLowException(int grade);
+		void GradeTooHigh(int grade);
+		void GradeTooLow(int grade);
+
 };
 
 std::ostream &operator<<(std::ostream &output, Form const &Form);
-
 
 #endif

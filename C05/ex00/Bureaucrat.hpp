@@ -1,28 +1,20 @@
 #ifndef BUREAUCRAT_HPP
 # define BUREAUCRAT_HPP
-
 # include <iostream>
-#include <type_traits>
 
 class Bureaucrat
 {
 	class GradeTooHightException : public std::exception 
 	{
-				public :
-					virtual const char* what() const throw();
-
+		public :
+				virtual const char* what() const throw();
 	};
 
 	class GradeTooLowException: public std::exception 
 	{
-				public :
-					virtual const char* what() const throw();
-				
-
+		public :
+				virtual const char* what() const throw();
 	};
-
-
-
 
 	private:
 		const std::string _name;
@@ -41,6 +33,6 @@ class Bureaucrat
 	const std::string GetName(void)const;
 		Bureaucrat	&operator = (const Bureaucrat &copy);
 };
-
 std::ostream &operator<<(std::ostream &output, Bureaucrat const &Bureaucrat);
+
 #endif

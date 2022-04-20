@@ -1,6 +1,6 @@
 #include "Form.hpp"
+#include "Bureaucrat.hpp"
 #include "RobotomyRequestForm.hpp"
-#include <sys/stdio.h>
 
 RobotomyRequestForm::RobotomyRequestForm():_grade_sign(72),_grade_execute(45),_name("NO-name-Form")
 {
@@ -15,7 +15,7 @@ RobotomyRequestForm::~RobotomyRequestForm(void)
 	std::cout << "Destructor called" << std::endl;
 }
 
-RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &copy):_grade_sign(72),_grade_execute(45)
+RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &copy):Form(),_grade_sign(72),_grade_execute(45)
 {
 	std::cout << "Copy constructor called" << std::endl;
 	this->_signed = copy._signed;
@@ -58,11 +58,11 @@ int RobotomyRequestForm ::  getGradeSign()const
 	return _name;
 }
 
-void RobotomyRequestForm ::execute(Bureaucrat const &student)const
+void RobotomyRequestForm ::execute(const Bureaucrat  &student)const
 {
 	this->Check_status(student);
-	std::cout << student << " executed "<< GetName() << std::endl;
-	std::cout << "hello";
+	std::cout <<  student << std::endl;
+	std::cout << "should do the good thing if this work" << std::endl;
 	//busyness logic to  do the thing asked???
 }
 

@@ -6,7 +6,7 @@
 /*   By: jemartel <jemartel@student.42quebec>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/17 15:58:41 by jemartel          #+#    #+#             */
-/*   Updated: 2022/04/19 17:23:01 by jemartel         ###   ########.fr       */
+/*   Updated: 2022/04/20 04:16:31 by jemartel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,6 @@ Bureaucrat::Bureaucrat(std::string name,int grade):_name(name)
 		GradeTooLow(grade);
 		_grade = grade;
 	std::cout << "Bureaucrat is now born\n";
-}
-
-void Bureaucrat::GradeTooLow(int grade)
-{
-		if( grade > 150)
-	{
-        throw std::runtime_error("grade too low\n");
-	}
 }
 
 const std::string Bureaucrat::GetName(void) const
@@ -51,7 +43,6 @@ Bureaucrat::Bureaucrat(const Bureaucrat &copy)
 
 Bureaucrat::Bureaucrat(void):_name("default")
 {
-
 }
 
 Bureaucrat	&Bureaucrat::operator = (const Bureaucrat &copy)
@@ -75,7 +66,7 @@ void Bureaucrat::DecrimentGrade(void)
 		std::cout << GetName() <<  ": grade Decriment  grade is now at:" << _grade << "\n";
 }
 
-const char *Bureaucrat::GradeTooHightException::what() const throw()
+ const char *Bureaucrat::GradeTooHightException::what() const throw()
 {
 	return ("Grade too high");
 }
@@ -85,20 +76,24 @@ const char *Bureaucrat::GradeTooLowException::what() const throw()
 	return ("Grade too low");
 }
 
-
 std::ostream &operator<<(std::ostream &output, Bureaucrat const &user)
 {
 		output  << user.GetName() << " : " << user.GetGrade() << std::endl;
-		return(output);
+		return (output);
 }
 void Bureaucrat::GradeTooHight(int grade)
 {
-	
-		if( grade < 1)
+		if ( grade < 1)
 	{
-		throw 	Bureaucrat::GradeTooLowException::exception();
-
+		 throw Bureaucrat::GradeTooHightException();
 	}
 }
 
+void Bureaucrat::GradeTooLow(int grade)
+{
+		if( grade > 150)
+	{
+		throw Bureaucrat::GradeTooLowException();
+	}
+}
 
