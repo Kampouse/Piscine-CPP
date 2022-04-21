@@ -6,7 +6,7 @@
 /*   By: jemartel <jemartel@student.42quebec>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/18 07:12:28 by jemartel          #+#    #+#             */
-/*   Updated: 2022/04/20 18:28:30 by jemartel         ###   ########.fr       */
+/*   Updated: 2022/04/20 22:10:28 by jemartel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,7 +96,7 @@ std::string Form::GetName(void)const
 }
 Form	&Form::operator = (const Form &copy)
 {
-	std::cout << " Cat Assignation operator called" << std::endl;
+	std::cout <<  "Form Assignation operator called" << std::endl;
 	this->_signed =  copy._signed;
 		return (*this);
 }

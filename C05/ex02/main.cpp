@@ -6,7 +6,7 @@
 /*   By: jemartel <jemartel@student.42quebec>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/16 17:25:16 by jemartel          #+#    #+#             */
-/*   Updated: 2022/04/20 18:37:15 by jemartel         ###   ########.fr       */
+/*   Updated: 2022/04/20 22:24:12 by jemartel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -174,11 +174,39 @@ int main(int argc, char *argv[]) {
 		}
 		if (strcmp(argv[1],"10") == 0)
 		{
+			RobotomyRequestForm  *formed = new RobotomyRequestForm("the only one");
+			RobotomyRequestForm  *formedcopy = new RobotomyRequestForm(*formed);
+			delete formedcopy;
+			delete formed;
 		// if you were too remove this  comment it will show that "formed" is abstract
 			//Form   formed;
 		}
 		if (strcmp(argv[1],"11") == 0)
 		{
+			Bureaucrat *hello;
+			RobotomyRequestForm  *formed;
+
+				hello = NULL;
+				formed = NULL;
+			try
+			{
+				hello  = new Bureaucrat("john", 10);
+				formed = new RobotomyRequestForm("the only  bullshit ");
+				hello->SignForm(*formed);
+				hello->executeForm(*formed);
+			}	
+			catch(std::exception & e )
+			{
+				delete hello;
+				delete formed;
+				std::cerr << e.what()  << std::endl;
+			}
+			delete hello;
+			delete formed;
+			return(0);
+
+
+
 
 
 		}

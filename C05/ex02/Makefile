@@ -1,6 +1,6 @@
 NAME = Bureaucrat
 FLAGS = -Wall -Wextra -Werror --std=c++98  -g  
-SRCS =  Bureaucrat.cpp main.cpp  Form.cpp RobotomyRequestForm.cpp  ShrubberryCreation.cpp 
+SRCS =  Bureaucrat.cpp main.cpp  Form.cpp RobotomyRequestForm.cpp  ShrubberyCreationForm.cpp PresidentPardonForm.cpp
 
 RM =  rm -rf 
 .cpp.o:
@@ -12,30 +12,10 @@ CC = c++
 all: ${NAME}
 ${NAME}:${OBJS} 
 		${CC} ${OBJS} ${FLAGS}   -o ${NAME}
+	
+NUMBERS = 1 2 3 4 5 6 7 8 9 10 11
 run: all
-	 ./$(NAME) 1
-	@echo "--------------------------------------------------------"
-	 ./$(NAME) 2
-	@echo "--------------------------------------------------------"
-	 ./$(NAME) 3
-	@echo "--------------------------------------------------------"
-	 ./$(NAME) 4
-	@echo "--------------------------------------------------------"
-	 ./$(NAME) 5
-	@echo "--------------------------------------------------------"
-	 ./$(NAME) 7
-	@echo "--------------------------------------------------------"
-	 ./$(NAME) 8
-	@echo "--------------------------------------------------------"
-	@echo "assert that it does not work when not signed"
-	 ./$(NAME) 9
-
-
-
-
-
-
-
+	@$(foreach var,$(NUMBERS),./$(NAME) $(var); echo $(var) "--------------------------------------------------------";)
 
 clean:
 

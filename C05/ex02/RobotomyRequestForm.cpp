@@ -18,27 +18,36 @@ RobotomyRequestForm::~RobotomyRequestForm(void)
 	std::cout << "Destructor called" << std::endl;
 }
 
-void RobotomyRequestForm::action()
+void RobotomyRequestForm::action()const
 {
-	std::cout << "Destructor called" << std::endl;
+	std::srand(time(NULL));
+	int  random = std::rand()  % 100; 
+	std::cout << "RobotomyRequestForm as been excuted..." << std::endl;
+	std::cout << " brrrrrrrrrrrrrrrrrr..." << std::endl;
+	if(random  >= 50)
+		std::cout << "i am a robot..." << std::endl;
+	else
+		std::cout << "failed to initialise the zig stage 3 compiler... YOUR ARE NOT A ROBOT" << std::endl;
 }
 RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &copy):Form(copy)
 {
-	std::cout << "Copy constructor called" << std::endl;
+	std::cout << "RobotomyRequestForm  copy called" << std::endl;
 	*this = copy;
 }
 
 RobotomyRequestForm	&RobotomyRequestForm::operator = (const RobotomyRequestForm &copy)
 {
-	std::cout << "Assignation operator called" << std::endl;
+	std::cout << "RobotomyRequestForm Assignation operator called" << std::endl;
 		Form::operator=(copy);
 	return (*this);
 }
 void RobotomyRequestForm ::execute(const Bureaucrat  &student)const
 {
+
 	this->Check_status(student);
 	std::cout <<  student << std::endl;
 	std::cout << "should do the good thing if this work" << std::endl;
+	this->action();
 	//busyness logic to  do the thing asked???
 }
 

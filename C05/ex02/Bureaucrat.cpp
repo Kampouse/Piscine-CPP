@@ -6,7 +6,7 @@
 /*   By: jemartel <jemartel@student.42quebec>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/17 15:58:41 by jemartel          #+#    #+#             */
-/*   Updated: 2022/04/20 18:31:20 by jemartel         ###   ########.fr       */
+/*   Updated: 2022/04/20 22:53:22 by jemartel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,7 +113,7 @@ void Bureaucrat::executeForm(Form const & exam)
 	{
 		std::cerr << e.what(); return;
 	}
-		exam.execute(*this);
+		exam.action();
 }
 
 std::ostream &operator<<(std::ostream &output,  Bureaucrat const  &user)
