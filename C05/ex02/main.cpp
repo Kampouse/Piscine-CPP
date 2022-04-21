@@ -6,7 +6,7 @@
 /*   By: jemartel <jemartel@student.42quebec>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/16 17:25:16 by jemartel          #+#    #+#             */
-/*   Updated: 2022/04/20 22:24:12 by jemartel         ###   ########.fr       */
+/*   Updated: 2022/04/20 23:47:13 by jemartel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -190,7 +190,7 @@ int main(int argc, char *argv[]) {
 				formed = NULL;
 			try
 			{
-				hello  = new Bureaucrat("john", 10);
+				hello  = new Bureaucrat("john", 40);
 				formed = new RobotomyRequestForm("the only  bullshit ");
 				hello->SignForm(*formed);
 				hello->executeForm(*formed);

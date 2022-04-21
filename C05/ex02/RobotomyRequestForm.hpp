@@ -6,25 +6,23 @@
 
 class RobotomyRequestForm :public Form 
 {
-	private:
-		const int _grade_sign;	
-		const int _grade_execute;	
-		const std::string _name;	
-		bool _signed;
+
+
 	public:
-		bool IsSigned()const;
-		int getGradeSign()const;
-		int getGradeExecute()const;
-
-		void BeSigned();
-		int GetGrade() const;
-
 		void execute(Bureaucrat const & executeted)const;
 		std::string GetName(void)const;
 		RobotomyRequestForm(void);
 		RobotomyRequestForm(std::string name);
+		void action()const;
 		~RobotomyRequestForm(void);
 		RobotomyRequestForm(const RobotomyRequestForm &copy);
 		RobotomyRequestForm	&operator = (const RobotomyRequestForm &copy);
 };
+
+std::ostream &operator<<(std::ostream &output, RobotomyRequestForm const &Form);
+
 #endif
+
+
+
+

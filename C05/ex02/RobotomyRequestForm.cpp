@@ -29,6 +29,7 @@ void RobotomyRequestForm::action()const
 	else
 		std::cout << "failed to initialise the zig stage 3 compiler... YOUR ARE NOT A ROBOT" << std::endl;
 }
+
 RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &copy):Form(copy)
 {
 	std::cout << "RobotomyRequestForm  copy called" << std::endl;

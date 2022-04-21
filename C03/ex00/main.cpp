@@ -30,14 +30,9 @@ int main(void)
 			if(red.getHp() == 0 || Krampe.getHp() == 0)
 				break;
 			if(red.getHp() < 5)
-				{
 					red.beRepaired(rand() % 5);
-
-				}
 			if(Krampe.getHp() < 5)
-				{
 					Krampe.beRepaired(rand() % 5);
-				}
 	}
 		if(red.getHp() == 0 || red.getEnergy() == 0)
 		{
@@ -51,8 +46,10 @@ int main(void)
 			std::cout <<"had  HP :" << Krampe.getHp() << "\n";
 			std::cout <<"had  Energy :" << Krampe.getEnergy() << "\n";
 		}
-	std::cout  << "other test -------\n";
-	std::cout  << "variable |red|" << red.getAtackDmg() << " | " << red.getEnergy()<< " | " << red.getName() << "\n";
+	std::cout  << "other test ---------------------------\n";
 	red = Krampe;
-	std::cout  << "variable |red|" << red.getAtackDmg() << " | " << red.getEnergy()<< " | " << red.getName() << "\n";
+	ClapTrap  copyed(red);
+	std::cout << red;
+	std::cout << Krampe;
+	std::cout << copyed;
 }

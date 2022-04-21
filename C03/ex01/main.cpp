@@ -23,6 +23,7 @@ int main(void)
 	kio->guardGate();
 
 
+	std::cout << *krampe ;
 	std::cout << "before" << kio->getName() << std::endl;
 	*kio = *krampe;
 	std::cout << "after" <<	kio->getName() << std::endl;

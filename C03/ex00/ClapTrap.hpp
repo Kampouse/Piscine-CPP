@@ -28,7 +28,6 @@ class ClapTrap
 		void setEnergy(int numb);
 		void setAtackDmg(int numb);
 		ClapTrap	&operator = (const ClapTrap &copy);
-
 };
-
+std::ostream &operator<<(std::ostream &output, ClapTrap  const &FixedPoint);
 #endif

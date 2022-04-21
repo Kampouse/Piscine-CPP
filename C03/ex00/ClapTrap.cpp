@@ -6,7 +6,7 @@
 /*   By: jemartel <jemartel@student.42quebec>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/08 21:01:06 by jemartel          #+#    #+#             */
-/*   Updated: 2022/04/15 13:44:22 by jemartel         ###   ########.fr       */
+/*   Updated: 2022/04/21 19:40:12 by jemartel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,7 @@ ClapTrap::~ClapTrap(void)
 
 ClapTrap::ClapTrap(const ClapTrap &copy)
 {
-
-	std::cout << "clap trap copy" << std::endl;
+	std::cout << "------->>>clap trap copy" << std::endl;
 	_Attack_dmg =  copy.getAtackDmg();
 	_name = copy.getName();
 	_Energy =  copy.getEnergy();
@@ -131,4 +130,12 @@ unsigned int ClapTrap::getAtackDmg(void)const
 	std::string ClapTrap::getName(void)const
 {
 		return _name;
+}
+
+std::ostream &operator<<(std::ostream &output, ClapTrap  const &elem )
+{
+	std::cout <<  "name: " << elem.getName () << " Energy :" << elem.getEnergy() << " has an healt of: " << elem.getHp () << " attack dmg: " <<  elem.getAtackDmg()<< std::endl;
+
+	return(output);
+
 }
