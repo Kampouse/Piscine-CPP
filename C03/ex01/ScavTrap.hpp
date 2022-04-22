@@ -16,5 +16,4 @@ class ScavTrap : public virtual   ClapTrap
 		void takeDamage(unsigned int dmg);
 		void beRepaired(unsigned int amount);
 };
-std::ostream &operator<<(std::ostream &output, ClapTrap  const &elem );
 #endif

@@ -6,7 +6,7 @@ RM =  rm -rf
 	@c++ ${FLAGS}  -c $< -o ${<:.cpp=.o}
 
 OBJS = ${SRCS:.cpp=.o}
-CC = g++
+CC = c++
 
 all: ${NAME}
 ${NAME}:${OBJS} 

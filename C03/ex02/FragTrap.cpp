@@ -26,10 +26,10 @@ FragTrap::~FragTrap(void)
 	if(getEnergy()  > 0)
 	{
 		this->setEnergy(getEnergy() - 1);
-		std::cout << " FragTrap " << this->getName()  << " attack " << target  << std::endl;
+		std::cout << " FragTrap " << this->getName()  << " attack " << target  << this->getAtackDmg() << std::endl;
 	}
 	else
-		std::cout << " FragTrap " << this->getName()  << " is too weak to attack ;( " << target  << std::endl;
+		std::cout << " FragTrap " << this->getName()  << " is too low in term of Energy  ;( " << target  << std::endl;
 }
 
 FragTrap	&FragTrap::operator = (const FragTrap &copy)
@@ -44,13 +44,13 @@ FragTrap	&FragTrap::operator = (const FragTrap &copy)
 
 void FragTrap::takeDamage(unsigned int dmg)
 {
-		std::cout << "FragTrap "  << getName()<< " was hit "<<  " causing  of " << dmg << " lost healt with energy left -> " << getEnergy() <<  "\n";
 		if(getHp() == 0)		
 			return;
 		else if (getHp() < dmg )		
 			setHp(0);
 		else		
 			setHp(getHp() - dmg);
+		std::cout << "FragTrap "  << getName()<< " was hit "<<  " causing  of " << dmg << " lost healt with healt left of -> " << getHp() <<  "\n";
 }
 
 		void FragTrap:: beRepaired(unsigned int amount)
@@ -61,19 +61,23 @@ void FragTrap::takeDamage(unsigned int dmg)
 				return;
 			else if(getHp() + amount  > getMaxHealt())	
 			{
-				std::cout << "FragTrap "  
-				<< getName() << "has heal of "  << getMaxHealt() - amount <<  "\n";
 				setHp(getMaxHealt());
 				setEnergy(getEnergy() - 1);
+				std::cout << "FragTrap "  
+				<< getName() << "has heal of "  << getMaxHealt() - amount <<  "\n";
+
+
 				return ;
 			}
 			else
 		{
-			std::cout << "FragTrap "  << getName()<< "has heal of "  <<  amount <<  "\n";
 			setHp(getHp() +  amount);
 			setEnergy(getEnergy() - 1);
+			std::cout << "FragTrap "  << getName()<< "has heal of "  <<  amount <<  "\n";
 		}
 	}
+	else
+			std::cout << "FragTrap " << getName() <<  "is either too low in healt or in Energy" << std::endl;
 }
 
 FragTrap::FragTrap(const FragTrap &copy)

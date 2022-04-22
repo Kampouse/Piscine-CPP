@@ -30,16 +30,9 @@ class ClapTrap
 		void setAtackDmg(int numb);
 		void setName(std::string name);
 		unsigned int getMaxHealt(void)const;
-
-
-
-
-
-
-
-
 		ClapTrap	&operator = (const ClapTrap &copy);
-
 };
+
+std::ostream &operator<<(std::ostream &output, ClapTrap  const &elem );
 
 #endif

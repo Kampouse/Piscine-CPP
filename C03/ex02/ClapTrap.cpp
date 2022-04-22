@@ -6,7 +6,7 @@
 /*   By: jemartel <jemartel@student.42quebec>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/08 21:01:06 by jemartel          #+#    #+#             */
-/*   Updated: 2022/04/14 15:03:14 by jemartel         ###   ########.fr       */
+/*   Updated: 2022/04/22 16:07:31 by jemartel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -137,4 +137,10 @@ unsigned int ClapTrap::getAtackDmg(void)const
  unsigned int ClapTrap::getMaxHealt(void)const
 {
 	return (ClapTrap::_max_healt);
+}
+
+std::ostream &operator<<(std::ostream &output, ClapTrap  const &elem )
+{
+	std::cout <<  "name: " << elem.getName () << " Energy :" << elem.getEnergy() << " has an healt of: " << elem.getHp () << " attack dmg: " <<  elem.getAtackDmg()<< std::endl;
+	return (output);
 }

@@ -10,23 +10,20 @@ void fight(ScavTrap &atker, ScavTrap &victim)
 	victim.takeDamage(atker.getAtackDmg());
 }
 
-
 int main(void)
 {
 	ScavTrap *kio =  new ScavTrap("kio");
 	ScavTrap *krampe =   new ScavTrap("tata");
-	
-	while(krampe->getHp() > 0)
-	{
+	while (krampe->getHp() > 0)
 		fight(*kio,*krampe);
-	}
 	kio->guardGate();
-
-
-	std::cout << *krampe ;
-	std::cout << "before" << kio->getName() << std::endl;
+	kio->guardGate();
+	std::cout << "other test ---------" << std::endl;
+	std::cout << *kio ;
 	*kio = *krampe;
-	std::cout << "after" <<	kio->getName() << std::endl;
+	ScavTrap *copyed = new ScavTrap(*kio); 
+	std::cout <<"- copyed item - "<< *copyed ;
 	delete kio;
+	delete copyed;
 	delete krampe;
 }

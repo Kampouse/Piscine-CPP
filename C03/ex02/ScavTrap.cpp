@@ -6,7 +6,7 @@
 /*   By: jemartel <jemartel@student.42quebec>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/15 14:25:41 by jemartel          #+#    #+#             */
-/*   Updated: 2022/04/15 14:25:42 by jemartel         ###   ########.fr       */
+/*   Updated: 2022/04/22 15:47:50 by jemartel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ ScavTrap	&ScavTrap::operator = (const ScavTrap &copy)
 {
 	std::cout << " Assignation operator called " << std::endl;
 	this->setAtackDmg(copy.getAtackDmg());
-	this->getName(copy.getName());
+	this->getName();
 	this->setEnergy(   copy.getEnergy());
 	this->setHp(   copy.getHp());
 	return (*this);

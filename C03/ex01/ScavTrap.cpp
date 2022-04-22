@@ -22,10 +22,10 @@ ScavTrap::~ScavTrap(void)
 
 	void ScavTrap::attack(const std::string& target)
 {
-	if(getEnergy()  > 0)
+	if (getEnergy()  > 0)
 	{
 		this->setEnergy(getEnergy() - 1);
-		std::cout << " ScavTrap " << this->getName()  << " attack " << target  << std::endl;
+		std::cout << " ScavTrap " << this->getName()  << " attack " << target  << " causing damage of " << this->getAtackDmg() << std::endl;
 	}
 	else
 		std::cout << " ScavTrap " << this->getName()  << " is too weak to attack ;( " << target  << std::endl;
@@ -34,11 +34,12 @@ ScavTrap::~ScavTrap(void)
 ScavTrap::ScavTrap(const ScavTrap &copy)
 {
 
-	std::cout << "clap trap copy" << std::endl;
+	std::cout << "ScavTrap copy" << std::endl;
 	_Attack_dmg =  copy.getAtackDmg();
 	_name = copy.getName();
 	_Energy =  copy.getEnergy();
 	_Hp =  copy.getHp();
+
 }
 
 ScavTrap	&ScavTrap::operator = (const ScavTrap &copy)
@@ -52,13 +53,13 @@ ScavTrap	&ScavTrap::operator = (const ScavTrap &copy)
 }
 void ScavTrap:: takeDamage(unsigned int dmg)
 {
-		std::cout << "ScavTrap "  << getName()<< " was hit "<<  " causing  of " << dmg << " lost healt with energy left -> " << getEnergy() <<  "\n";
 		if(getHp() == 0)		
 			return;
 		else if (getHp() < dmg )		
 			setHp(0);
 		else		
 			setHp(getHp() - dmg);
+		std::cout << "ScavTrap "  << getName()<< " was hit "<<  " causing  of " << dmg << " has now a healt -> " << getHp() <<  "\n";
 }
 
 		void ScavTrap:: beRepaired(unsigned int amount)
@@ -70,7 +71,7 @@ void ScavTrap:: takeDamage(unsigned int dmg)
 			else if(getHp() + amount  > getMaxHealt())	
 			{
 				std::cout << "ScavTrap "  
-				<< getName() << "has heal of "  << getMaxHealt() - amount <<  "\n";
+				<< getName() << "has heal of " << getMaxHealt() - amount <<  "\n";
 				setHp(getMaxHealt());
 				setEnergy(getEnergy() - 1);
 				return ;
@@ -83,7 +84,6 @@ void ScavTrap:: takeDamage(unsigned int dmg)
 		}
 	}
 }
-
 	void ScavTrap::guardGate()
 {
 	std::cout << " ScavTrap now in --> gate keeper mode \n";

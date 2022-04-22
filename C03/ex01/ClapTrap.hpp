@@ -31,17 +31,9 @@ class ClapTrap
 		void setEnergy(int numb);
 		void setAtackDmg(int numb);
 		void setName(std::string name);
-
-
-
-
-
-
-
-
-
 		ClapTrap	&operator = (const ClapTrap &copy);
 
 };
+std::ostream &operator<<(std::ostream &output, ClapTrap  const &elem );
 
 #endif

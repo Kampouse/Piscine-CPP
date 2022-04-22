@@ -6,11 +6,12 @@
 /*   By: jemartel <jemartel@student.42quebec>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/15 14:28:12 by jemartel          #+#    #+#             */
-/*   Updated: 2022/04/15 14:28:14 by jemartel         ###   ########.fr       */
+/*   Updated: 2022/04/22 16:59:34 by jemartel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "DiamondTrap.hpp"
+#include "ScavTrap.hpp"
 
 DiamondTrap::DiamondTrap(void)
 {
@@ -19,10 +20,10 @@ DiamondTrap::DiamondTrap(void)
 DiamondTrap::DiamondTrap(std::string name):ClapTrap(name + "_clap_name"),ScavTrap(name + "_clap_name")
 {
 	std::cout << "Diamond called" << std::endl;
-	setName(name); 
 	this->_Hp = FragTrap::getHp();
 	this->_Energy = ScavTrap::getEnergy();
 	this->_Attack_dmg = FragTrap::getAtackDmg();
+	this->_name = ClapTrap::getName();
 }
 
 DiamondTrap::~DiamondTrap(void)
@@ -40,7 +41,10 @@ std::string DiamondTrap::getName(void) const
 {
 	return(this->_name);
 }
-
+void DiamondTrap::setName(std::string name) 
+{
+	this->_name  = name;
+}
 
 void DiamondTrap::whoAmI(void)
 {
@@ -85,7 +89,7 @@ void DiamondTrap:: takeDamage(unsigned int dmg)
 
 void DiamondTrap::attack(std::string name)
 {
-	ClapTrap::attack(name);
+	ScavTrap::attack(name);
 }
 
 DiamondTrap	&DiamondTrap::operator = (const DiamondTrap &copy)
