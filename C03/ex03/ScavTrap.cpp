@@ -6,7 +6,7 @@
 /*   By: jemartel <jemartel@student.42quebec>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/15 14:26:15 by jemartel          #+#    #+#             */
-/*   Updated: 2022/04/15 14:26:17 by jemartel         ###   ########.fr       */
+/*   Updated: 2022/04/23 21:49:49 by jemartel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,10 @@
 
 ScavTrap::ScavTrap(void)
 {
-	std::cout << "Constructor called" << std::endl;
-	std::cout << "ScavTrap Constructor called" << std::endl;
+	this->setEnergy(50);
+	this->setHp(100);
+	this->setAtackDmg(20);
+	std::cout << "ScavTrap what Constructor called" << std::endl;
 }
 
 ScavTrap::ScavTrap(std::string name)
@@ -43,7 +45,12 @@ ScavTrap::~ScavTrap(void)
 		std::cout << " ScavTrap " << this->getName()  << " is too weak to attack ;( " << target  << std::endl;
 }
 
-ScavTrap	&ScavTrap::operator = (const ScavTrap &copy)
+ScavTrap::ScavTrap( ScavTrap const &copy )
+{
+	std::cout << "Copy constructor called" << std::endl;
+	*this = copy;
+}
+ScavTrap	&ScavTrap::operator = ( ScavTrap const &copy)
 {
 	std::cout << " Assignation operator called " << std::endl;
 	this->setAtackDmg(copy.getAtackDmg());

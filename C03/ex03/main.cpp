@@ -6,16 +6,17 @@
 /*   By: jemartel <jemartel@student.42quebec>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/11 20:20:13 by jemartel          #+#    #+#             */
-/*   Updated: 2022/04/22 16:56:21 by jemartel         ###   ########.fr       */
+/*   Updated: 2022/04/23 21:30:18 by jemartel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <time.h>
+
+#include "DiamondTrap.hpp"
 #include "ClapTrap.hpp"
 #include "ScavTrap.hpp"
 #include "FragTrap.hpp"
-#include "DiamondTrap.hpp"
 
 void fight(FragTrap &atker, FragTrap &victim)
 {
@@ -25,8 +26,14 @@ void fight(FragTrap &atker, FragTrap &victim)
 
 int main(void)
 {
-		DiamondTrap kramped =  DiamondTrap("red");
-		std::cout << "energy:" << kramped.getEnergy() << std::endl;
-		 kramped.whoAmI() ;
-		 kramped.attack("hello");
+		DiamondTrap kramped =  DiamondTrap("diamond");
+		FragTrap kramping =  FragTrap("FragTrap ");
+		ScavTrap krampon =  ScavTrap("scavtrap");
+		
+	std::cout << kramped.getEnergy();
+	std::cout << kramping;
+	std::cout << krampon;
+
+
+
 }

@@ -6,32 +6,31 @@
 /*   By: jemartel <jemartel@student.42quebec>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/15 14:28:12 by jemartel          #+#    #+#             */
-/*   Updated: 2022/04/22 16:59:34 by jemartel         ###   ########.fr       */
+/*   Updated: 2022/04/23 21:36:42 by jemartel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "DiamondTrap.hpp"
-#include "ScavTrap.hpp"
 
 DiamondTrap::DiamondTrap(void)
 {
-	std::cout << "Diamond_trap called" << std::endl;
+	std::cout << " Diamond_trap constructor called" << std::endl;
+	this->_Energy = this->ScavTrap::_Energy;
 }
-DiamondTrap::DiamondTrap(std::string name):ClapTrap(name + "_clap_name"),ScavTrap(name + "_clap_name")
+DiamondTrap::DiamondTrap(std::string name)
+	
 {
-	std::cout << "Diamond called" << std::endl;
-	this->_Hp = FragTrap::getHp();
-	this->_Energy = ScavTrap::getEnergy();
-	this->_Attack_dmg = FragTrap::getAtackDmg();
-	this->_name = ClapTrap::getName();
+	(void)name;
+	_Energy = this->ScavTrap::_Energy;
+	std::cout << " Diamond constructor hello called" << std::endl;
 }
 
 DiamondTrap::~DiamondTrap(void)
 {
-	std::cout << "Diamond Destructor called" << std::endl;
+	std::cout << " Diamond Destructor called" << std::endl;
 }
 
-DiamondTrap::DiamondTrap(const DiamondTrap &copy)
+DiamondTrap::DiamondTrap( DiamondTrap const&copy)
 {
 	std::cout << "Copy constructor called" << std::endl;
 	*this = copy;
@@ -48,7 +47,7 @@ void DiamondTrap::setName(std::string name)
 
 void DiamondTrap::whoAmI(void)
 {
-	std::cout << "i am a Diamond and my name is" << "|"<< this->getName() << "|" <<  ClapTrap::getName() << std::endl ;
+	std::cout << "i am a Diamond and my name is" << "|"<< this->getName() << "|"  << std::endl ;
 }
 
 

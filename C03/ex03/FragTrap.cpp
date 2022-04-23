@@ -6,7 +6,7 @@
 /*   By: jemartel <jemartel@student.42quebec>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/15 14:26:02 by jemartel          #+#    #+#             */
-/*   Updated: 2022/04/15 14:34:41 by jemartel         ###   ########.fr       */
+/*   Updated: 2022/04/23 20:24:37 by jemartel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,10 @@
 
 FragTrap::FragTrap(void)
 {
-	std::cout << "Constructor called" << std::endl;
-	std::cout << "FragTrap Constructor called" << std::endl;
+		this->setHp(10);
+		this->setEnergy(100);
+		this->setAtackDmg(30);
+	std::cout << " FragTrap Constructor called" << std::endl;
 }
 
 FragTrap::FragTrap(std::string name)
@@ -25,6 +27,7 @@ FragTrap::FragTrap(std::string name)
 		this->setHp(10);
 		this->setEnergy(100);
 		this->setAtackDmg(30);
+
 		std::cout << " FragTrap Constructor called  " << std::endl;
 }
 
@@ -87,7 +90,7 @@ void FragTrap:: takeDamage(unsigned int dmg)
 	}
 }
 
-FragTrap::FragTrap(const FragTrap &copy)
+FragTrap::FragTrap(const FragTrap &copy):ClapTrap()
 {
 	std::cout << "Copy constructor called" << std::endl;
 	*this = copy;
