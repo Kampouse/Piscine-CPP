@@ -1,4 +1,5 @@
 /* ************************************************************************** */
+
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   ScavTrap.cpp                                       :+:      :+:    :+:   */
@@ -6,7 +7,7 @@
 /*   By: jemartel <jemartel@student.42quebec>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/15 14:26:15 by jemartel          #+#    #+#             */
-/*   Updated: 2022/04/23 21:49:49 by jemartel         ###   ########.fr       */
+/*   Updated: 2022/04/15 14:26:17 by jemartel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +15,30 @@
 
 ScavTrap::ScavTrap(void)
 {
-	this->setEnergy(50);
-	this->setHp(100);
-	this->setAtackDmg(20);
-	std::cout << "ScavTrap what Constructor called" << std::endl;
+	_Energy = 50;
+	_Hp = ScavTrap::_Hp;
+	_Attack_dmg = 20;
+
+	std::cout << "ScavTrap  Constructor called" << std::endl;
 }
 
 ScavTrap::ScavTrap(std::string name)
 {
-	this->setName(name);
-	this->setEnergy(50);
-	this->setHp(100);
-	this->setAtackDmg(20);
+	_Energy = 50;
+	_Hp = 100;
+	_Attack_dmg = 20;
+	_name = name;
 	std::cout << " ScavTrap Constructor called  " << std::endl;
 }
+ScavTrap::ScavTrap(unsigned  int energy )
+{
+	_Energy = energy;
+	_Hp = 100;
+	_Attack_dmg = 20;
+	_name = "random";
+	std::cout << " ScavTrap Constructor called  " << std::endl;
+}
+
 
 ScavTrap::~ScavTrap(void)
 {
@@ -45,12 +56,7 @@ ScavTrap::~ScavTrap(void)
 		std::cout << " ScavTrap " << this->getName()  << " is too weak to attack ;( " << target  << std::endl;
 }
 
-ScavTrap::ScavTrap( ScavTrap const &copy )
-{
-	std::cout << "Copy constructor called" << std::endl;
-	*this = copy;
-}
-ScavTrap	&ScavTrap::operator = ( ScavTrap const &copy)
+ScavTrap	&ScavTrap::operator = (const ScavTrap &copy)
 {
 	std::cout << " Assignation operator called " << std::endl;
 	this->setAtackDmg(copy.getAtackDmg());

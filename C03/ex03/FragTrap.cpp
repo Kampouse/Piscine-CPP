@@ -6,7 +6,7 @@
 /*   By: jemartel <jemartel@student.42quebec>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/15 14:26:02 by jemartel          #+#    #+#             */
-/*   Updated: 2022/04/23 20:24:37 by jemartel         ###   ########.fr       */
+/*   Updated: 2022/04/23 21:32:30 by jemartel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,31 @@
 
 FragTrap::FragTrap(void)
 {
-		this->setHp(10);
-		this->setEnergy(100);
+		_Hp = 100;
+		_Energy  = 100;	
+		_Attack_dmg = 30;
+
 		this->setAtackDmg(30);
-	std::cout << " FragTrap Constructor called" << std::endl;
+	std::cout << "Constructor called" << std::endl;
+	std::cout << "FragTrap Constructor called" << std::endl;
 }
 
 FragTrap::FragTrap(std::string name)
 {
-
-		this->setName(name);
-		this->setHp(10);
-		this->setEnergy(100);
-		this->setAtackDmg(30);
-
+			_Hp = 100;
+			_Energy  = 100;	
+			_Attack_dmg = 30;
+			this->setName(name);
 		std::cout << " FragTrap Constructor called  " << std::endl;
 }
+FragTrap::FragTrap(unsigned int Energy)
+{
+			_Hp = 100;
+			_Energy = Energy;
+			_Attack_dmg = 30;
+		std::cout << " FragTrap Constructor called  " << std::endl;
+}
+
 
 FragTrap::~FragTrap(void)
 {
@@ -90,7 +99,7 @@ void FragTrap:: takeDamage(unsigned int dmg)
 	}
 }
 
-FragTrap::FragTrap(const FragTrap &copy):ClapTrap()
+FragTrap::FragTrap(const FragTrap &copy)
 {
 	std::cout << "Copy constructor called" << std::endl;
 	*this = copy;

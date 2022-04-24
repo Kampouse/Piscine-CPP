@@ -6,7 +6,7 @@
 /*   By: jemartel <jemartel@student.42quebec>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/08 21:01:06 by jemartel          #+#    #+#             */
-/*   Updated: 2022/04/23 21:46:56 by jemartel         ###   ########.fr       */
+/*   Updated: 2022/04/23 21:42:08 by jemartel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@
 const   unsigned int  ClapTrap::_max_healt = 10;
 ClapTrap::ClapTrap(void)
 {
-	std::cout << " ClapTrap constructor called" << std::endl;
+
+	std::cout << "ClapTrap constructor called" << std::endl;
 	this->_Hp = 10;
 	this->_Energy =  10;
 	this->_Attack_dmg = 0;
@@ -34,10 +35,10 @@ ClapTrap::ClapTrap(std::string name)
 
 ClapTrap::~ClapTrap(void)
 {
-	std::cout << " ClapTrap  destructor called" << std::endl;
+	std::cout << " ClapTrap Destructor called" << std::endl;
 }
 
-ClapTrap::ClapTrap( ClapTrap const &copy)
+ClapTrap::ClapTrap(const ClapTrap &copy)
 {
 	std::cout << "Copy constructor called" << std::endl;
 	*this = copy;
@@ -136,10 +137,4 @@ unsigned int ClapTrap::getAtackDmg(void)const
  unsigned int ClapTrap::getMaxHealt(void)const
 {
 	return (ClapTrap::_max_healt);
-}
-
-std::ostream &operator<<(std::ostream &output, ClapTrap  const &elem )
-{
-	std::cout <<  "name: " << elem.getName () << " Energy :" << elem.getEnergy() << " has an healt of: " << elem.getHp () << " attack dmg: " <<  elem.getAtackDmg()<< std::endl;
-	return(output);
 }
