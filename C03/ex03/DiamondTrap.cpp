@@ -6,7 +6,7 @@
 /*   By: jemartel <jemartel@student.42quebec>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/15 14:28:12 by jemartel          #+#    #+#             */
-/*   Updated: 2022/04/23 21:53:15 by jemartel         ###   ########.fr       */
+/*   Updated: 2022/04/23 22:18:40 by jemartel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,11 +100,11 @@ void DiamondTrap::attack(const std::string & name)
 
 DiamondTrap	&DiamondTrap::operator = (const DiamondTrap &copy)
 {
-	std::cout << " Assignation operator called " << std::endl;
+	std::cout << "DiamondTrap Assignation operator called " << std::endl;
 	setAtackDmg(copy.getAtackDmg());
 	setName(copy.getName());
 	setEnergy( copy.getEnergy());
 	setHp(copy.getHp());
-	std::cout << "Assignation operator called" << std::endl;
+	std::cout << " DiamondTrap  Assignation operator called" << std::endl;
 	return (*this);
 }
