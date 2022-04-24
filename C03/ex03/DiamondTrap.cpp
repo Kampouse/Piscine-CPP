@@ -6,7 +6,7 @@
 /*   By: jemartel <jemartel@student.42quebec>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/15 14:28:12 by jemartel          #+#    #+#             */
-/*   Updated: 2022/04/23 22:18:40 by jemartel         ###   ########.fr       */
+/*   Updated: 2022/04/24 18:55:55 by jemartel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ DiamondTrap::~DiamondTrap(void)
 	std::cout << " Diamond  Destructor called" << std::endl;
 }
 
-DiamondTrap::DiamondTrap(const DiamondTrap &copy)
+DiamondTrap::DiamondTrap(const DiamondTrap &copy):ClapTrap(),ScavTrap(),FragTrap()
 {
 	std::cout << "Copy constructor called" << std::endl;
 	*this = copy;

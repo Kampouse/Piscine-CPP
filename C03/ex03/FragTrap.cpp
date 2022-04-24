@@ -6,7 +6,7 @@
 /*   By: jemartel <jemartel@student.42quebec>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/15 14:26:02 by jemartel          #+#    #+#             */
-/*   Updated: 2022/04/23 21:32:30 by jemartel         ###   ########.fr       */
+/*   Updated: 2022/04/24 18:54:48 by jemartel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,7 +99,7 @@ void FragTrap:: takeDamage(unsigned int dmg)
 	}
 }
 
-FragTrap::FragTrap(const FragTrap &copy)
+FragTrap::FragTrap(const FragTrap &copy):ClapTrap()
 {
 	std::cout << "Copy constructor called" << std::endl;
 	*this = copy;
