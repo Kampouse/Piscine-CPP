@@ -6,48 +6,51 @@
 /*   By: jemartel <jemartel@student.42quebec>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/15 06:50:45 by jemartel          #+#    #+#             */
-/*   Updated: 2022/04/15 23:27:17 by jemartel         ###   ########.fr       */
+/*   Updated: 2022/04/24 21:08:37 by jemartel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Dog.hpp"
 #include "Cat.hpp"
 #include "Animal.hpp"
-#include "WrongAnimal.hpp"
-#include "WrongCat.hpp"
 
 int main(void)
 {
 	{
-
 	std::cout << "START-------live cycle of a Animal\n";
 	 Animal *doggy =    new Dog();  
 	 delete   doggy;
 	std::cout << "-------END\n";
 	}
 	std::cout << "\n\n\n\n";
-	std::cout << "a list of 3 elements\n";
 	{
-
-	 Animal  *doggy[6]; 
+	 Animal  *animal[6]; 
 		for(int i  = 0; i < 6; i++)
 		{
 			if(i < 3)
 			{
-				doggy[i] =  new Cat();
-				doggy[i]->MakeSound();
+				animal[i] =  new Cat();
+				animal[i]->MakeSound();
+				std::cout << i + 1 <<" ----------------------\n"; 
 			}
 			else
 			{
-				 doggy[i] =  new Dog();
-				 doggy[i]->MakeSound();
+				 animal[i] =  new Dog();
+				 animal[i]->MakeSound();
+				std::cout <<  i + 1 << " ----------------------\n"; 
 			}
 		}
 		for(int i  = 0; i < 6; i++)
-				{
-					delete doggy[i];
-				}
+		{
+			delete animal[i];
+		}
+	}
 
-			}
-
+	std::cout << "other test<---------------------->" << std::endl;
+	Animal   *animal = new Dog();
+	Animal   *anim = new Cat();
+	*anim = *animal;
+	*anim = Animal(*animal); 
+	delete animal;	
+	delete anim;
 }

@@ -5,7 +5,7 @@ FLAGS = -Wall -Wextra -Werror --std=c++98 -g
 SRCS = main.cpp  HumanA.cpp  HumanB.cpp Weapon.cpp
 RM =  rm -rf 
 .cpp.o:
-	@g++ ${FLAGS}  -c $< -o ${<:.cpp=.o}
+	@c++ ${FLAGS}  -c $< -o ${<:.cpp=.o}
 
 OBJS = ${SRCS:.cpp=.o}
 CC = c++

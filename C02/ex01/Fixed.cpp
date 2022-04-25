@@ -6,13 +6,12 @@
 /*   By: jemartel <jemartel@student.42quebec>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/10 20:08:28 by jemartel          #+#    #+#             */
-/*   Updated: 2022/04/10 20:08:49 by jemartel         ###   ########.fr       */
+/*   Updated: 2022/04/21 11:51:36 by jemartel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 
- const int Fixed::_fraction_point= 8;
 
 Fixed::Fixed(void)
 {
@@ -40,7 +39,6 @@ Fixed::Fixed(int const number)
 	std::cout << "Int constructor called" << std::endl;
 	this->_FixedPointNumber = number << Fixed::_fraction_point;
 }
-
 
 Fixed::Fixed(float const number)
 {

@@ -6,7 +6,7 @@
 /*   By: jemartel <jemartel@student.42quebec>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/10 20:06:22 by jemartel          #+#    #+#             */
-/*   Updated: 2022/04/10 20:07:38 by jemartel         ###   ########.fr       */
+/*   Updated: 2022/04/21 11:49:19 by jemartel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void Fixed::setRawBits(int const raw)
 Fixed::Fixed(const Fixed &copy)
 {
 	std::cout << "copy constructor called" << std::endl;
-	this->setRawBits(copy.getRawBits());	
+	*this = copy;
 }
 
 Fixed	&Fixed::operator = (const Fixed &copy)

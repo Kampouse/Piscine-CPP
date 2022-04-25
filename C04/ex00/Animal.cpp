@@ -2,11 +2,18 @@
 
 Animal::Animal(std::string)
 {
-
+	std::cout << "Animal constructor called\n";
+	this->type = "Animal";
 }
 Animal::Animal(void)
 {
 	std::cout << "Animal constructor called\n";
+	this->type = "Animal";
+
+}
+std::string Animal::getType(void)
+{
+	return (this->type);
 }
 Animal::~Animal(void)
 {
@@ -29,6 +36,6 @@ Animal	&Animal::operator = (const Animal &copy)
 }
 		void Animal::MakeSound(void)const
 {
-			std::cout << "sound of a ANIMAL\n";
-	return;
+			std::cout << "ANIMAL BEEPPPING A SOUND" << std::endl;
+	return; 
 }

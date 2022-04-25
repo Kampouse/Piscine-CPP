@@ -6,14 +6,13 @@
 /*   By: jemartel <jemartel@student.42quebec>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/10 20:15:29 by jemartel          #+#    #+#             */
-/*   Updated: 2022/04/10 20:15:30 by jemartel         ###   ########.fr       */
+/*   Updated: 2022/04/21 12:58:21 by jemartel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 
 
- const int Fixed::_fraction_point= 8;
 
 Fixed::Fixed(void)
 {
@@ -28,7 +27,6 @@ Fixed::~Fixed(void)
 
 int Fixed::getRawBits(void)const
 {
-	std::cout << "getRawBits member function called" << std::endl;
 	return(_FixedPointNumber);
 }
 void Fixed::setRawBits(int const raw)
@@ -77,7 +75,7 @@ Fixed	Fixed::operator+(const Fixed &append )
 {
 	Fixed output;
 
-	output.setRawBits(this->getRawBits() +append.getRawBits());	
+	output.setRawBits(this->getRawBits() + append.getRawBits());	
 	return (output);
 }
 
@@ -95,7 +93,6 @@ Fixed	Fixed::operator*(const Fixed &append)
 	output.setRawBits(this->getRawBits()  * append.getRawBits() >> this->_fraction_point);	
 	return (output);
 }
-
 
 Fixed	Fixed::operator/(const Fixed &append)
 {
@@ -151,13 +148,11 @@ bool	Fixed::operator>=(const Fixed &append) const
 
 bool	Fixed::operator<=(const Fixed &append) const 
 {
-
 		return(this->_FixedPointNumber <=append.getRawBits());	
 }
 
 bool	Fixed::operator==(const Fixed &append) const 
 {
-
 		return(this->_FixedPointNumber == append.getRawBits());	
 }
 
@@ -166,7 +161,7 @@ bool	Fixed::operator!=(const Fixed &append) const
 		return(this->_FixedPointNumber != append.getRawBits());	
 }
 
-Fixed	&max( Fixed &first,  Fixed &second)
+Fixed	&Fixed::max( Fixed &first,  Fixed &second)
 {
 				if(first > second)
 					return(first);
@@ -174,7 +169,7 @@ Fixed	&max( Fixed &first,  Fixed &second)
 					return(second);
 }
 
-Fixed	&min( Fixed &first,  Fixed &second)
+Fixed	&Fixed ::min( Fixed &first,  Fixed &second)
 {
 				if(first < second)
 					return(first);
@@ -182,9 +177,7 @@ Fixed	&min( Fixed &first,  Fixed &second)
 					return(second);
 }
 
-
-
-const Fixed	&max( const  Fixed &first,const Fixed &second) 
+const Fixed	&Fixed::max( const  Fixed &first,const Fixed &second) 
 {
 				if(first > second)
 					return(first);
@@ -192,16 +185,13 @@ const Fixed	&max( const  Fixed &first,const Fixed &second)
 					return(second);
 }
 
-const Fixed	&min(  const Fixed &first, const    Fixed &second)
+const Fixed	&Fixed::min(  const Fixed &first, const    Fixed &second)
 {
 				if(first < second)
 					return(first);
 				else
 					return(second);
 }
-
-
-
 
 std::ostream &operator<<(std::ostream &output, Fixed const &FixedPoint)
 {

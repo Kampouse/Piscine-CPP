@@ -6,7 +6,7 @@
 /*   By: jemartel <jemartel@student.42quebec>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/02 16:05:53 by jemartel          #+#    #+#             */
-/*   Updated: 2022/04/02 16:09:39 by jemartel         ###   ########.fr       */
+/*   Updated: 2022/04/11 11:39:38 by jemartel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ class Zombie
 		std::string _name;
 	public:
 
+		Zombie(void);
 		Zombie(std::string name);
 		~Zombie(void);
 		void annonce(void);

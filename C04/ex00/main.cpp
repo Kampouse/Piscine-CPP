@@ -6,7 +6,7 @@
 /*   By: jemartel <jemartel@student.42quebec>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/15 06:50:45 by jemartel          #+#    #+#             */
-/*   Updated: 2022/04/15 23:49:56 by jemartel         ###   ########.fr       */
+/*   Updated: 2022/04/24 17:47:08 by jemartel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,19 +19,32 @@
 int main(void)
 {
 	const WrongAnimal *sheesh =  new WrongCat();
-	const Animal *dog =  new Dog();
-	const Animal *cat =  new Cat();
-	 Animal *catty =  new Dog();
+	 Animal *catty =  new Cat();
 	 Animal *doggy =  new Dog();
-	sheesh->MakeSound();
-	cat->MakeSound();
-	dog->MakeSound();
+	 Animal *anime =  new Animal();
 
-	delete sheesh;
-	delete dog;
-	delete cat;
-	*catty = *doggy;
+	std::cout << "Expecting soud of a  Wrong cat " << std::endl;
+	sheesh->MakeSound();
+	std::cout << "------------------------------" << std::endl;
+	std::cout << "Expected type  Wrong Cat: " <<  sheesh->getType() << std::endl;
+	std::cout << "------------------------------" << std::endl;
+	std::cout << "Expecting soud of a cat" << std::endl;
+	catty->MakeSound();
+	std::cout << "Expected type Cat--: " <<  catty->getType() << std::endl;
+	std::cout << "------------------------------" << std::endl;
+	std::cout << "Expecting soud of a dog" << std::endl;
+	doggy->MakeSound();
+	std::cout << "------------------------------" << std::endl;
+	std::cout << "Expected type Dog: " <<  doggy->getType() << std::endl;
+	std::cout << "------------------------------" << std::endl;
+	std::cout << "Expected sound of a Animal" << std::endl;
+	anime->MakeSound();
+	std::cout << "------------------------------" << std::endl;
+	std::cout << "Expected type Animal: " <<  anime->getType() << std::endl;
+	std::cout << "------------------------------" << std::endl;
+	 delete sheesh;
 	 delete doggy;
 	 delete catty;
+	 delete anime;
 
 }

@@ -6,8 +6,6 @@
 
 class RobotomyRequestForm :public Form 
 {
-
-
 	public:
 		void execute(Bureaucrat const & executeted)const;
 		std::string GetName(void)const;

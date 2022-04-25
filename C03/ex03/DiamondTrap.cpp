@@ -6,12 +6,10 @@
 /*   By: jemartel <jemartel@student.42quebec>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/15 14:28:12 by jemartel          #+#    #+#             */
-/*   Updated: 2022/04/24 18:55:55 by jemartel         ###   ########.fr       */
+/*   Updated: 2022/04/24 16:40:11 by jemartel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 #include "DiamondTrap.hpp"
-#include "ScavTrap.hpp"
 
 DiamondTrap::DiamondTrap(void)
 {
@@ -39,7 +37,7 @@ DiamondTrap::~DiamondTrap(void)
 
 DiamondTrap::DiamondTrap(const DiamondTrap &copy):ClapTrap(),ScavTrap(),FragTrap()
 {
-	std::cout << "Copy constructor called" << std::endl;
+	std::cout << " Diamond  Copy constructor called" << std::endl;
 	*this = copy;
 }
 
@@ -54,7 +52,7 @@ void DiamondTrap::setName(std::string name)
 
 void DiamondTrap::whoAmI(void)
 {
-	std::cout << "i am a Diamond and my name is" << "|"<< this->getName() << "|" <<  ClapTrap::getName() << std::endl ;
+	std::cout << " you see  Diamond and my name is " << this->getName() << " " <<  ClapTrap::getName() << std::endl ;
 }
 
 
@@ -100,11 +98,10 @@ void DiamondTrap::attack(const std::string & name)
 
 DiamondTrap	&DiamondTrap::operator = (const DiamondTrap &copy)
 {
-	std::cout << "DiamondTrap Assignation operator called " << std::endl;
+	std::cout << " DiamondTrap Assignation operator called " << std::endl;
 	setAtackDmg(copy.getAtackDmg());
 	setName(copy.getName());
 	setEnergy( copy.getEnergy());
 	setHp(copy.getHp());
-	std::cout << " DiamondTrap  Assignation operator called" << std::endl;
 	return (*this);
 }

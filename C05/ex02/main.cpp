@@ -6,7 +6,7 @@
 /*   By: jemartel <jemartel@student.42quebec>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/16 17:25:16 by jemartel          #+#    #+#             */
-/*   Updated: 2022/04/20 23:47:13 by jemartel         ###   ########.fr       */
+/*   Updated: 2022/04/22 13:50:58 by jemartel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,16 @@
 #include "cstring"
 #include <ostream>
 
-void grading(Bureaucrat *user, std::string str) {
+void grading(Bureaucrat *user, std::string str)
+{
   if (str == "inc")
-    while (1) {
+    while (1)
+	{
       user->IncrementGrade();
     }
   if (str == "dec")
-    while (1) {
+    while (1)
+	{
       user->DecrimentGrade();
     }
 }
@@ -31,7 +34,6 @@ int main(int argc, char *argv[]) {
   (void)argc;
   (void)argv;
 
-		
 		if (strcmp(argv[1],"1") == 0)
 		{
 			  Bureaucrat john("john", 150);
@@ -203,11 +205,6 @@ int main(int argc, char *argv[]) {
 			}
 			delete hello;
 			delete formed;
-			return(0);
-
-
-
-
-
+			return (0);
 		}
 }

@@ -6,7 +6,7 @@
 /*   By: jemartel <jemartel@student.42quebec>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/15 14:26:02 by jemartel          #+#    #+#             */
-/*   Updated: 2022/04/24 18:54:48 by jemartel         ###   ########.fr       */
+/*   Updated: 2022/04/24 16:31:25 by jemartel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,7 @@ FragTrap::FragTrap(void)
 		_Attack_dmg = 30;
 
 		this->setAtackDmg(30);
-	std::cout << "Constructor called" << std::endl;
-	std::cout << "FragTrap Constructor called" << std::endl;
+	std::cout << " FragTrap Constructor called" << std::endl;
 }
 
 FragTrap::FragTrap(std::string name)

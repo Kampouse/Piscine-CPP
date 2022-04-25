@@ -6,24 +6,21 @@
 /*   By: jemartel <jemartel@student.42quebec>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/15 06:35:31 by jemartel          #+#    #+#             */
-/*   Updated: 2022/04/15 23:24:36 by jemartel         ###   ########.fr       */
+/*   Updated: 2022/04/24 20:57:36 by jemartel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "./Cat.hpp"
 
-Cat::Cat(std::string)
-{
 
-}
 Cat::Cat(void)
 {
 	std::cout << "Cat constructor called\n";
 	Animal::type = "cat";
-	_brain = new Brain();
+	_brain = new Brain("hello");
 }
 void Cat::MakeSound(void)const
 {
-	std::cout << "MEWWOWE\n";
+	std::cout << "I AM A CAT I RIQUIRE YOUR ATTENTION \n";
 }
 
 Cat::~Cat(void)
@@ -35,14 +32,18 @@ Cat::~Cat(void)
 Cat::Cat(const Cat &copy)
 {
 	std::cout << "Copy constructor called" << std::endl;
+	type = copy.type;
+	_brain = new Brain(*copy._brain);
+
+
 	*this = copy;
 }
 
 Cat	&Cat::operator = (const Cat &copy)
 {
-	std::cout << " Cat Assignation operator called" << std::endl;
+	std::cout << "catt assignation operator called" << std::endl;
 	type = copy.type;
-	_brain = copy._brain;
-	
-		return (*this);
+	delete _brain;
+	_brain = new Brain(*copy._brain);
+	return (*this);
 }

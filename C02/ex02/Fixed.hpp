@@ -6,7 +6,7 @@
 /*   By: jemartel <jemartel@student.42quebec>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/10 20:13:48 by jemartel          #+#    #+#             */
-/*   Updated: 2022/04/10 20:13:49 by jemartel         ###   ########.fr       */
+/*   Updated: 2022/04/21 12:18:56 by jemartel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ class Fixed
 {
 	private:
 			int _FixedPointNumber;
-			static	const int _fraction_point;
+			static	const int _fraction_point  = 8;
 			/*private members*/
 	public:
 		Fixed(void);
@@ -48,13 +48,14 @@ class Fixed
 		bool	operator<=(const Fixed &append) const ;
 		bool	operator==(const Fixed &append) const ;
 		bool	operator!=(const Fixed &append) const ;
+static		Fixed	&min( Fixed &first,  Fixed &seond);
+static		Fixed	&max( Fixed &first,  Fixed &seond);
+
+static	const	Fixed	&min(  Fixed const  &first,  const Fixed &seond);
+static  const	Fixed	&max(  Fixed const  &first,  const Fixed &seond);
+
+
 };
-		Fixed	&min( Fixed &first,  Fixed &seond);
-		Fixed	&max( Fixed &first,  Fixed &seond);
-
-	const	Fixed	&min( const Fixed &first,  const Fixed &seond);
-	const	Fixed	&max( const Fixed &first,  const Fixed &seond);
-
 
 /* allow to  output  with std::cout <<									*/
 std::ostream &operator<<(std::ostream &output, Fixed const &FixedPoint);

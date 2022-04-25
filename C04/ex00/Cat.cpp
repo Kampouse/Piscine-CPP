@@ -6,20 +6,29 @@
 /*   By: jemartel <jemartel@student.42quebec>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/15 06:35:31 by jemartel          #+#    #+#             */
-/*   Updated: 2022/04/15 23:46:41 by jemartel         ###   ########.fr       */
+/*   Updated: 2022/04/24 17:48:17 by jemartel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "./Cat.hpp"
 
 Cat::Cat(std::string)
 {
-
+	std::cout << "Cat    constructor called\n";
+	Animal::type = "cat";
 }
 Cat::Cat(void)
 {
-	std::cout << "Cat constructor called\n";
+	std::cout << "Cat    constructor called\n";
 	Animal::type = "cat";
+
 }
+std::string Cat::GetType(void)
+{
+
+	return(this->type);
+}
+
+
 Cat::~Cat(void)
 {
  std::cout << " Cat destructor called \n";
@@ -27,7 +36,7 @@ Cat::~Cat(void)
 
 Cat::Cat(const Cat &copy): Animal()
 {
-	std::cout << "Copy constructor called" << std::endl;
+	std::cout << "Copy   constructor called" << std::endl;
 	*this = copy;
 }
 

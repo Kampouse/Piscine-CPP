@@ -1,6 +1,6 @@
 NAME = Polymorphism
-FLAGS = -Wall -Wextra -Werror --std=c++98 
-SRCS =  WrongCat.cpp Cat.cpp Dog.cpp  main.cpp Animal.cpp WrongAnimal.cpp Brain.cpp
+FLAGS = -Wall -Wextra -Werror --std=c++98  -g
+SRCS =  Cat.cpp Dog.cpp  main.cpp Animal.cpp Brain.cpp
 
 RM =  rm -rf 
 .cpp.o:
@@ -15,7 +15,7 @@ ${NAME}:${OBJS}
 run: all
 	./${NAME} hello world
 val: all
-	valgrind   --track-origins=yes -s --trace-children=yes ./$(NAME)
+	valgrind    --leak-check=full --track-origins=yes -s --trace-children=yes ./$(NAME)
 clean:
 	    ${RM} ${OBJS}	
 git:

@@ -17,7 +17,7 @@ int main(void)
 {
 		Zombie *zombie;
 
-		zombie = new_zombie("Emanual the zombie");					
+		zombie = new_zombie("Emanual the zombie");
 		zombie->annonce();
 		delete zombie;
 		random_chump("hangry");

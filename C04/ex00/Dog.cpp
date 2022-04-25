@@ -3,16 +3,25 @@
 
 Dog::Dog(std::string)
 {
-
+	std::cout << "Dog constructor called" << std::endl;
+	Animal::type = "dog";
 }
 Dog::Dog(void)
 {
 	std::cout << "Dog constructor called" << std::endl;
 	Animal::type = "dog";
+
 }
 Dog::~Dog(void)
 {
 
+	std::cout << "Dog Destructor called" << std::endl;
+}
+
+std::string Dog::GetType(void)
+{
+
+	return(this->type);
 }
 Dog::Dog(const Dog &copy) : Animal()
 {
@@ -31,3 +40,5 @@ void Dog::MakeSound(void)const
 {
 			std::cout << "THIS OBJECT MUST BE AA \"WOOF \",ah! dog!\n";
 }
+
+

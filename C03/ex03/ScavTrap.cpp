@@ -17,7 +17,7 @@ ScavTrap::ScavTrap(void)
 	_Energy = 50;
 	_Hp = ScavTrap::_Hp;
 	_Attack_dmg = 20;
-	std::cout << "ScavTrap  Constructor called" << std::endl;
+	std::cout << " ScavTrap  Constructor called" << std::endl;
 }
 
 ScavTrap::ScavTrap(std::string name)

@@ -7,7 +7,7 @@ class Fixed
 {
 	private:
 			int _FixedPointNumber;
-			static	const int _fraction_point;
+			static	const int _fraction_point = 8;
 			/*private members*/
 	public:
 		Fixed(void);

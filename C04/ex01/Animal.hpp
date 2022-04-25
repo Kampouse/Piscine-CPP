@@ -7,7 +7,6 @@ class Animal
 	protected:
 		std::string type;
 	public:
-		Animal(std::string);
 		Animal(void);
 		virtual ~Animal(void);
 		Animal(const Animal &copy);

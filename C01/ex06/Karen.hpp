@@ -6,7 +6,7 @@
 /*   By: jemartel <jemartel@student.42quebec>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/10 15:42:32 by jemartel          #+#    #+#             */
-/*   Updated: 2022/04/10 15:57:03 by jemartel         ###   ########.fr       */
+/*   Updated: 2022/04/11 12:01:32 by jemartel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,3 +31,5 @@ class Karen
 };
 
 typedef void (Karen::*ptr_funct_karen)(void);
+
+#endif

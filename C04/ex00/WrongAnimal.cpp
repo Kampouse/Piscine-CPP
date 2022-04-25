@@ -6,17 +6,20 @@
 /*   By: jemartel <jemartel@student.42quebec>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/15 07:41:11 by jemartel          #+#    #+#             */
-/*   Updated: 2022/04/15 14:50:37 by jemartel         ###   ########.fr       */
+/*   Updated: 2022/04/24 17:09:18 by jemartel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "WrongAnimal.hpp"
 
 WrongAnimal::WrongAnimal(std::string)
 {
+	this->type = "WrongAnimal";
+
 	std::cout << "WrongAnimal constructor called\n";
 }
 WrongAnimal::WrongAnimal(void)
 {
+	this->type = "WrongAnimal";
 	std::cout << "WrongAnimal constructor called\n";
 }
 WrongAnimal::~WrongAnimal(void)
@@ -37,6 +40,10 @@ WrongAnimal	&WrongAnimal::operator = (const WrongAnimal &copy)
 		return (*this);
 }
 
+std::string WrongAnimal::getType()const
+{
+	return(this->type);
+}
 void WrongAnimal::MakeSound(void)const
 {
 		if (type ==  "wrongcat")

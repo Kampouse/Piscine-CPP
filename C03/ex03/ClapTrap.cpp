@@ -6,7 +6,7 @@
 /*   By: jemartel <jemartel@student.42quebec>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/08 21:01:06 by jemartel          #+#    #+#             */
-/*   Updated: 2022/04/23 21:42:08 by jemartel         ###   ########.fr       */
+/*   Updated: 2022/04/24 16:31:48 by jemartel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ const   unsigned int  ClapTrap::_max_healt = 10;
 ClapTrap::ClapTrap(void)
 {
 
-	std::cout << "ClapTrap constructor called" << std::endl;
+	std::cout << " ClapTrap constructor called" << std::endl;
 	this->_Hp = 10;
 	this->_Energy =  10;
 	this->_Attack_dmg = 0;

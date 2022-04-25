@@ -1,16 +1,12 @@
 #include "Animal.hpp"
 
-Animal::Animal(std::string)
-{
-
-}
 Animal::Animal(void)
 {
 	std::cout << "Animal constructor called\n";
 }
+
 Animal::~Animal(void)
 {
-
 	std::cout << "Animal destructor called\n";
 }
 
@@ -21,12 +17,10 @@ Animal::Animal(const Animal &copy)
 	*this = copy;
 }
 
-Animal	& Animal::operator = (const Animal &copy)
+Animal &Animal::operator = (const Animal &copy)
 {
 	this->type = copy.type;
-
 	std::cout << "Animal assignation operator called" << std::endl;
-
 		return (*this);
 }
 		void Animal::MakeSound(void)const
