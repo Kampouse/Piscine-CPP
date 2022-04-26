@@ -6,7 +6,7 @@
 /*   By: jemartel <jemartel@student.42quebec>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/17 15:58:41 by jemartel          #+#    #+#             */
-/*   Updated: 2022/04/20 04:16:31 by jemartel         ###   ########.fr       */
+/*   Updated: 2022/04/25 14:00:35 by jemartel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,21 +34,20 @@ Bureaucrat::~Bureaucrat(void)
 	std::cout << "Destructor called" << std::endl;
 }
 
-Bureaucrat::Bureaucrat(const Bureaucrat &copy)
+Bureaucrat::Bureaucrat(const Bureaucrat &copy):_name(copy._name)
 {
 	std::cout << "Copy constructor called" << std::endl;
 	this->_grade  = copy._grade;
-	
 }
-
-Bureaucrat::Bureaucrat(void):_name("default")
+Bureaucrat::Bureaucrat(void):_name("default"),_grade(100)
 {
+	std::cout << "Constructor called" << std::endl;
 }
 
 Bureaucrat	&Bureaucrat::operator = (const Bureaucrat &copy)
 {
 	std::cout << "Assignation operator called" << std::endl;
-	(void)copy;
+	_grade = copy._grade;
 	return (*this);
 }
 
@@ -84,16 +83,12 @@ std::ostream &operator<<(std::ostream &output, Bureaucrat const &user)
 void Bureaucrat::GradeTooHight(int grade)
 {
 		if ( grade < 1)
-	{
 		 throw Bureaucrat::GradeTooHightException();
-	}
 }
 
 void Bureaucrat::GradeTooLow(int grade)
 {
-		if( grade > 150)
-	{
+		if ( grade > 150)
 		throw Bureaucrat::GradeTooLowException();
-	}
 }
 

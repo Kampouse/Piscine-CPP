@@ -6,7 +6,7 @@
 /*   By: jemartel <jemartel@student.42quebec>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/15 14:25:34 by jemartel          #+#    #+#             */
-/*   Updated: 2022/04/15 14:25:34 by jemartel         ###   ########.fr       */
+/*   Updated: 2022/04/25 20:53:20 by jemartel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ class FragTrap : public  ClapTrap
 		FragTrap(std::string);
 		~FragTrap(void);
 		FragTrap(const FragTrap &copy);
-		void  beRepaired(unsigned int amount);
-		void takeDamage(unsigned int dmg);
+	//	void  beRepaired(unsigned int amount);
+	//	void takeDamage(unsigned int dmg);
        void attack(const std::string& target);
 		void hightFivesGuys(void);
 		FragTrap	&operator = (const FragTrap &copy);

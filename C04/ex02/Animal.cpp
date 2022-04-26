@@ -23,4 +23,3 @@ Animal &Animal::operator = (const Animal &copy)
 	std::cout << "Animal assignation operator called" << std::endl;
 		return (*this);
 }
-

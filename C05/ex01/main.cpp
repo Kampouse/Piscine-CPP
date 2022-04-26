@@ -6,7 +6,7 @@
 /*   By: jemartel <jemartel@student.42quebec>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/16 17:25:16 by jemartel          #+#    #+#             */
-/*   Updated: 2022/04/20 05:15:45 by jemartel         ###   ########.fr       */
+/*   Updated: 2022/04/25 14:47:17 by jemartel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@ int main(int argc,char *argv[])
 		catch(std::exception &e )
 		{
 			std::cerr << e.what();
+			std::cout << "Excepted succes got Failure";
 			delete formed;
 			delete john;
 			return 0;
@@ -85,7 +86,14 @@ int main(int argc,char *argv[])
 			delete john;
 			return 0;
 		}
-		john->SignForm(*formed);
+		try
+		{
+			john->SignForm(*formed);
+		}
+		catch(std::exception &e)
+		{
+			e.what();
+		}
 		std::cout << *formed << std::endl;
 		delete john;
 		delete formed;
@@ -98,6 +106,7 @@ int main(int argc,char *argv[])
 		}
 		catch(std::exception &e )
 		{
+			std::cout << "grade too high Excepted ";
 			std::cerr << e.what()  << std::endl;
 			delete john;
 			return 0;
@@ -113,7 +122,15 @@ int main(int argc,char *argv[])
 			delete john;
 			return 0;
 		}
+		try
+		{
+
 		john->SignForm(*formed);
+		}
+		catch(std::exception  &e)
+		{
+			e.what();
+		}
 		std::cout << *formed << std::endl;
 		delete john;
 		delete formed;

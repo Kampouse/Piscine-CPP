@@ -6,7 +6,7 @@
 /*   By: jemartel <jemartel@student.42quebec>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/15 06:50:45 by jemartel          #+#    #+#             */
-/*   Updated: 2022/04/24 17:47:08 by jemartel         ###   ########.fr       */
+/*   Updated: 2022/04/25 21:22:31 by jemartel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,5 +46,4 @@ int main(void)
 	 delete doggy;
 	 delete catty;
 	 delete anime;
-
 }

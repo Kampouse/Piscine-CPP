@@ -6,7 +6,7 @@
 /*   By: jemartel <jemartel@student.42quebec>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/08 21:01:06 by jemartel          #+#    #+#             */
-/*   Updated: 2022/04/22 16:07:31 by jemartel         ###   ########.fr       */
+/*   Updated: 2022/04/25 21:00:48 by jemartel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,7 +116,7 @@ unsigned int ClapTrap::getAtackDmg(void)const
 			else if(getHp() + amount  > _max_healt)	
 			{
 
-				std::cout << "ClapTrap "  << _name << "has heal of "  << _max_healt  - amount <<  "\n";
+				std::cout << "ClapTrap "  << _name << "is now full health" <<  "\n";
 				setHp(_max_healt);
 				setEnergy(getEnergy() - 1);
 				return ;

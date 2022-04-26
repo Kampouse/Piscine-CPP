@@ -1,0 +1,7 @@
+/target
+.gdb_history
+vgcore.*
+**/*.o
+**/*.dSYM
+**/*.parsecache
+**/*.buildcache

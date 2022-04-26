@@ -6,7 +6,7 @@
 /*   By: jemartel <jemartel@student.42quebec>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/15 06:50:45 by jemartel          #+#    #+#             */
-/*   Updated: 2022/04/24 21:08:37 by jemartel         ###   ########.fr       */
+/*   Updated: 2022/04/25 21:33:05 by jemartel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,4 +53,14 @@ int main(void)
 	*anim = Animal(*animal); 
 	delete animal;	
 	delete anim;
+
+	
+	std::cout << "Basic---------------------- "<< std::endl;
+	Dog  Basic;
+	{
+	std::cout << "Temp---------------------- "<< std::endl;
+	Dog  tmp = Basic;
+	std::cout << "---------------------- "<< std::endl;
+	}
+
 }

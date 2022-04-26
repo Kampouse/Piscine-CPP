@@ -7,8 +7,8 @@ class ClapTrap
 {
 	    protected :
 		unsigned int _Hp;
-		std::string _name;
 		unsigned int _Energy;
+		std::string _name;
 		unsigned int _Attack_dmg;
 
 	const static  unsigned int  _max_healt;

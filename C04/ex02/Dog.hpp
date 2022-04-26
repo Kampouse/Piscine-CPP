@@ -8,7 +8,7 @@ class Dog: public  Animal
 {
 	private:
 
-	Brain *_brain;
+		Brain *_brain;
 
 	public:
 		Dog(std::string);

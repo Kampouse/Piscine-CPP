@@ -13,7 +13,7 @@ all: ${NAME}
 ${NAME}:${OBJS} 
 		${CC} ${OBJS} ${FLAGS}   -o ${NAME}
 run: all
-	./${NAME} hello world
+	./${NAME} 
 val: all
 	valgrind    --leak-check=full --track-origins=yes -s --trace-children=yes ./$(NAME)
 clean:

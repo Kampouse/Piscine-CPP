@@ -27,7 +27,7 @@ Brain::~Brain(void)
 
 Brain::Brain(const Brain &copy)
 {
-	std::cout << "Copy constructor called" << std::endl;
+	std::cout << "Brain Copy constructor called" << std::endl;
 	int temp;
 	temp = 0;
 	this->_ideas = new std::string[100];

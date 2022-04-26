@@ -6,14 +6,11 @@
 /*   By: jemartel <jemartel@student.42quebec>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/15 14:25:05 by jemartel          #+#    #+#             */
-/*   Updated: 2022/04/22 16:39:32 by jemartel         ###   ########.fr       */
+/*   Updated: 2022/04/25 21:08:48 by jemartel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
-#include <time.h>
-#include "ClapTrap.hpp"
-#include "ScavTrap.hpp"
 #include "FragTrap.hpp"
 
 void fight(FragTrap &atker, FragTrap &victim)
@@ -25,9 +22,19 @@ void fight(FragTrap &atker, FragTrap &victim)
 int main(void)
 {
 	FragTrap *krampef =  new FragTrap("tata");
-						krampef->hightFivesGuys();
-						krampef->takeDamage(100);
-						krampef->beRepaired(100);
-	std::cout << *krampef ;
+	FragTrap *kramped =  new FragTrap(*krampef);
+	krampef->hightFivesGuys();
+	krampef->hightFivesGuys();
+	krampef->takeDamage(1);
+	krampef->beRepaired(9);
+	kramped->attack("No body");
+	kramped->attack("No body");
+	std::cout << *krampef << std::endl;
+	std::cout << *kramped ;
+	*kramped = *krampef ;
+	std::cout << *krampef << std::endl;
+	std::cout << *kramped ;
+	delete krampef;
+	delete kramped;
 	
 }
