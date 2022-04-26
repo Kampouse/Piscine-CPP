@@ -6,17 +6,16 @@
 /*   By: jemartel <jemartel@student.42quebec>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/17 15:58:41 by jemartel          #+#    #+#             */
-/*   Updated: 2022/04/20 22:53:22 by jemartel         ###   ########.fr       */
+/*   Updated: 2022/04/26 15:11:05 by jemartel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./Bureaucrat.hpp"
 
-Bureaucrat::Bureaucrat(std::string name,int grade):_name(name)
+Bureaucrat::Bureaucrat(std::string name,int grade):_name(name),_grade(grade)
 {
 		GradeTooHight(grade);		
 		GradeTooLow(grade);
-		_grade = grade;
 	std::cout << "Bureaucrat is now born\n";
 }
 
@@ -49,20 +48,6 @@ Bureaucrat	&Bureaucrat::operator = (const Bureaucrat &copy)
 	std::cout << "Assignation operator called" << std::endl;
 	(void)copy;
 	return (*this);
-}
-
-void Bureaucrat::IncrementGrade(void)
-{
-		GradeTooHight(_grade - 1);
-		_grade--;
-		std::cout<< GetName() << ": grade Incremented  grade is now at:" << _grade << "\n";
-}
-
-void Bureaucrat::DecrimentGrade(void)
-{
-		GradeTooLow(_grade + 1);
-		_grade++;
-		std::cout << GetName() <<  ": grade Decriment  grade is now at:" << _grade << "\n";
 }
 
  const char *Bureaucrat::GradeTooHightException::what() const throw()

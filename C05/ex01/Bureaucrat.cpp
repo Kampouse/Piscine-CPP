@@ -6,16 +6,15 @@
 /*   By: jemartel <jemartel@student.42quebec>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/17 15:58:41 by jemartel          #+#    #+#             */
-/*   Updated: 2022/04/20 05:43:19 by jemartel         ###   ########.fr       */
+/*   Updated: 2022/04/26 14:17:54 by jemartel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "Bureaucrat.hpp"
 
-Bureaucrat::Bureaucrat(std::string name,int grade):_name(name)
+Bureaucrat::Bureaucrat(std::string name,int grade):_name(name),_grade(grade)
 {
 		GradeTooHight(grade);		
 		GradeTooLow(grade);
-		_grade = grade;
 	std::cout << "Bureaucrat is now born\n";
 }
 
@@ -33,14 +32,13 @@ Bureaucrat::~Bureaucrat(void)
 	std::cout << "Destructor called" << std::endl;
 }
 
-Bureaucrat::Bureaucrat(const Bureaucrat &copy)
+Bureaucrat::Bureaucrat(const Bureaucrat &copy):_name(copy._name),_grade (copy._grade)
 {
 	std::cout << "Copy constructor called" << std::endl;
-	this->_grade  = copy._grade;
 	
 }
 
-Bureaucrat::Bureaucrat(void):_name("default")
+Bureaucrat::Bureaucrat(void):_name("default"),_grade(100)
 {
 }
 
@@ -49,20 +47,6 @@ Bureaucrat	&Bureaucrat::operator = (const Bureaucrat &copy)
 	std::cout << "Assignation operator called" << std::endl;
 	(void)copy;
 	return (*this);
-}
-
-void Bureaucrat::IncrementGrade(void)
-{
-		GradeTooHight(_grade - 1);
-		_grade--;
-		std::cout<< GetName() << ": grade Incremented  grade is now at:" << _grade << "\n";
-}
-
-void Bureaucrat::DecrimentGrade(void)
-{
-		GradeTooLow(_grade + 1);
-		_grade++;
-		std::cout << GetName() <<  ": grade Decriment  grade is now at:" << _grade << "\n";
 }
 
  const char *Bureaucrat::GradeTooHightException::what() const throw()

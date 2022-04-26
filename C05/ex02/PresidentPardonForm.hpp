@@ -12,7 +12,7 @@ class PresidentPardonForm :public Form
 		std::string GetName(void)const;
 		PresidentPardonForm(void);
 		PresidentPardonForm(std::string name);
-		void action();
+		void action()const;
 		~PresidentPardonForm(void);
 		PresidentPardonForm(const PresidentPardonForm &copy);
 		PresidentPardonForm	&operator = (const PresidentPardonForm &copy);

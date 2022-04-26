@@ -1,6 +1,5 @@
 #ifndef BUREAUCRAT_HPP
 #define BUREAUCRAT_HPP
-#pragma once
 #include "Form.hpp"
 #include <algorithm>
 #include <iostream>
@@ -22,7 +21,7 @@ class Bureaucrat
 
 	private:
 		const std::string _name;
-		int _grade;
+		const int _grade;
 	public:
 		void setName(const std::string name);
 		Bureaucrat(void);

@@ -6,29 +6,16 @@
 /*   By: jemartel <jemartel@student.42quebec>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/16 17:25:16 by jemartel          #+#    #+#             */
-/*   Updated: 2022/04/22 13:50:58 by jemartel         ###   ########.fr       */
+/*   Updated: 2022/04/26 15:19:00 by jemartel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./RobotomyRequestForm.hpp"
 #include "Bureaucrat.hpp"
 #include "Form.hpp"
+#include "ShrubberyCreationForm.hpp"
 #include "cstring"
 #include <ostream>
-
-void grading(Bureaucrat *user, std::string str)
-{
-  if (str == "inc")
-    while (1)
-	{
-      user->IncrementGrade();
-    }
-  if (str == "dec")
-    while (1)
-	{
-      user->DecrimentGrade();
-    }
-}
 
 int main(int argc, char *argv[]) {
   (void)argc;
@@ -207,4 +194,29 @@ int main(int argc, char *argv[]) {
 			delete formed;
 			return (0);
 		}
+		if (strcmp(argv[1],"12") == 0)
+		{
+			Bureaucrat *hello;
+			ShrubberyCreationForm  *formed;
+				hello = NULL;
+				formed = NULL;
+			try
+			{
+				hello  = new Bureaucrat("john", 40);
+				formed = new ShrubberyCreationForm("the only  bullshit ");
+				hello->SignForm(*formed);
+				hello->executeForm(*formed);
+			}	
+			catch(std::exception & e )
+			{
+				delete hello;
+				delete formed;
+				std::cerr << e.what()  << std::endl;
+			}
+			delete hello;
+			delete formed;
+			return (0);
+		}
+
+
 }

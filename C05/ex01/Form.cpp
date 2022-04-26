@@ -6,7 +6,7 @@
 /*   By: jemartel <jemartel@student.42quebec>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/18 07:12:28 by jemartel          #+#    #+#             */
-/*   Updated: 2022/04/20 06:24:38 by jemartel         ###   ########.fr       */
+/*   Updated: 2022/04/26 14:37:48 by jemartel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,15 @@
 
 Form::Form(void):_grade_sign(1),_grade_execute(1)
 {
-	std::cout << "Constructor called" << std::endl;
+	_signed = false;
+	std::cout << "Form Constructor Called " << std::endl;
 }
 Form::Form(std::string name,int grade):_name(name),_grade_sign(grade),_grade_execute(grade)
 {
 	GradeTooLow(grade);
 	GradeTooHigh(grade);
 	_signed = false;
-	std::cout << "Form was init" << std::endl;
+	std::cout << "Form  Constructor  Called" << std::endl;
 }
 
 Form::~Form(void)
@@ -43,7 +44,7 @@ Form::Form(const Form &copy):_name(copy.GetName()),_grade_sign(copy.GetGrade()),
 
 const char *Form::GradeTooLowException::what() const throw()
 {
-	return ("Grade too low in the  form");
+	return ("Grade too low in the form");
 }
 void  Form::GradeTooHigh(int grade)
 {
@@ -59,7 +60,7 @@ void Form::BeSigned(void)
 {
 	_signed = true;
 }
-bool Form::IsSigned(void)
+bool Form::IsSigned(void)const
 {
 	return _signed;
 }
@@ -81,6 +82,6 @@ Form	&Form::operator = (const Form &copy)
 
 std::ostream &operator<<(std::ostream &output, Form const &user)
 {
-		output  << user.GetName() << " : " << user.GetGrade() << std::endl;
+		output  << user.GetName() <<": Grade : " << user.GetGrade() <<" : " <<" Signed :"<<(user.IsSigned() == true ? " Yes":" No")  << std::endl;
 		return (output);
 }

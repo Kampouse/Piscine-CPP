@@ -6,41 +6,47 @@
 /*   By: jemartel <jemartel@student.42quebec>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/18 23:37:54 by jemartel          #+#    #+#             */
-/*   Updated: 2022/04/20 22:21:57 by jemartel         ###   ########.fr       */
+/*   Updated: 2022/04/26 15:20:35 by jemartel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FORM_HPP
 #define FORM_HPP
 
-#pragma once
-
 #include "Bureaucrat.hpp"
 #include <iostream>
 
 class Bureaucrat;
-class Form {
-  class GradeTooHightException : public std::exception {
-  public:
-    virtual const char *what() const throw();
-  };
 
-  class GradeTooLowException : public std::exception {
+class Form {
+  class GradeTooHightException : public std::exception 
+{
+  public:
+    virtual const char *what() const throw();
+};
+
+  class GradeTooLowException : public std::exception 
+ {
   public:
     virtual const char *what() const throw();
   };
-  class IsNotSigned : public std::exception {
+  class IsNotSigned : public std::exception
+{
   public:
     virtual const char *what() const throw();
-  };
-  class BadCredential : public std::exception {
+};
+  class BadCredential : public std::exception
+{
   public:
     virtual const char *what() const throw();
-  };
+};
+
+
+
 
 private:
   const std::string _name;
-  bool _signed;
+  const bool _signed;
   const int _grade_sign;
   const int _grade_execute;
 
@@ -63,5 +69,6 @@ public:
   virtual  void action(void)const = 0;
   void Check_status(Bureaucrat const &executeted) const;
 };
+
 std::ostream &operator<<(std::ostream &output, Form const &Form);
 #endif

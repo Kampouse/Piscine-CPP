@@ -6,7 +6,7 @@
 /*   By: jemartel <jemartel@student.42quebec>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/18 07:12:28 by jemartel          #+#    #+#             */
-/*   Updated: 2022/04/20 22:10:28 by jemartel         ###   ########.fr       */
+/*   Updated: 2022/04/26 15:20:14 by jemartel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ const char *Form::GradeTooLowException::what() const throw()
 }
 const char *Form::IsNotSigned::what() const throw()
 {
-	return ("not signed\n");
+	return ("Sorry ty again later this form is not signed\n");
 }
 const char *Form::BadCredential::what() const throw()
 {

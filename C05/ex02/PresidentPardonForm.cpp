@@ -6,7 +6,7 @@
 /*   By: jemartel <jemartel@student.42quebec>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/20 21:31:50 by jemartel          #+#    #+#             */
-/*   Updated: 2022/04/20 21:31:55 by jemartel         ###   ########.fr       */
+/*   Updated: 2022/04/26 15:11:58 by jemartel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ PresidentPardonForm::~PresidentPardonForm(void)
 	std::cout << "Destructor called" << std::endl;
 }
 
-void PresidentPardonForm::action()
+void PresidentPardonForm::action()const
 {
 	std::cout << "Destructor called" << std::endl;
 }
