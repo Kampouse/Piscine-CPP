@@ -43,7 +43,6 @@ RobotomyRequestForm	&RobotomyRequestForm::operator = (const RobotomyRequestForm 
 }
 void RobotomyRequestForm ::execute(const Bureaucrat  &student)const
 {
-
 	this->Check_status(student);
 	std::cout <<  student << std::endl;
 	this->action();
