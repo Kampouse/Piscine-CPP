@@ -1,7 +1,7 @@
 NAME = Array
 
 FLAGS = -Wall -Wextra -Werror --std=c++98 -g
-SRCS = main.cpp Array.cpp
+SRCS = main.cpp 
 HEADERS = Array.hpp
 RM =  rm -rf 
 .cpp.o:
@@ -17,7 +17,7 @@ ${NAME}:${OBJS}
 run: all
 	./${NAME}
 val: all
-	valgrind   --track-origins=yes -s --trace-children=yes  ${NAME}
+	valgrind   --track-origins=yes -s --trace-children=yes  ./${NAME}
 
 clean:
 	    ${RM} ${OBJS}	

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Array.hpp                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jemartel <jemartel@student.42quebec>       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/05/02 19:20:07 by jemartel          #+#    #+#             */
+/*   Updated: 2022/05/02 19:21:08 by jemartel         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef ARRAY_HPP
 # define ARRAY_HPP
 
@@ -6,14 +18,14 @@ template<class T>
 class Array
 {
 	private:
+		T* _array;
 		unsigned int _count;
 	public:
-		T* _array;
 		Array(void);
 		Array(unsigned int count);
 		~Array(void);
 		Array(const Array &copy);
-		int			size(void);
+		int			size(void)const;
 		Array<T>	&operator = (const Array &copy);
 		T			&operator[] ( unsigned  int index );
 
@@ -22,20 +34,13 @@ class Array
   public:
     virtual const char *what() const throw();
   };
-
-
-
-
-
 };
-
-
-//#error make the  _array private;
 
 template<class T>
 Array<T>::Array(void)
 {
 	_array = new T[0];
+	_count = 0;
 	std::cout << "Constructor called" << std::endl;
 }
 
@@ -56,20 +61,35 @@ Array<T>::~Array(void)
 template<class T>
 Array<T>::Array(const Array &copy)
 {
+	int temp = 0;
 	std::cout << "Copy constructor called" << std::endl;
-	*this = copy;
+	this->_array = new T[copy.size()];
+	this->_count = copy.size();
+	while(temp <  copy.size())
+	{
+		 this->_array[temp] =  copy._array[temp];
+			temp++;
+	}
 }
 
 template<class T>
 Array<T>	&Array<T>::operator = (const Array<T> &copy)
 {
-	(void)copy;
+	int temp = 0;
+	delete []  this->_array;
+	this->_array = 	new T[copy.size()] ;
+	this->_count = copy.size();
+	while(temp <  copy.size())
+{
+	 this->_array[temp] =  copy._array[temp];
+		temp++;
+}
 	std::cout << "Assignation operator called" << std::endl;
 	return (*this);
 }
 
 template<class T>
-int 	Array<T>::size(void)
+int 	Array<T>::size(void)const
 {
 	return (_count);
 }
@@ -82,7 +102,6 @@ template<class T>
 template<class T>
 T	&Array<T>::operator[] (unsigned  int index)
 {
-	std::cout << "Assignation operator called" << std::endl;
 	if( index  > _count) 
 		throw ArrayExcetpion();
 	return (_array[index]);
