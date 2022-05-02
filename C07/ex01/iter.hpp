@@ -6,7 +6,7 @@
 template<typename T>
 void generic_inc(T &val)
 {
-    val *= 10;
+	val *= 10;
 }
 template<typename T>
  void iter(T *value,int count,void(*fn_ptr)(T &val))
