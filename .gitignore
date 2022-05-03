@@ -2,6 +2,9 @@
 .gdb_history
 vgcore.*
 **/*.o
+**/*.json
 **/*.dSYM
 **/*.parsecache
 **/*.buildcache
+**/*/.cache/
+**/*.json

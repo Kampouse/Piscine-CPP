@@ -1,4 +1,5 @@
 #include "WrongCat.hpp"
+#include <sys/wait.h>
 
 
 WrongCat::WrongCat(void)
@@ -12,8 +13,6 @@ WrongCat::~WrongCat(void)
 }
 
 
-
-
 WrongCat::WrongCat(const WrongCat &copy): WrongAnimal()
 {
 	std::cout << "Copy constructor called" << std::endl;
@@ -21,6 +20,14 @@ WrongCat::WrongCat(const WrongCat &copy): WrongAnimal()
 	*this = copy;
 }
 
+
+
+
+void WrongCat::MakeSound(void)const
+{
+		std::cout << "hello" << std::endl;
+	return;
+}
 WrongCat	&WrongCat::operator = (const WrongCat &copy)
 {
 	std::cout << "Assignation operator called" << std::endl;

@@ -36,7 +36,9 @@ void Fixed::setRawBits(int const raw)
 Fixed::Fixed(const Fixed &copy)
 {
 	std::cout << "copy constructor called" << std::endl;
+
 	*this = copy;
+	std::cout << "helLo";
 }
 
 Fixed	&Fixed::operator = (const Fixed &copy)

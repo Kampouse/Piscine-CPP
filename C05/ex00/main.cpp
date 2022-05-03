@@ -6,10 +6,9 @@
 /*   By: jemartel <jemartel@student.42quebec>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/16 17:25:16 by jemartel          #+#    #+#             */
-/*   Updated: 2022/04/25 14:07:13 by jemartel         ###   ########.fr       */
+/*   Updated: 2022/05/03 15:29:55 by jemartel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 #include "Bureaucrat.hpp"
 #include <cstring>
 #include <exception>
@@ -27,7 +26,6 @@ void  grading(Bureaucrat *user,std::string str)
 		user->DecrimentGrade();
 	}
 }
-
 
 int main(int argc,char *argv[])
 {
@@ -141,5 +139,29 @@ int main(int argc,char *argv[])
 			delete steph;
 			delete no_name;
 			std::cout << "No Exception  was found ----------------->>>" << std::endl;
+	}
+	if (strcmp(argv[1],"5") == 0)
+	{
+		std::cout << "other test ----------------- " << std::endl;
+		try
+		{
+			 john =  new Bureaucrat("john", 5);
+		}
+		catch (std::exception & e)
+		{
+			delete john;
+			std::cout << "Exception  was found ----------------->>>" << std::endl;
+				std::cerr << e.what() << std::endl;
+				return 0;
+		}
+			john->IncrementGrade();
+			john->IncrementGrade();
+			john->IncrementGrade();
+			john->IncrementGrade();
+			john->DecrimentGrade();
+			john->DecrimentGrade();
+			john->DecrimentGrade();
+			john->DecrimentGrade();
+			delete john;
 	}
 }

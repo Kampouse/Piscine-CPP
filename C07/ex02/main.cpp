@@ -6,7 +6,7 @@
 /*   By: jemartel <jemartel@student.42quebec>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/02 19:20:16 by jemartel          #+#    #+#             */
-/*   Updated: 2022/05/02 19:23:45 by jemartel         ###   ########.fr       */
+/*   Updated: 2022/05/03 11:41:13 by jemartel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ int tmp = 0;
 		cout << lst->operator[](tmp) << endl;
 		tmp++;
 	}
-
 	Array<int>val(*lst);
 	Array<int>rat;
 	rat = val;
