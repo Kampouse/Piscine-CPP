@@ -3,6 +3,7 @@
 
 # include <iostream>
 #include "Form.hpp"
+#include "Bureaucrat.hpp"
 
 class RobotomyRequestForm :public Form 
 {
@@ -11,7 +12,7 @@ class RobotomyRequestForm :public Form
 		std::string GetName(void)const;
 		RobotomyRequestForm(void);
 		RobotomyRequestForm(std::string name);
-		void action()const;
+		void action(const Bureaucrat &user)const;
 		~RobotomyRequestForm(void);
 		RobotomyRequestForm(const RobotomyRequestForm &copy);
 		RobotomyRequestForm	&operator = (const RobotomyRequestForm &copy);

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Data.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jemartel <jemartel@student.42quebec>       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/05/05 18:49:00 by jemartel          #+#    #+#             */
+/*   Updated: 2022/05/05 18:49:42 by jemartel         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Data.hpp"
 
 Data::Data(void):data(10),value("default")
@@ -48,16 +60,12 @@ std::ostream &operator<<(std::ostream &output, Data const &user)
 
 
 	Data* value =  reinterpret_cast<Data *>(raw);
-	return(value);
+	return (value);
 }
 	uintptr_t  serialize(Data *ptr)
 {
 	uintptr_t value =  reinterpret_cast<uintptr_t>(ptr);
-	return(value);
+	return (value);
 
 }
-
-
-
-
 

@@ -6,11 +6,12 @@
 /*   By: jemartel <jemartel@student.42quebec>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/16 17:25:16 by jemartel          #+#    #+#             */
-/*   Updated: 2022/04/26 15:19:00 by jemartel         ###   ########.fr       */
+/*   Updated: 2022/05/05 16:20:05 by jemartel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./RobotomyRequestForm.hpp"
+#include "PresidentPardonForm.hpp"
+#include "RobotomyRequestForm.hpp"
 #include "Bureaucrat.hpp"
 #include "Form.hpp"
 #include "ShrubberyCreationForm.hpp"
@@ -20,7 +21,8 @@
 int main(int argc, char *argv[]) {
   (void)argc;
   (void)argv;
-
+		if(argc != 2)
+			return 0;	
 		if (strcmp(argv[1],"1") == 0)
 		{
 			  Bureaucrat john("john", 150);
@@ -217,6 +219,28 @@ int main(int argc, char *argv[]) {
 			delete formed;
 			return (0);
 		}
-
+		if (strcmp(argv[1],"13") == 0)
+		{
+			Bureaucrat *hello;
+			PresidentPardonForm  *formed;
+				hello = NULL;
+				formed = NULL;
+			try
+			{
+				hello  = new Bureaucrat("john", 1);
+				formed = new PresidentPardonForm("the only  bullshit ");
+				hello->SignForm(*formed);
+				hello->executeForm(*formed);
+			}	
+			catch(std::exception & e )
+			{
+				delete hello;
+				delete formed;
+				std::cerr << e.what()  << std::endl;
+			}
+			delete hello;
+			delete formed;
+			return (0);
+		}
 
 }

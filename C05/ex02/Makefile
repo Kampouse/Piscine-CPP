@@ -13,15 +13,14 @@ all: ${NAME}
 ${NAME}:${OBJS} 
 		${CC} ${OBJS} ${FLAGS}   -o ${NAME}
 	
-NUMBERS = 1 2 3 4 5 6 7 8 9 10 11 12
+NUMBERS = 1 2 3 4 5 6 7 8 9 10 11 12 13
 run: all
 	@$(foreach var,$(NUMBERS),./$(NAME) $(var); echo $(var) "--------------------------------------------------------";)
-
 clean:
 
 	    ${RM} ${OBJS}	
-val:
-	valgrind   --track-origins=yes -s --trace-children=yes ./$(NAME) 2
+val:all
+	@$(foreach var,$(NUMBERS), 	valgrind   --track-origins=yes ./$(NAME) $(var); echo $(var) "--------------------------------------------------------";)
 git:
 		@git add ${SRCS} Makefile
 fclean: clean

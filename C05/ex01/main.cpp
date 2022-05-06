@@ -6,7 +6,7 @@
 /*   By: jemartel <jemartel@student.42quebec>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/16 17:25:16 by jemartel          #+#    #+#             */
-/*   Updated: 2022/04/26 15:05:09 by jemartel         ###   ########.fr       */
+/*   Updated: 2022/05/04 15:05:21 by jemartel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int main(int argc,char *argv[])
 		}
 		try
 		{
-			formed = new Form("the first day at school teste", 100);
+			formed = new Form("the first day at school teste", 100,25);
 		}
 		catch(std::exception &e )
 		{
@@ -63,7 +63,7 @@ int main(int argc,char *argv[])
 		}
 		try
 		{
-			formed = new Form("the last day at school ", 99);
+			formed = new Form("the last day at school ", 99,99);
 		}
 		catch(std::exception &e )
 		{
@@ -92,14 +92,14 @@ int main(int argc,char *argv[])
 		}
 		catch(std::exception &e )
 		{
-			std::cout << "Excpeting: grade too low ";
+			std::cout << "Excepted: Grade too low : got : ";
 			std::cerr << e.what()  << std::endl;
 			delete john;
 			return 0;
 		}
 		try
 		{
-			formed = new Form("the last day at school ", 99);
+			formed = new Form("the last day at school ", 99,85);
 		}
 		catch(std::exception &e )
 		{
@@ -135,7 +135,7 @@ int main(int argc,char *argv[])
 		}
 		try
 		{
-			formed = new Form("the last day at school ", -100);
+			formed = new Form("the last day at school ", -100,-250);
 		}
 		catch(std::exception &e )
 		{
@@ -164,7 +164,7 @@ int main(int argc,char *argv[])
 		}
 		try
 		{
-			formed = new Form("the last day at school ", 30);
+			formed = new Form("the last day at school ", 30,25);
 		}
 		catch(std::exception &e )
 		{

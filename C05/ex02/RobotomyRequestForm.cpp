@@ -17,16 +17,16 @@ RobotomyRequestForm::~RobotomyRequestForm(void)
 	std::cout << "Destructor called" << std::endl;
 }
 
-void RobotomyRequestForm::action()const
+void RobotomyRequestForm::action(const Bureaucrat &user)const
 {
 	std::srand(time(NULL));
 	int  random = std::rand()  % 100; 
 	std::cout << "RobotomyRequestForm as been excuted..." << std::endl;
 	std::cout << "brrrrrrrrrrrrrrrrrr..." << std::endl;
 	if(random  >= 50)
-		std::cout << "i am a robot..." << std::endl;
+		std::cout << user.GetName() <<  ": i am a robot..." << std::endl;
 	else
-		std::cout << "failed to initialise the zig stage 3 compiler... YOUR ARE NOT A ROBOT" << std::endl;
+		std::cout << "failed to initialise the zig stage 3 compiler... YOUR ARE NOT A ROBOT: " << user.GetName()  << std::endl;
 }
 
 RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &copy):Form(copy)
@@ -43,10 +43,8 @@ RobotomyRequestForm	&RobotomyRequestForm::operator = (const RobotomyRequestForm 
 }
 void RobotomyRequestForm ::execute(const Bureaucrat  &student)const
 {
-
 	this->Check_status(student);
-	std::cout <<  student << std::endl;
-	this->action();
+	this->action(student);
 }
 
 std::string RobotomyRequestForm ::GetName (void)const

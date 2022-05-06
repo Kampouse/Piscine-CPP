@@ -8,7 +8,10 @@
 Base *random_element(void)
 {
 Base *ptr;
-int timed = 	time(NULL);
+		srand(time(NULL));
+int timed =		rand() ;
+	
+
 timed = 	 timed % 3; 
 	switch(timed)
 	{
@@ -39,18 +42,15 @@ void find_type(Base *elem)
 	if( dynamic_cast<Alpha*>(elem))
 		{
 			std::cout << "got-> Alpha" << std::endl;
-			return;
 		}
 
 	else if( dynamic_cast<Beta*>(elem))
 		{
 			std::cout << "got-> Beta" << std::endl;
-			return;
 		}
 	else if( dynamic_cast<Charlie*>(elem))
 		{
 			std::cout << "got-> Charlie" << std::endl;
-			return;
 		}
 	delete elem;
 }
@@ -58,10 +58,13 @@ void find_type(Base *elem)
 
 void find_type(Base &elem)
 {
+	std::cout << "should go here"  << std::endl;
 	try
 	{	
- 	 (void)dynamic_cast<Alpha&>(elem);
-		std::cout << "Alpha" << std::endl;
+		Alpha* temp;
+		temp = 	&dynamic_cast<Alpha&>(elem);
+		std::cout << "got -> Alpha" << std::endl;
+		delete temp;
 		return;
 	}
 	catch(std::bad_cast & e)
@@ -69,27 +72,48 @@ void find_type(Base &elem)
 
 	try
 	{	
- 	 (void)dynamic_cast<Beta&>(elem);
-		std::cout << "Beta" << std::endl;
+		Beta* temp;
+ 	  temp = &dynamic_cast<Beta&>(elem);
+		std::cout << " got -> Beta" << std::endl;
+		delete temp;
 		return;
 	}
 	catch(std::bad_cast & e)
 	{}
 	try
 	{	
- 	 (void)dynamic_cast<Charlie&>(elem);
-		std::cout << "Charlie" << std::endl;
+		Charlie *temp;
+		temp = &dynamic_cast<Charlie&>(elem);
+		std::cout << " got-> Charlie" << std::endl;
+		delete temp;
 	}
 	catch(std::bad_cast & e)
 	{}
-
+	
 }
-
 
 int main(void)
 {
 	find_type (random_element());
-	find_type (*random_element());
-
+	find_type (random_element());
+	find_type (random_element());
+	find_type (random_element());
+	find_type (random_element());
+	find_type (random_element());
+	find_type (random_element());
+	find_type (random_element());
+	find_type (random_element());
+	find_type (random_element());
+	find_type( *random_element());
+	find_type( *random_element());
+	find_type( *random_element());
+	find_type( *random_element());
+	find_type( *random_element());
+	find_type( *random_element());
+	find_type( *random_element());
+	find_type( *random_element());
+	find_type( *random_element());
+	find_type( *random_element());
+	find_type( *random_element());
 
 }

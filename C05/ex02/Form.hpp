@@ -6,7 +6,7 @@
 /*   By: jemartel <jemartel@student.42quebec>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/18 23:37:54 by jemartel          #+#    #+#             */
-/*   Updated: 2022/05/03 15:48:26 by jemartel         ###   ########.fr       */
+/*   Updated: 2022/05/04 15:41:54 by jemartel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ public:
   int getGradeExecute() const;
   void GradeTooHigh(int grade);
   void GradeTooLow(int grade);
-  virtual  void action(void)const = 0;
+  virtual  void action(const Bureaucrat &user)const = 0;
   void Check_status(Bureaucrat const &executeted) const;
 };
 

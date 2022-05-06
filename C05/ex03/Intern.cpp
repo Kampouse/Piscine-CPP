@@ -6,7 +6,7 @@
 /*   By: jemartel <jemartel@student.42quebec>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/27 03:31:38 by jemartel          #+#    #+#             */
-/*   Updated: 2022/04/27 05:36:39 by jemartel         ###   ########.fr       */
+/*   Updated: 2022/05/05 13:27:17 by jemartel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,6 @@
 #include "ShrubberyCreationForm.hpp"
 #include "PresidentPardonForm.hpp"
 
-
-
-
 Intern::Intern(void)
 {
 	std::cout << "Intern as been hired" << std::endl;
@@ -27,7 +24,6 @@ Intern::~Intern(void)
 {
 	std::cout << "Intern as been fired" << std::endl;
 }
-
 
 Form * Intern::makeForm(std::string first,std::string second)
 {

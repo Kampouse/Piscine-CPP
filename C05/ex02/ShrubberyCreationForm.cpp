@@ -6,7 +6,7 @@
 /*   By: jemartel <jemartel@student.42quebec>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/27 02:50:36 by jemartel          #+#    #+#             */
-/*   Updated: 2022/04/27 03:10:22 by jemartel         ###   ########.fr       */
+/*   Updated: 2022/05/04 16:11:06 by jemartel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,11 +30,12 @@ ShrubberyCreationForm::~ShrubberyCreationForm(void)
 	std::cout << "Destructor called" << std::endl;
 }
 
-void ShrubberyCreationForm::action()const
+void ShrubberyCreationForm::action(const Bureaucrat  &student)const
+
 {
- // should you catch the excption if it cant open a file?
+	std::cout << "Tree is being planted" << std::endl;
 	std::fstream output;
-	const std::string  Name = GetName() + "_Shrubbery";
+	const std::string  Name = student.GetName() + "_Shrubbery";
 	output.open(Name.c_str() ,std::ios::out);
 	if (output.fail())
 	{
@@ -75,8 +76,7 @@ ShrubberyCreationForm	&ShrubberyCreationForm::operator = (const ShrubberyCreatio
 void ShrubberyCreationForm ::execute(const Bureaucrat  &student)const
 {
 	this->Check_status(student);
-	std::cout <<  student << std::endl;
-	std::cout << "should do the good thing if this work" << std::endl;
+	this->action(student);
 }
 
 std::string ShrubberyCreationForm ::GetName (void)const

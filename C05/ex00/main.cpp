@@ -6,7 +6,7 @@
 /*   By: jemartel <jemartel@student.42quebec>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/16 17:25:16 by jemartel          #+#    #+#             */
-/*   Updated: 2022/05/03 15:29:55 by jemartel         ###   ########.fr       */
+/*   Updated: 2022/05/04 13:23:22 by jemartel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "Bureaucrat.hpp"
@@ -33,7 +33,10 @@ int main(int argc,char *argv[])
 	Bureaucrat *steph = NULL;
 	(void)argc;
 	if (argc != 2)
+	{
+		std::cout << "provide an argument in the range 1-5" << std::endl;
 		return 0;
+	}
 	if (strcmp(argv[1],"1") == 0)
 	{
 		try
@@ -154,14 +157,16 @@ int main(int argc,char *argv[])
 				std::cerr << e.what() << std::endl;
 				return 0;
 		}
-			john->IncrementGrade();
-			john->IncrementGrade();
-			john->IncrementGrade();
-			john->IncrementGrade();
-			john->DecrimentGrade();
-			john->DecrimentGrade();
-			john->DecrimentGrade();
-			john->DecrimentGrade();
-			delete john;
+		std::cout << "name of the bureaucrate: " <<  john->GetName() << std::endl;
+		std::cout << "bureaucrate grade :" <<  john->GetGrade()  << std::endl;
+		john->IncrementGrade();
+		john->IncrementGrade();
+		john->IncrementGrade();
+		john->IncrementGrade();
+		john->DecrimentGrade();
+		john->DecrimentGrade();
+		john->DecrimentGrade();
+		john->DecrimentGrade();
+		delete john;
 	}
 }

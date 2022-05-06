@@ -6,7 +6,7 @@
 /*   By: jemartel <jemartel@student.42quebec>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/17 15:58:41 by jemartel          #+#    #+#             */
-/*   Updated: 2022/04/26 15:11:05 by jemartel         ###   ########.fr       */
+/*   Updated: 2022/05/04 16:15:47 by jemartel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ void Bureaucrat::SignForm(Form  &exam)
 		exam.BeSigned();
 	}
 	else
-		std::cout << "could not write form \n";
+		std::cout << "could not write form because " << this->GetName() << " as only: " << this->GetGrade() << " when " << exam.getGradeSign() << " is required" << std::endl;
 }
 
 void Bureaucrat::executeForm(Form const & exam)
@@ -98,7 +98,7 @@ void Bureaucrat::executeForm(Form const & exam)
 	{
 		std::cerr << e.what(); return;
 	}
-		exam.action();
+		exam.action(*this);
 }
 
 std::ostream &operator<<(std::ostream &output,  Bureaucrat const  &user)

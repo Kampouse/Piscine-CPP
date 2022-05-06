@@ -6,7 +6,7 @@
 /*   By: jemartel <jemartel@student.42quebec>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/20 21:31:50 by jemartel          #+#    #+#             */
-/*   Updated: 2022/04/27 02:54:43 by jemartel         ###   ########.fr       */
+/*   Updated: 2022/05/04 15:56:58 by jemartel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,10 @@ PresidentPardonForm::~PresidentPardonForm(void)
 	std::cout << "Destructor called" << std::endl;
 }
 
-void PresidentPardonForm::action()const
+void PresidentPardonForm::action(const Bureaucrat &user)const
 {
-	std::cout << "Destructor called" << std::endl;
+	std::cout << "you have been  pardonned: " << user.GetName() <<  std::endl;
+
 }
 PresidentPardonForm::PresidentPardonForm(const PresidentPardonForm &copy):Form(copy)
 {
@@ -49,6 +50,7 @@ void PresidentPardonForm ::execute(const Bureaucrat  &student)const
 {
 	this->Check_status(student);
 	std::cout << student.GetName() << " " << "You have been pardoned by Zaphod Beeblebrox"<< std::endl;
+
 }
 
 std::string PresidentPardonForm ::GetName (void)const

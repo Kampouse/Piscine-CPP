@@ -6,7 +6,7 @@
 /*   By: jemartel <jemartel@student.42quebec>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/17 15:58:41 by jemartel          #+#    #+#             */
-/*   Updated: 2022/05/03 15:31:38 by jemartel         ###   ########.fr       */
+/*   Updated: 2022/05/04 15:04:19 by jemartel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "Bureaucrat.hpp"
@@ -82,12 +82,12 @@ void Bureaucrat::GradeTooLow(int grade)
 
 void Bureaucrat::SignForm(Form  &exam)
 {
-	if (this->GetGrade() <= exam.GetGrade())
+	if (this->GetGrade() <= exam.GetGradeSign())
 	{
 		std::cout << "this form is being signed -> ";
 		exam.BeSigned();
 	}
 	else
-		std::cout << "could not write form \n";
+		std::cout << "could not write form because  the Bureaucrat was too low to sign it \n";
 }
 

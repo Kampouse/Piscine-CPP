@@ -13,7 +13,7 @@ all: ${NAME}
 ${NAME}:${OBJS} 
 		${CC} ${OBJS} ${FLAGS}   -o ${NAME}
 	
-NUMBERS = 1.2f wt 2.3 3 4 5 6 7 8 9 10 11 12
+NUMBERS = 1.2f wt 2.3 3 4 5 6 7 8 9 10 11 12 75 42 100 200 24 34 56 12 nan inf -inf 
 run: all
 	@$(foreach var,$(NUMBERS),./$(NAME) $(var); echo $(var) "--------------------------------------------------------";)
 

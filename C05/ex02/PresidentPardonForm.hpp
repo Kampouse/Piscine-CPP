@@ -12,7 +12,8 @@ class PresidentPardonForm :public Form
 		std::string GetName(void)const;
 		PresidentPardonForm(void);
 		PresidentPardonForm(std::string name);
-		void action()const;
+
+		void action(const Bureaucrat &user)const;
 		~PresidentPardonForm(void);
 		PresidentPardonForm(const PresidentPardonForm &copy);
 		PresidentPardonForm	&operator = (const PresidentPardonForm &copy);

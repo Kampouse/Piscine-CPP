@@ -13,7 +13,7 @@ class ShrubberyCreationForm :public Form
 		std::string GetName(void)const;
 		ShrubberyCreationForm(void);
 		ShrubberyCreationForm(std::string name);
-		void action()const;
+		void action(const Bureaucrat &user)const;
 		~ShrubberyCreationForm(void);
 		ShrubberyCreationForm(const ShrubberyCreationForm &copy);
 		ShrubberyCreationForm	&operator = (const ShrubberyCreationForm &copy);

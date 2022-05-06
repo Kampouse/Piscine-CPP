@@ -24,11 +24,12 @@ class Form
 
 	public:
 		Form(void);
-		Form(std::string name,int grade);
+		Form(std::string name,int grade_exec,int grade_sign);
 		~Form(void);
 		Form(const Form &copy);
 		Form	&operator = (const Form &copy);
-		int GetGrade(void)const;
+		int GetGradeExec(void)const;
+		int GetGradeSign(void)const;
 		std::string GetName(void)const;
 		bool IsSigned(void)const;
 		void BeSigned(void);
