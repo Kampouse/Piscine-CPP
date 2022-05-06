@@ -6,36 +6,51 @@
 /*   By: jemartel <jemartel@student.42quebec>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/02 19:20:16 by jemartel          #+#    #+#             */
-/*   Updated: 2022/05/03 11:41:13 by jemartel         ###   ########.fr       */
+/*   Updated: 2022/05/06 13:18:19 by jemartel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Array.hpp"
 
 
-
-using std::cout;
-using std::endl;
 int main(void)
 {
-
-	std::auto_ptr<Array<int> > lst( new Array<int>(20));
-	Array<int> &temp = *lst;
-	lst->operator[](3) =  10; 
-	lst->operator[](10) =  15; 
-	lst->operator[](8) =  5; 
-int tmp = 0;
-	while(tmp < 20)
+	std::cout << "beginning of test string ------" << std::endl;
+	Array<std::string > lst2(20);
+	Array <std::string> cpylst2;
+	for (int i = 0; i < 20; i++)
 	{
-
-		lst->operator[](tmp) =  tmp; 
-		cout << lst->operator[](tmp) << endl;
-		tmp++;
+		lst2[i] = "Hello";
+		std::cout << lst2[i] << std::endl; 	
 	}
-	Array<int>val(*lst);
-	Array<int>rat;
-	rat = val;
-	cout << temp[5] << endl;
-	 cout << val[5] << 	endl;
-} 
-
+	lst2[10] = "World";
+	for (int i = 0; i < 20; i++)
+	{
+		std::cout << lst2[i] << std::endl; 	
+	}
+	std::cout << " end of test string ------" << std::endl;
+	std::cout << "beginning of test copy ------" << std::endl; 
+	cpylst2 = lst2;
+	for (int i = 0; i < 20; i++)
+	{
+		std::cout << cpylst2[i] << std::endl; 	
+	}
+	cpylst2[10] = "zig is for ziggy"; 
+	std::cout << " actual copy  ------" << std::endl;
+	 Array<std::string> copyed = Array<std::string> ( cpylst2);
+	for (int i = 0; i < 20; i++)
+	{
+		std::cout << copyed[i] << std::endl; 	
+	}
+	std::cout <<	"sized of copy : " <<  copyed.size() << std::endl; 
+	std::cout << " end of test copy ------" << std::endl;
+	std::cout << "start of  exception" << std::endl;
+	try {
+		Array<std::string> lst(20);
+		lst[21] = "Hello";
+	}
+	catch (std::exception &e)
+	{
+		std::cout << e.what() << std::endl;
+	}
+}

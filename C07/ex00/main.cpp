@@ -6,7 +6,7 @@
 /*   By: jemartel <jemartel@student.42quebec>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/02 19:18:23 by jemartel          #+#    #+#             */
-/*   Updated: 2022/05/02 19:23:48 by jemartel         ###   ########.fr       */
+/*   Updated: 2022/05/06 11:48:45 by jemartel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <iostream>
@@ -17,7 +17,6 @@ int main(void)
 
 	int val = 0;
 	int valb = 2;
-
 	std::string name = "john";
 	std::string your_name = "rohny";
 	std::cout <<  "val " <<  val << std::endl;
@@ -47,14 +46,17 @@ int main(void)
 	std::cout << "a = " << a << ", b = " << b << std::endl;
 	std::cout << "min( a, b ) = " << ::min( a, b ) << std::endl;
 	std::cout << "max( a, b ) = " << ::max( a, b ) << std::endl;
-	std::string c = "chaine1";
-	std::string d = "chaine2";
+	std::string c = "vim";
+	std::string d = "vs code"; 
+	std::cout << "c = " << c << ", d = " << d << std::endl;
 	::swap(c, d);
 	std::cout << "c = " << c << ", d = " << d << std::endl;
+	float valueA = 20;
+	float valueB = 30;
+	std::cout << "valueA = " << valueA << ", valueB = " << valueB << std::endl;
+	::swap (valueA, valueB);
+	std::cout << "valueA = " << valueA << ", valueB = " << valueB << std::endl;
 	std::cout << "min( c, d ) = " << ::min( c, d ) << std::endl;
-	std::cout << "max( c, d ) = " << ::max( c, d ) << std::endl;
 	return 0;
-
-
 }
 
