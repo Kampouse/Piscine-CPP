@@ -20,13 +20,14 @@ RobotomyRequestForm::~RobotomyRequestForm(void)
 void RobotomyRequestForm::action(const Bureaucrat &user)const
 {
 	std::srand(time(NULL));
+	(void)user;
 	int  random = std::rand()  % 100; 
 	std::cout << "RobotomyRequestForm as been excuted..." << std::endl;
 	std::cout << "brrrrrrrrrrrrrrrrrr..." << std::endl;
 	if(random  >= 50)
-		std::cout << user.GetName() <<  ": i am a robot..." << std::endl;
+		std::cout << this->GetName() <<  ": i am a robot..." << std::endl;
 	else
-		std::cout << "failed to initialise the zig stage 3 compiler... YOUR ARE NOT A ROBOT: " << user.GetName()  << std::endl;
+		std::cout << "failed to initialise the zig stage 3 compiler... YOUR ARE NOT A ROBOT: " << this->GetName()  << std::endl;
 }
 
 RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &copy):Form(copy)

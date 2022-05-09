@@ -6,7 +6,7 @@
 /*   By: jemartel <jemartel@student.42quebec>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/20 21:31:50 by jemartel          #+#    #+#             */
-/*   Updated: 2022/05/04 15:56:58 by jemartel         ###   ########.fr       */
+/*   Updated: 2022/05/09 15:20:19 by jemartel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,8 @@ PresidentPardonForm::~PresidentPardonForm(void)
 
 void PresidentPardonForm::action(const Bureaucrat &user)const
 {
-	std::cout << "you have been  pardonned: " << user.GetName() <<  std::endl;
+	(void)user;
+	std::cout << "you have been  pardonned: " << this->GetName() <<  std::endl;
 
 }
 PresidentPardonForm::PresidentPardonForm(const PresidentPardonForm &copy):Form(copy)
@@ -49,14 +50,13 @@ PresidentPardonForm	&PresidentPardonForm::operator = (const PresidentPardonForm 
 void PresidentPardonForm ::execute(const Bureaucrat  &student)const
 {
 	this->Check_status(student);
-	std::cout << student.GetName() << " " << "You have been pardoned by Zaphod Beeblebrox"<< std::endl;
+	std::cout << this->GetName() << " " << "You have been pardoned by Zaphod Beeblebrox"<< std::endl;
 
 }
 
 std::string PresidentPardonForm ::GetName (void)const
 {
 	return  Form::GetName();
-	//busyness logic to  do the thing asked???
 }
 
 std::ostream &operator<<(std::ostream &output, PresidentPardonForm  const &user)

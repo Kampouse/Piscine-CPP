@@ -22,7 +22,7 @@ void RobotomyRequestForm::action()const
 	std::srand(time(NULL));
 	int  random = std::rand()  % 100; 
 	std::cout << "RobotomyRequestForm as been excuted..." << std::endl;
-	std::cout << "brrrrrrrrrrrrrrrrrr..." << std::endl;
+	std::cout << "brrrrrrrrrrrrrrrrrr..." << this->GetName() << std::endl;
 	if(random  >= 50)
 		std::cout << "i am a robot..." << std::endl;
 	else

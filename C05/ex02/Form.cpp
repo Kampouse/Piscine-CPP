@@ -6,14 +6,14 @@
 /*   By: jemartel <jemartel@student.42quebec>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/18 07:12:28 by jemartel          #+#    #+#             */
-/*   Updated: 2022/05/03 15:43:35 by jemartel         ###   ########.fr       */
+/*   Updated: 2022/05/09 15:38:10 by jemartel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Form.hpp"
 #include "Bureaucrat.hpp"
 
-Form::Form(void):_grade_sign(1),_grade_execute(1)
+Form::Form(void): _name("hello"), _grade_sign(1), _grade_execute(1)
 {
 	std::cout << "Constructor called" << std::endl;
 }
@@ -24,7 +24,7 @@ Form::Form(std::string name,int grade_sign, int grade_excec):_name(name),_grade_
 	GradeTooHigh(grade_sign );
 	GradeTooLow(grade_sign);
 	_signed = false;
-	std::cout << "Form was init" << std::endl;
+	std::cout << "Constructor called" << std::endl;
 }
 
 Form::~Form(void)
@@ -62,7 +62,7 @@ void  Form::GradeTooHigh(int grade)
 void  Form::GradeTooLow(int grade)
 {
 		if (grade > 150)
-			throw GradeTooHightException();
+			throw GradeTooLowException();
 }
 
 void Form::BeSigned(void)

@@ -6,7 +6,7 @@
 /*   By: jemartel <jemartel@student.42quebec>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/20 21:31:50 by jemartel          #+#    #+#             */
-/*   Updated: 2022/05/03 16:05:01 by jemartel         ###   ########.fr       */
+/*   Updated: 2022/05/09 15:15:29 by jemartel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ PresidentPardonForm::~PresidentPardonForm(void)
 
 void PresidentPardonForm::action()const
 {
-	std::cout << "You have been pardoned by Zaphod Beeblebrox"<< std::endl;
+	std::cout << "You have been pardoned by Zaphod Beeblebrox" << this->GetName() << std::endl;
 }
 PresidentPardonForm::PresidentPardonForm(const PresidentPardonForm &copy):Form(copy)
 {

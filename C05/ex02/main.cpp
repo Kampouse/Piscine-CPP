@@ -6,7 +6,7 @@
 /*   By: jemartel <jemartel@student.42quebec>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/16 17:25:16 by jemartel          #+#    #+#             */
-/*   Updated: 2022/05/05 16:20:05 by jemartel         ###   ########.fr       */
+/*   Updated: 2022/05/09 16:08:28 by jemartel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,8 @@
 #include "cstring"
 #include <ostream>
 
-int main(int argc, char *argv[]) {
-  (void)argc;
-  (void)argv;
+int main(int argc, char *argv[]) 
+{
 		if(argc != 2)
 			return 0;	
 		if (strcmp(argv[1],"1") == 0)

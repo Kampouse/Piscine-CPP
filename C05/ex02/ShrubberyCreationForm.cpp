@@ -6,7 +6,7 @@
 /*   By: jemartel <jemartel@student.42quebec>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/27 02:50:36 by jemartel          #+#    #+#             */
-/*   Updated: 2022/05/04 16:11:06 by jemartel         ###   ########.fr       */
+/*   Updated: 2022/05/09 15:40:07 by jemartel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,11 +31,11 @@ ShrubberyCreationForm::~ShrubberyCreationForm(void)
 }
 
 void ShrubberyCreationForm::action(const Bureaucrat  &student)const
-
 {
+	(void)student;
 	std::cout << "Tree is being planted" << std::endl;
 	std::fstream output;
-	const std::string  Name = student.GetName() + "_Shrubbery";
+	const std::string  Name = this->GetName() + "_Shrubbery";
 	output.open(Name.c_str() ,std::ios::out);
 	if (output.fail())
 	{
@@ -75,7 +75,7 @@ ShrubberyCreationForm	&ShrubberyCreationForm::operator = (const ShrubberyCreatio
 }
 void ShrubberyCreationForm ::execute(const Bureaucrat  &student)const
 {
-	this->Check_status(student);
+	//this->Check_status(student);
 	this->action(student);
 }
 

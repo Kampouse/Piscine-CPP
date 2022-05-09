@@ -6,7 +6,7 @@
 /*   By: jemartel <jemartel@student.42quebec>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/18 07:12:28 by jemartel          #+#    #+#             */
-/*   Updated: 2022/05/04 15:07:47 by jemartel         ###   ########.fr       */
+/*   Updated: 2022/05/09 15:26:28 by jemartel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ void  Form::GradeTooHigh(int grade)
 void  Form::GradeTooLow(int grade)
 {
 		if (grade > 150)
-			throw GradeTooHightException();
+			throw GradeTooLowException();
 }
 void Form::BeSigned(void)
 {

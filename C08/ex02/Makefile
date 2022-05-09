@@ -1,7 +1,7 @@
-NAME = easyfind 
+NAME = MutantStack
 
 FLAGS = -Wall -Wextra -Werror --std=c++98 -g
-SRCS = main.cpp
+SRCS = main.cpp MutantStack.cpp 
 RM =  rm -rf 
 .cpp.o:
 	@c++ ${FLAGS}  -c $< -o ${<:.cpp=.o}
@@ -22,10 +22,10 @@ clean:
 	    ${RM} ${OBJS}	
 git:
 		@git add ${SRCS} Makefile
-
+bear:
+		@bear  --  make fclean all
 fclean: clean
 	@${RM} ${NAME}
 re: fclean all
 	
 .PHONY: clean fclean re all run git
-
