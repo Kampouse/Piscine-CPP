@@ -41,9 +41,9 @@ std::map<std::string, double> BitcoinExchange::read_data_base(void) {
     std::getline(ss, date, ',');
     std::getline(ss, btc_value, ',');
     double value = atof(btc_value.c_str());
+     std::cout << date << value << std::endl;
     output[date] = value;
   }
-  output.erase(output.begin());
 
   return output;
 }
@@ -55,9 +55,11 @@ static std::string &rtrim(std::string &s) {
           s.end());
   return s;
 }
-void BitcoinExchange::printer(std::string &input, long value) {
+void BitcoinExchange::printer(std::string &input, double value) {
+   std::cout << this->data["2021-12-01"] << std::endl;
   if (input != "date") {
 
+    std::cout << input << "v" << std::endl ;
     if (this->data[input] == 0) {
       std::cout << "invalid date or value is none" << std::endl;
     }

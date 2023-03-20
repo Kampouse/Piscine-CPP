@@ -35,7 +35,7 @@ class BitcoinExchange
         int getDollar(void)const;
         void dump(void);
         void dump_input(void);
-        void printer(std::string &input,long value);
+        void printer(std::string &input,double value);
         BitcoinExchange	&operator = (const BitcoinExchange &copy);
          
 };
