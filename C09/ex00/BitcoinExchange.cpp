@@ -11,12 +11,11 @@ BitcoinExchange::BitcoinExchange(std::string filename,
   this->data = read_data_base();
 
   if (this->status != 0) {
-    throw BitcoinExchange::DataBaseReadError();
+    throw BitcoinExchange::DataBaseReadError(); 
   }
 }
 
 BitcoinExchange::BitcoinExchange(const BitcoinExchange &copy) { *this = copy; }
-
 BitcoinExchange::~BitcoinExchange(void) {}
 BitcoinExchange &BitcoinExchange::operator=(const BitcoinExchange &copy) {
   this->database_filname = copy.database_filname;
@@ -41,7 +40,6 @@ std::map<std::string, double> BitcoinExchange::read_data_base(void) {
     std::getline(ss, date, ',');
     std::getline(ss, btc_value, ',');
     double value = atof(btc_value.c_str());
-     std::cout << date << value << std::endl;
     output[date] = value;
   }
 
@@ -56,10 +54,8 @@ static std::string &rtrim(std::string &s) {
   return s;
 }
 void BitcoinExchange::printer(std::string &input, double value) {
-   std::cout << this->data["2021-12-01"] << std::endl;
   if (input != "date") {
 
-    std::cout << input << "v" << std::endl ;
     if (this->data[input] == 0) {
       std::cout << "invalid date or value is none" << std::endl;
     }
@@ -70,7 +66,7 @@ void BitcoinExchange::printer(std::string &input, double value) {
       std::cout << "too low of value or input is invalid " <<  value << std::endl;
       } else {
 
-        std::cout << "too high of value" <<  value << std::endl;
+        std::cout << "too high of value: " <<  value << std::endl;
       }
     }
     else {
@@ -95,7 +91,6 @@ std::map<std::string, double> BitcoinExchange::read_request(void) {
     std::getline(ss, btc_value, '|');
     double value = atof(btc_value.c_str());
     date = rtrim(date);
-
     printer(date, value);
   }
   return output;
