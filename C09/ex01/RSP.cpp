@@ -45,7 +45,6 @@ void RPN::add(void) {
    first = _stack.top();
   _stack.pop();
 
-  std::cout << this->_size << std::endl;
   if(this->_stack.empty()) {
       throw OutStack();
   }

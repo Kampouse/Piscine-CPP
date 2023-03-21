@@ -140,9 +140,7 @@ void BitcoinExchange::printer(std::string &input, float value) {
 	  return;
     }
   if(this->data.find(input) == this->data.end()) {
-	std::cout << input <<   "-<" << std::endl;
   closest =    find_closest(std::make_pair(input, this->data[input]));
-   std::cout << closest.first << std::endl;
   if(closest.second == 0) {
     std::cout << "bad input provided " << input <<   std::endl;
     return;
@@ -156,7 +154,8 @@ void BitcoinExchange::printer(std::string &input, float value) {
       std::map<std::string,float>::iterator stuff =   this->data.find(input);
       if(stuff != this->data.end())
       {
-            std::cout << input << "=> " << value << " = " << stuff->second * value  << std::endl;
+          closest = find_closest(std::make_pair(input, this->data[input]));
+        std::cout << input << "=> " << value << " = " << closest.second * value  << std::endl;
             return;
       }
             closest  = find_closest( std::make_pair(input, this->data[input]));
@@ -164,7 +163,10 @@ void BitcoinExchange::printer(std::string &input, float value) {
               std::cout << "bad input provided" <<  std::endl;
             }
             else if(closest.second != 0)
+       {
             std::cout << input << "=> " << value << " = " << closest.second * value  << std::endl;
+      
+      }
     }
     else {
       std::cout << input << "=> " << value << " = " << this->data[input] * value << std::endl;
