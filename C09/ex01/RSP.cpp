@@ -104,9 +104,7 @@ void RPN::divide(void) {
   _stack.pop();
     if(second == 0 || first == 0 )
 	throw DivisionByZero();
-  this->push(first / second);
-   
-  std::cout <<   first / second << std::endl;
+  this->push(second / first);
   this->_size--;
 }
 
