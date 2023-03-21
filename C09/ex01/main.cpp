@@ -10,7 +10,7 @@ int main(int argc, char **argv) {
   RPN stack;
 
   if (argc != 2) {
-    std::cout << "wrong number for argument '1 1 +" << argc << std::endl;
+    std::cout << "wrong number of argument" << argc << std::endl;
     return 0;
   }
 
