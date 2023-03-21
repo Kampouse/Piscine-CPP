@@ -24,10 +24,10 @@ class BitcoinExchange
         int status;
         int max_date;
         int min_date;
-         std::map<std::string,double>read_data_base(void);
-         std::map<std::string, double>read_request(void);
-         std::map<std::string,double>data;
-         std::map<std::string,double>request;
+         std::map<std::string,float>read_data_base(void);
+         std::map<std::string, float>read_request(void);
+         std::map<std::string,float>data;
+         std::map<std::string,float>request;
         BitcoinExchange(void);
         BitcoinExchange(std::string name,std::string name_request);
         ~BitcoinExchange(void);
@@ -38,8 +38,8 @@ class BitcoinExchange
         int getDollar(void)const;
         void dump(void);
         void dump_input(void);
-        void printer(std::string &input,double value);
-        std::pair< std::string,double>  find_closest (std::pair <std::string,double> input);
+        void printer(std::string &input,float value);
+        std::pair< std::string,float>  find_closest (std::pair <std::string,float> input);
         BitcoinExchange	&operator = (const BitcoinExchange &copy);
          
 };

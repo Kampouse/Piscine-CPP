@@ -21,8 +21,8 @@ BitcoinExchange &BitcoinExchange::operator=(const BitcoinExchange &copy) {
   this->data = copy.data;
   return (*this);
 }
-std::map<std::string, double> BitcoinExchange::read_data_base(void) {
-  std::map<std::string, double> output;
+std::map<std::string, float> BitcoinExchange::read_data_base(void) {
+  std::map<std::string, float> output;
   int time = 0;
   this->status = 0;
   std::ifstream infile(this->database_filname.c_str());
@@ -35,21 +35,22 @@ std::map<std::string, double> BitcoinExchange::read_data_base(void) {
 
   std::string date, btc_value;
   while (std::getline(infile, line)) {
-    
-     
     std::stringstream ss(line);
     std::getline(ss, date, ',');
      if( time == 1){
-       std::cout << "min date is " << date << std::endl;
-      this->min_date = atoi(date.c_str());
+      this->min_date = atof(date.c_str());
     time++;
      }
     time++;
     std::getline(ss, btc_value, ',');
-
-    double value = atoi(btc_value.c_str());
+    float value = atof(btc_value.c_str());
      if(atoi(date.c_str()) > this->max_date)
-      this->max_date = atoi(date.c_str());
+		{
+			this->max_date = atof(date.c_str());
+		}
+
+
+
     output[date] = value;
   }
   return output;
@@ -67,7 +68,7 @@ static std::array<std::string, 3> split_date(std::string date) {
   output[2] = day;
   return output;
 }
-std::pair<std::string,double> BitcoinExchange::find_closest(std::pair <std::string,double> input) {
+std::pair<std::string,float> BitcoinExchange::find_closest(std::pair <std::string,float> input) {
   std::array<std::string, 3> date_parts = split_date(input.first);
   std::string year = date_parts[0];
   std::string month = date_parts[1];
@@ -113,8 +114,6 @@ std::pair<std::string,double> BitcoinExchange::find_closest(std::pair <std::stri
     }
 	 if(year_int >  this->max_date) {
       year_int = this->max_date;
- //       std::cout <<"hello --> " << (--this->data.end())->first << std::endl;
-
 		}
    }
   return std::make_pair("0", 0);
@@ -126,20 +125,26 @@ static std::string &rtrim(std::string &s) {
           s.end());
   return s;
 }
-void BitcoinExchange::printer(std::string &input, double value) {
-     std::pair<std::string , double> closest;
+void BitcoinExchange::printer(std::string &input, float value) {
+	 
+	 if(  input  == "date")
+		return;
+
+     std::pair<std::string , float> closest;
     const std::array<std::string, 3> date_parts = split_date(input);
     const std::string year = date_parts[0];
       if (value <= 0 || value > 1000) {
-		if(input == "")
+		if(input == ""   )
 			return;
-      std::cout << "invalid date or value provided" << std::endl;
+      std::cout << "invalid date or value provided" <<  std::endl;
 	  return;
     }
   if(this->data.find(input) == this->data.end()) {
+	std::cout << input <<   "-<" << std::endl;
   closest =    find_closest(std::make_pair(input, this->data[input]));
+   std::cout << closest.first << std::endl;
   if(closest.second == 0) {
-    std::cout << "bad input provided" <<  std::endl;
+    std::cout << "bad input provided " << input <<   std::endl;
     return;
   }
     std::cout << input << "=> " << value << " = " << closest.second * value  << std::endl;
@@ -148,13 +153,12 @@ void BitcoinExchange::printer(std::string &input, double value) {
   }
 
 	  if (this->data[input] == 0) {
-      std::map<std::string,double>::iterator stuff =   this->data.find(input);
+      std::map<std::string,float>::iterator stuff =   this->data.find(input);
       if(stuff != this->data.end())
       {
             std::cout << input << "=> " << value << " = " << stuff->second * value  << std::endl;
             return;
       }
-
             closest  = find_closest( std::make_pair(input, this->data[input]));
             if(closest.second == 0) {
               std::cout << "bad input provided" <<  std::endl;
@@ -166,8 +170,8 @@ void BitcoinExchange::printer(std::string &input, double value) {
       std::cout << input << "=> " << value << " = " << this->data[input] * value << std::endl;
     }
 }
-std::map<std::string, double> BitcoinExchange::read_request(void) {
-  std::map<std::string, double> output;
+std::map<std::string, float> BitcoinExchange::read_request(void) {
+  std::map<std::string, float> output;
   std::ifstream infile(this->request_filename.c_str());
   std::string line;
   if (!infile) {
@@ -180,7 +184,7 @@ std::map<std::string, double> BitcoinExchange::read_request(void) {
     std::string date, btc_value;
     std::getline(ss, date, '|');
     std::getline(ss, btc_value, '|');
-    double value = atof(btc_value.c_str());
+    float value = atof(btc_value.c_str());
     date = rtrim(date);
     printer(date, value);
   }
@@ -188,14 +192,14 @@ std::map<std::string, double> BitcoinExchange::read_request(void) {
 }
 
 void BitcoinExchange::dump() {
-  for (std::map<std::string, double>::iterator it = this->data.begin();
+  for (std::map<std::string, float>::iterator it = this->data.begin();
        it != this->data.end(); ++it) {
     std::cout << "Key: (" << it->first << "), Value: " << it->second
               << std::endl;
   }
 }
 void BitcoinExchange::dump_input() {
-  for (std::map<std::string, double>::iterator it = this->request.begin();
+  for (std::map<std::string, float>::iterator it = this->request.begin();
        it != this->request.end(); ++it) {
     std::cout << "Key-: " << it->first << ", Value: " << it->second
               << std::endl;
